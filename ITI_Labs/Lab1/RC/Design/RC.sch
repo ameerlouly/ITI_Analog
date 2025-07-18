@@ -5,29 +5,51 @@ V {}
 S {}
 E {}
 B 2 -500 -520 300 -120 {flags=graph
-y1=2.2
-y2=3.2
+y1=-89.386285
+y2=-0.38628508
 ypos1=0
 ypos2=2
 divy=5
 subdivy=4
 unity=1
 x1=0
-x2=4e-08
+x2=10
 divx=5
-subdivx=4
+subdivx=8
 xlabmag=1.0
 ylabmag=1.0
-node="vout
-vin"
-color="12 4"
 dataset=-1
 unitx=1
-logx=0
+logx=1
 logy=0
 mode=Line
 hilight_wave=0
-rainbow=1}
+rainbow=1
+color=4
+node=ph(vout)}
+B 2 -500 -936.25 300 -536.25 {flags=graph
+y1=-4.7
+y2=0
+ypos1=0
+ypos2=2
+divy=5
+subdivy=8
+unity=1
+x1=0
+x2=10
+divx=5
+subdivx=8
+xlabmag=1.0
+ylabmag=1.0
+dataset=-1
+unitx=1
+logx=1
+logy=1
+mode=Line
+hilight_wave=0
+rainbow=1
+color=4
+node=vout}
 P 4 1 -260 -340 {}
 N 40 -70 40 -50 {lab=VIN}
 N 80 -70 120 -70 {lab=VIN}
@@ -51,7 +73,7 @@ footprint=1206
 device=resistor
 m=1}
 C {vsource.sym} 40 -20 0 0 {name=V1 value="PULSE(0 1 5n 100p 100p 10n 20n)" savecurrent=false
-}
+spice_ignore=true}
 C {gnd.sym} 40 10 0 0 {name=l1 lab=GND}
 C {gnd.sym} 290 10 0 0 {name=l2 lab=GND}
 C {lab_pin.sym} 40 -70 0 0 {name=p1 sig_type=std_logic lab=VIN}
@@ -63,10 +85,10 @@ save all
 meas tran t_rise TRIG v(vout) VAL=0.1 RISE=1 TARG v(vout) VAL=0.9 RISE=1
 meas tran t_fall TRIG v(vout) VAL=0.9 FALL=1 TARG v(vout) VAL=0.1 FALL=1
 write rc_ckt.raw
-print t_rise t_fall >> tran.txt
+print t_rise t_fall > tran.txt
 .endc
 "
-}
+spice_ignore=true}
 C {code_shown.sym} 340 -615 0 0 {name="Parametric Trans Simulation" only_toplevel=false value="
 .control
 
@@ -89,7 +111,7 @@ end
 .endc
 "
 spice_ignore=true}
-C {code_shown.sym} -970 -787.5 0 0 {name="Parametric AC Sim Code" only_toplevel=false value="
+C {code_shown.sym} -970 -788.75 0 0 {name="Parametric AC Sim Code" only_toplevel=false value="
 .control
 
 save all
@@ -105,7 +127,7 @@ ac dec 10 1 10g
 meas ac MAX_GAIN MAX vmag(vout) FROM=1 TO=10G
 meas ac BW WHEN vmag(vout)=0.707 FALL=1
 
-print MAX_GAIN BW >> ac_result.txt
+print MAX_GAIN BW > ac_result.txt
 write rc_ckt_2.raw
 set appendwrite
 let R_val = R_val * R_mult
@@ -114,17 +136,19 @@ end
 .endc
 "
 spice_ignore=true}
-C {code_shown.sym} -987.5 -330 0 0 {name="AC Sim Code" only_toplevel=false value="
+C {code_shown.sym} -988.75 -333.75 0 0 {name="AC Sim Code" only_toplevel=false value="
 .control
 ac dec 10 1 10G
 save all
 meas ac MAX_GAIN MAX vmag(vout) from=1 to=10G
+meas ac BW when vmag(vout)=0.707 fall = 1
 write rc_ckt_ac.raw
 set appendwrite
-print MAX_GAIN >> ac.txt
+touch ac_results.txt
+print MAX_GAIN BW > ac_results.txt
 .endc
 "
-spice_ignore=true}
+}
 C {vsource.sym} -72.5 -20 0 0 {name=V2 value="DC 0 AC 1" savecurrent=false
-spice_ignore=true}
+}
 C {gnd.sym} -72.5 10 0 0 {name=l3 lab=GND}

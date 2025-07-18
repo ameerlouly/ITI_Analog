@@ -1,4 +1,4 @@
-** sch_path: /mnt/hgfs/ITI_Labs/Lab1/RC/Design/RC.sch
+** sch_path: /home/tare/ITI_Analog/ITI_Labs/Lab1/RC/Design/RC.sch
 **.subckt RC
 C1 VOUT GND 1p m=1
 R1 VOUT VIN 1k m=1
@@ -7,26 +7,14 @@ V2 VIN GND DC 0 AC 1
 
 
 .control
-
+ac dec 10 1 10G
 save all
-
-let R_val = 1k
-let R_stop = 1meg
-let R_mult = 10
-
-while R_val le R_stop
-alter R1 R_val
-ac dec 10 1 10g
-
-meas ac MAX_GAIN MAX vmag(vout) FROM=1 TO=10G
-meas ac BW WHEN vmag(vout)=0.707 FALL=1
-
-print MAX_GAIN BW >> ac_result.txt
-write rc_ckt_2.raw
+meas ac MAX_GAIN MAX vmag(vout) from=1 to=10G
+meas ac BW when vmag(vout)=0.707 fall = 1
+write rc_ckt_ac.raw
 set appendwrite
-let R_val = R_val * R_mult
-end
-
+touch ac_results.txt
+print MAX_GAIN BW > ac_results.txt
 .endc
 
 
