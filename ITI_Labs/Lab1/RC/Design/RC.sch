@@ -5,8 +5,8 @@ V {}
 S {}
 E {}
 B 2 -500 -520 300 -120 {flags=graph
-y1=0
-y2=1
+y1=2.2
+y2=3.2
 ypos1=0
 ypos2=2
 divy=5
@@ -61,11 +61,12 @@ C {code_shown.sym} 345 -207.5 0 0 {name="Transient Simulation" only_toplevel=fal
 tran 100p 40n
 save all
 meas tran t_rise TRIG v(vout) VAL=0.1 RISE=1 TARG v(vout) VAL=0.9 RISE=1
+meas tran t_fall TRIG v(vout) VAL=0.9 FALL=1 TARG v(vout) VAL=0.1 FALL=1
 write rc_ckt.raw
-print t_rise >> tran.txt
+print t_rise t_fall >> tran.txt
 .endc
 "
-spice_ignore=true}
+}
 C {code_shown.sym} 340 -615 0 0 {name="Parametric Trans Simulation" only_toplevel=false value="
 .control
 
@@ -112,8 +113,8 @@ end
 
 .endc
 "
-}
-C {code_shown.sym} -987.5 -325 0 0 {name="AC Sim Code" only_toplevel=false value="
+spice_ignore=true}
+C {code_shown.sym} -987.5 -330 0 0 {name="AC Sim Code" only_toplevel=false value="
 .control
 ac dec 10 1 10G
 save all
@@ -123,7 +124,7 @@ set appendwrite
 print MAX_GAIN >> ac.txt
 .endc
 "
-}
+spice_ignore=true}
 C {vsource.sym} -72.5 -20 0 0 {name=V2 value="DC 0 AC 1" savecurrent=false
 spice_ignore=true}
 C {gnd.sym} -72.5 10 0 0 {name=l3 lab=GND}
