@@ -5,7 +5,7 @@ V {}
 S {}
 E {}
 B 2 -500 -520 300 -120 {flags=graph
-y1=2e-05
+y1=0
 y2=1
 ypos1=0
 ypos2=2
@@ -13,19 +13,21 @@ divy=5
 subdivy=4
 unity=1
 x1=0
-x2=10
+x2=4e-08
 divx=5
-subdivx=8
+subdivx=4
 xlabmag=1.0
 ylabmag=1.0
-node=vout
-color=12
+node="vout
+vin"
+color="12 4"
 dataset=-1
 unitx=1
-logx=1
+logx=0
 logy=0
 mode=Line
-}
+hilight_wave=0
+rainbow=1}
 P 4 1 -260 -340 {}
 N 40 -70 40 -50 {lab=VIN}
 N 80 -70 120 -70 {lab=VIN}
@@ -49,12 +51,12 @@ footprint=1206
 device=resistor
 m=1}
 C {vsource.sym} 40 -20 0 0 {name=V1 value="PULSE(0 1 5n 100p 100p 10n 20n)" savecurrent=false
-spice_ignore=true}
+}
 C {gnd.sym} 40 10 0 0 {name=l1 lab=GND}
 C {gnd.sym} 290 10 0 0 {name=l2 lab=GND}
 C {lab_pin.sym} 40 -70 0 0 {name=p1 sig_type=std_logic lab=VIN}
 C {lab_pin.sym} 290 -70 0 0 {name=p2 sig_type=std_logic lab=VOUT}
-C {code_shown.sym} 345 -212.5 0 0 {name=s1 only_toplevel=false value="
+C {code_shown.sym} 345 -207.5 0 0 {name="Transient Simulation" only_toplevel=false value="
 .control
 tran 100p 40n
 save all
@@ -64,7 +66,7 @@ print t_rise >> tran.txt
 .endc
 "
 spice_ignore=true}
-C {code_shown.sym} 340 -615 0 0 {name=s2 only_toplevel=false value="
+C {code_shown.sym} 340 -615 0 0 {name="Parametric Trans Simulation" only_toplevel=false value="
 .control
 
 save all
@@ -86,7 +88,7 @@ end
 .endc
 "
 spice_ignore=true}
-C {code_shown.sym} -970 -787.5 0 0 {name=s3 only_toplevel=false value="
+C {code_shown.sym} -970 -787.5 0 0 {name="Parametric AC Sim Code" only_toplevel=false value="
 .control
 
 save all
@@ -111,7 +113,7 @@ end
 .endc
 "
 }
-C {code_shown.sym} -972.5 -325 0 0 {name=s4 only_toplevel=false value="
+C {code_shown.sym} -987.5 -325 0 0 {name="AC Sim Code" only_toplevel=false value="
 .control
 ac dec 10 1 10G
 save all
@@ -121,6 +123,7 @@ set appendwrite
 print MAX_GAIN >> ac.txt
 .endc
 "
+}
+C {vsource.sym} -72.5 -20 0 0 {name=V2 value="DC 0 AC 1" savecurrent=false
 spice_ignore=true}
-C {vsource.sym} -72.5 -20 0 0 {name=V2 value="DC 0 AC 1" savecurrent=false}
 C {gnd.sym} -72.5 10 0 0 {name=l3 lab=GND}
