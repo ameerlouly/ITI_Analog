@@ -28,7 +28,7 @@ rainbow=1
 color=4
 node=ph(vout)}
 B 2 -500 -936.25 300 -536.25 {flags=graph
-y1=-4.7
+y1=-1.7
 y2=0
 ypos1=0
 ypos2=2
@@ -48,8 +48,8 @@ logy=1
 mode=Line
 hilight_wave=0
 rainbow=1
-color=4
-node=vout}
+color=7
+node="vout db20()"}
 P 4 1 -260 -340 {}
 N 40 -70 40 -50 {lab=VIN}
 N 80 -70 120 -70 {lab=VIN}
@@ -100,11 +100,11 @@ let R_step = 1k
 while R_val le R_stop
 alter R1 R_val
 tran 100p 45n
+write rc_ckt.raw
+set appendwrite
 meas tran t_rise TRIG v(vout) VAL=0.1 RISE=1 TARG v(vout) VAL=0.9 RISE=1
 meas tran t_fall TRIG v(vout) VAL=0.9 RISE=0 TARG v(vout) VAL=0.1 RISE=0
 print R_val t_rise t_fall >> tran_result.txt
-write rc_ckt.raw
-set appendwrite
 let R_val = R_val + R_step
 end
 
@@ -136,7 +136,7 @@ end
 .endc
 "
 spice_ignore=true}
-C {code_shown.sym} -988.75 -333.75 0 0 {name="AC Sim Code" only_toplevel=false value="
+C {code_shown.sym} -978.75 -313.75 0 0 {name="AC Sim Code" only_toplevel=false value="
 .control
 ac dec 10 1 10G
 save all
