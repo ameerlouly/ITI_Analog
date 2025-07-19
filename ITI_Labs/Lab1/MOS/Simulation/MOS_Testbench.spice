@@ -1,0 +1,37 @@
+** sch_path: /home/tare/ITI_Analog/ITI_Labs/Lab1/MOS/Design/MOS_Testbench.sch
+**.subckt MOS_Testbench
+XM1 vds vgs GND GND nmos_3p3 L=280n W=10*L nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0 m=1
+XM2 GND GND vgs vgs pmos_3p3 L=280n W=10*L nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0 m=1
+VDS vds GND 3.3
+VGS vgs GND 0
+XM3 vds vgs GND GND nmos_3p3 L=2.8u W=10*L nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0 m=1
+XM4 GND GND vgs vgs pmos_3p3 L=2.8u W=10*L nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0 m=1
+**** begin user architecture code
+
+.include /home/tare/pdk/gf180mcuC/libs.tech/ngspice/design.ngspice
+.lib /home/tare/pdk/gf180mcuC/libs.tech/ngspice/sm141064.ngspice typical
+
+
+
+.control
+
+save all
++ @m.xm1.m0[id] @m.xm1.m0[gm]
++ @m.xm2.m0[id] @m.xm2.m0[gm]
++ @m.xm3.m0[id] @m.xm3.m0[gm]
++ @m.xm4.m0[id] @m.xm4.m0[gm]
+dc vgs 0 3.3 1m
+*dc vd 0 2 0.01 vg 0 2 0.2
+write test_mos.raw
+
+.endc
+
+
+**** end user architecture code
+**.ends
+.GLOBAL GND
+.end
