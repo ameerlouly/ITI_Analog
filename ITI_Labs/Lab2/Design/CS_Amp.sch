@@ -102,12 +102,12 @@ save all
 + @m.xm2.m0[gds]
 + @m.xm2.m0[vgs]
 + @m.xm2.m0[vds]
-*op
-*write cs_amp_dc.raw
-*print all > op_point.csv
-ac dec 10 1 10g
-remzervec
-write CS_AMP.raw
+op
+write cs_amp_dc.raw
+print all > op_point.csv
+*ac dec 10 1 10g
+*remzerovec
+*write CS_AMP.raw
 .endc
 "}
 C {devices/isource.sym} -130 -90 0 0 {name=I0 value=10u}
@@ -127,13 +127,13 @@ C {devices/lab_pin.sym} 90 -50 0 1 {name=p1 sig_type=std_logic lab=VOUT
 }
 C {devices/lab_pin.sym} 30 -10 3 1 {name=p2 sig_type=std_logic lab=VIN
 }
-C {devices/ngspice_get_value.sym} 210 -50 0 0 {name=r4 node=i(@m.xm1.m0[id])
+C {devices/ngspice_get_value.sym} 200 -50 0 0 {name=r4 node=i(@m.xm1.m0[id])
 descr="ID"}
-C {devices/ngspice_get_value.sym} 210 -20 0 0 {name=r5 node=v(@m.xm1.m0[vgs])
+C {devices/ngspice_get_value.sym} 200 -20 0 0 {name=r5 node=v(@m.xm1.m0[vgs])
 descr="VGS"}
-C {devices/ngspice_get_value.sym} 210 45 0 0 {name=r6 node=@m.xm1.m0[gds]
+C {devices/ngspice_get_value.sym} 200 45 0 0 {name=r6 node=@m.xm1.m0[gds]
 descr="gds"}
-C {devices/ngspice_get_value.sym} 210 75 0 0 {name=r7 node=@m.xm1.m0[gm]
+C {devices/ngspice_get_value.sym} 200 75 0 0 {name=r7 node=@m.xm1.m0[gm]
 descr="gm"}
-C {devices/ngspice_get_value.sym} 210 15 0 0 {name=r8 node=V(@m.xm1.m0[vds])
+C {devices/ngspice_get_value.sym} 200 15 0 0 {name=r8 node=V(@m.xm1.m0[vds])
 descr="VDS"}
