@@ -1,4 +1,4 @@
-** sch_path: /home/tare/ITI_Analog/Lab2/Design/CS_Amp.sch
+** sch_path: /home/tare/ITI_Analog/ITI_Labs/Lab2/Design/CS_Amp.sch
 **.subckt CS_Amp
 XM1 VOUT VIN GND GND nmos_3p3 L=2u W=9.76u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
 + ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0 m=1
@@ -7,7 +7,7 @@ XM2 net1 net1 GND GND nmos_3p3 L=2u W=9.76u nf=1 ad='int((nf+1)/2) * W/nf * 0.18
 R1 VIN net2 1e12 ac=1m m=1
 R2 VIN net1 1m ac=1e12 m=1
 I0 VDD net1 10u
-VIN net2 GND 3
+VIN net2 GND AC 1
 V2 VDD GND 2.5
 R3 VDD VOUT 100k m=1
 **** begin user architecture code
@@ -24,9 +24,17 @@ save all
 + @m.xm1.m0[gds]
 + @m.xm1.m0[vgs]
 + @m.xm1.m0[vds]
++ @m.xm2.m0[id]
++ @m.xm2.m0[gm]
++ @m.xm2.m0[gds]
++ @m.xm2.m0[vgs]
++ @m.xm2.m0[vds]
 op
 write cs_amp_dc.raw
-print all
+print all > op_point.csv
+*ac dec 10 1 10g
+*remzerovec
+*write CS_AMP.raw
 .endc
 
 
