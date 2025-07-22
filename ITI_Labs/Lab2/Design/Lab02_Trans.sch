@@ -47,8 +47,8 @@ logx=0
 logy=0
 }
 B 2 610 640 1410 1040 {flags=graph
-y1=9.4479165e-05
-y2=0.00010947916
+y1=9.5e-05
+y2=0.00011
 ypos1=0
 ypos2=2
 divy=5
@@ -163,7 +163,7 @@ m=1}
 C {devices/vdd.sym} 190 300 0 0 {name=l7 lab=VDD}
 C {devices/lab_pin.sym} 190 390 0 1 {name=p1 sig_type=std_logic lab=VOUT
 }
-C {devices/lab_pin.sym} 130 430 3 1 {name=p2 sig_type=std_logic lab=VIN
+C {devices/lab_pin.sym} 130 540 2 1 {name=p2 sig_type=std_logic lab=VIN
 }
 C {devices/capa.sym} 130 500 0 0 {name=C1
 m=1

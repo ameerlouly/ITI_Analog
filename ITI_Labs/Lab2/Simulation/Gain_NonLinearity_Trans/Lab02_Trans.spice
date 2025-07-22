@@ -1,15 +1,15 @@
-** sch_path: /home/tare/ITI_Analog/Lab2/Design/Lab02_Trans.sch
+** sch_path: /home/tare/ITI_Analog/ITI_Labs/Lab2/Design/Lab02_Trans.sch
 **.subckt Lab02_Trans
-XM1 VOUT VIN GND GND nmos_3p3 L=2u W=9.76u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
+XM1 VOUT net2 GND GND nmos_3p3 L=2u W=9.76u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
 + ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0 m=1
 XM2 net1 net1 GND GND nmos_3p3 L=2u W=9.76u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
 + ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0 m=1
-R2 VIN net1 1m ac=1e12 m=1
+R2 net2 net1 1m ac=1e12 m=1
 I0 VDD net1 10u
-VIN net2 GND sin(0 10m 1meg)
+VIN VIN GND sin(0 10m 1meg)
 V2 VDD GND 2.5
 R3 VDD VOUT 100k m=1
-C1 VIN net2 1u m=1
+C1 net2 VIN 1u m=1
 **** begin user architecture code
 
 .include /home/tare/pdk/gf180mcuC/libs.tech/ngspice/design.ngspice
