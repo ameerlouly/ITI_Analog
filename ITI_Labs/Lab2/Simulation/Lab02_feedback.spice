@@ -1,0 +1,45 @@
+** sch_path: /home/tare/ITI_Analog/ITI_Labs/Lab2/Design/Lab02_feedback.sch
+**.subckt Lab02_feedback
+XM1 VOUT VIN GND GND nmos_3p3 L=2u W=9.76u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0 m=1
+VIN VSIG GND sin(0 10m 1meg)
+V2 VDD GND 2.5
+Rf VIN VOUT 10meg m=1
+RIN VSIG VIN 1meg m=1
+XM2 VOUT net1 VDD VDD pmos_3p3 L=2u W=9.78u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0 m=1
+I0 net1 GND 10u
+XM3 net1 net1 VDD VDD pmos_3p3 L=2u W=9.78u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0 m=1
+**** begin user architecture code
+
+.include /home/tare/pdk/gf180mcuC/libs.tech/ngspice/design.ngspice
+.lib /home/tare/pdk/gf180mcuC/libs.tech/ngspice/sm141064.ngspice typical
+
+
+
+.control
+save all
++ @m.xm1.m0[id]
++ @m.xm1.m0[gm]
++ @m.xm1.m0[gds]
++ @m.xm1.m0[vgs]
++ @m.xm1.m0[vds]
++ @m.xm2.m0[id]
++ @m.xm2.m0[gm]
++ @m.xm2.m0[gds]
++ @m.xm2.m0[vgs]
++ @m.xm2.m0[vds]
+*op
+DC VIN 0 2.5 10m
+*tran 0.1u 2u
+remzerovec
+write Lab02_feedback.raw
+.endc
+
+
+**** end user architecture code
+**.ends
+.GLOBAL GND
+.GLOBAL VDD
+.end

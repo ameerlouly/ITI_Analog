@@ -102,12 +102,12 @@ save all
 + @m.xm2.m0[gds]
 + @m.xm2.m0[vgs]
 + @m.xm2.m0[vds]
-op
-write cs_amp_dc.raw
-print all > op_point.csv
-*ac dec 10 1 10g
-*remzerovec
-*write CS_AMP.raw
+*op
+*write cs_amp_dc.raw
+*print all > op_point.csv
+ac dec 10 1 10g
+remzerovec
+write CS_AMP.raw
 .endc
 "}
 C {devices/isource.sym} -130 -90 0 0 {name=I0 value=10u}
