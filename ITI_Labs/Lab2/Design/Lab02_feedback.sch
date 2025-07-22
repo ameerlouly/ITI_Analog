@@ -5,15 +5,15 @@ V {}
 S {}
 E {}
 B 2 760 -790 1560 -390 {flags=graph
-y1=-86
-y2=1900
+y1=-9.7
+y2=0.00073
 ypos1=0
 ypos2=2
 divy=5
 subdivy=1
 unity=1
 x1=0
-x2=2e-06
+x2=2.5
 divx=5
 subdivx=1
 xlabmag=1.0
@@ -34,7 +34,7 @@ divy=5
 subdivy=1
 unity=1
 x1=0
-x2=2e-06
+x2=2.5
 divx=5
 subdivx=1
 xlabmag=1.0
@@ -48,15 +48,15 @@ logx=0
 logy=0
 hcursor1_y=0.81724256}
 B 2 -110 -1220 690 -820 {flags=graph
-y1=4.5e-10
-y2=7.6e-10
+y1=5.4e-10
+y2=0.00011
 ypos1=0
 ypos2=2
 divy=5
 subdivy=1
 unity=1
 x1=0
-x2=2e-06
+x2=2.5
 divx=5
 subdivx=1
 xlabmag=1.0
@@ -128,13 +128,14 @@ save all
 + @m.xm2.m0[vgs]
 + @m.xm2.m0[vds]
 *op
-DC VIN 0 2.5 10m
-*tran 0.1u 2u
+*DC VIN 0 2.5 10m
+tran 0.1u 2u
 remzerovec
+set appendwrite
 write Lab02_feedback.raw
 .endc
 "}
-C {devices/vsource.sym} 150 -370 0 0 {name=VIN value="sin(0 10m 1meg)" savecurrent=false}
+C {devices/vsource.sym} 150 -370 0 0 {name=VIN value="sin(815.9m 10m 1meg)" savecurrent=false}
 C {devices/vsource.sym} -80 -460 0 0 {name=V2 value=2.5 savecurrent=false}
 C {devices/vdd.sym} -80 -490 0 0 {name=l4 lab=VDD}
 C {devices/gnd.sym} -80 -430 0 0 {name=l5 lab=GND}
@@ -156,7 +157,7 @@ device=resistor
 m=1}
 C {symbols/pmos_3p3.sym} 350 -610 0 0 {name=M2
 L=2u
-W=9.78u
+W=42.81u
 nf=1
 m=1
 ad="'int((nf+1)/2) * W/nf * 0.18u'"
@@ -173,7 +174,7 @@ C {devices/isource.sym} 50 -500 0 0 {name=I0 value=10u}
 C {devices/gnd.sym} 50 -470 0 0 {name=l3 lab=GND}
 C {symbols/pmos_3p3.sym} 70 -610 0 1 {name=M3
 L=2u
-W=9.78u
+W=42.81u
 nf=1
 m=1
 ad="'int((nf+1)/2) * W/nf * 0.18u'"
