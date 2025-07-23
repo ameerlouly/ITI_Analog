@@ -177,7 +177,7 @@ C {devices/code.sym} 1190 -340 0 0 {name="NGSPICE" only_toplevel=true
 value="
 .control
 save all
-+ @m.xm0.m0[id]
++ M0_id;@m.xm0.m0[id]
 + @m.xm0.m0[vgs]
 + @m.xm0.m0[vds]
 + @m.xm0.m0[vth]

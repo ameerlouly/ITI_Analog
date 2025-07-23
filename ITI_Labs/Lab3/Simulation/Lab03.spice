@@ -31,7 +31,7 @@ XM3 net7 VB GND GND nmos_3p3 L=5.254u W=3.5u nf=1 ad='int((nf+1)/2) * W/nf * 0.1
 
 .control
 save all
-+ @m.xm0.m0[id]
++ M0_id;@m.xm0.m0[id]
 + @m.xm0.m0[vgs]
 + @m.xm0.m0[vds]
 + @m.xm0.m0[vth]
