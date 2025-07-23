@@ -79,84 +79,6 @@ value="
 .include $::180MCU_MODELS/design.ngspice
 .lib $::180MCU_MODELS/sm141064.ngspice typical
 "}
-C {devices/code_shown.sym} 1180 -330 0 0 {name="NGSPICE" only_toplevel=true
-value="
-.control
-save all
-+ @m.xm0.m0[id]
-+ @m.xm0.m0[vgs]
-+ @m.xm0.m0[vds]
-+ @m.xm0.m0[vth]
-+ @m.xm0.m0[vdss]
-+ @m.xm0.m0[gm]
-+ @m.xm0.m0[gds]
-+ @m.xm0.m0[gmbs]
-+ @m.xm0.m0[cdb]
-+ @m.xm0.m0[cgd]
-+ @m.xm0.m0[cgs]
-+ @m.xm0.m0[csb]
-
-+ @m.xm1.m0[id]
-+ @m.xm1.m0[vgs]
-+ @m.xm1.m0[vds]
-+ @m.xm1.m0[vth]
-+ @m.xm1.m0[vdss]
-+ @m.xm1.m0[gm]
-+ @m.xm1.m0[gds]
-+ @m.xm1.m0[gmbs]
-+ @m.xm1.m0[cdb]
-+ @m.xm1.m0[cgd]
-+ @m.xm1.m0[cgs]
-+ @m.xm1.m0[csb]
-
-
-+ @m.xm2.m0[id]
-+ @m.xm2.m0[vgs]
-+ @m.xm2.m0[vds]
-+ @m.xm2.m0[vth]
-+ @m.xm2.m0[vdss]
-+ @m.xm2.m0[gm]
-+ @m.xm2.m0[gds]
-+ @m.xm2.m0[gmbs]
-+ @m.xm2.m0[cdb]
-+ @m.xm2.m0[cgd]
-+ @m.xm2.m0[cgs]
-+ @m.xm2.m0[csb]
-
-
-+ @m.xm3.m0[id]
-+ @m.xm3.m0[vgs]
-+ @m.xm3.m0[vds]
-+ @m.xm3.m0[vth]
-+ @m.xm3.m0[vdss]
-+ @m.xm3.m0[gm]
-+ @m.xm3.m0[gds]
-+ @m.xm3.m0[gmbs]
-+ @m.xm3.m0[cdb]
-+ @m.xm3.m0[cgd]
-+ @m.xm3.m0[cgs]
-+ @m.xm3.m0[csb]
-
-+ @m.xm4.m0[id]
-+ @m.xm4.m0[vgs]
-+ @m.xm4.m0[vds]
-+ @m.xm4.m0[vth]
-+ @m.xm4.m0[vdss]
-+ @m.xm4.m0[gm]
-+ @m.xm4.m0[gds]
-+ @m.xm4.m0[gmbs]
-+ @m.xm4.m0[cdb]
-+ @m.xm4.m0[cgd]
-+ @m.xm4.m0[cgs]
-+ @m.xm4.m0[csb]
-
-op
-print all > op_point.csv
-remzerovec
-set appendwrite
-write Lab03.raw
-.endc
-"}
 C {devices/gnd.sym} 370 20 0 0 {name=l2 lab=GND}
 C {devices/vdd.sym} 370 -250 0 0 {name=l3 lab=VDD}
 C {devices/isource.sym} 370 -200 0 0 {name=I0 value=20u}
@@ -251,3 +173,81 @@ spiceprefix=X
 }
 C {devices/gnd.sym} 1080 10 0 0 {name=l11 lab=GND}
 C {devices/lab_pin.sym} 1000 -230 0 0 {name=p5 sig_type=std_logic lab=VB}
+C {devices/code.sym} 1190 -340 0 0 {name="NGSPICE" only_toplevel=true
+value="
+.control
+save all
++ @m.xm0.m0[id]
++ @m.xm0.m0[vgs]
++ @m.xm0.m0[vds]
++ @m.xm0.m0[vth]
++ @m.xm0.m0[vdsat]
++ @m.xm0.m0[gm]
++ @m.xm0.m0[gds]
++ @m.xm0.m0[gmbs]
++ @m.xm0.m0[cdb]
++ @m.xm0.m0[cgd]
++ @m.xm0.m0[cgs]
++ @m.xm0.m0[csb]
+
++ @m.xm1.m0[id]
++ @m.xm1.m0[vgs]
++ @m.xm1.m0[vds]
++ @m.xm1.m0[vth]
++ @m.xm1.m0[vdsat]
++ @m.xm1.m0[gm]
++ @m.xm1.m0[gds]
++ @m.xm1.m0[gmbs]
++ @m.xm1.m0[cdb]
++ @m.xm1.m0[cgd]
++ @m.xm1.m0[cgs]
++ @m.xm1.m0[csb]
+
+
++ @m.xm2.m0[id]
++ @m.xm2.m0[vgs]
++ @m.xm2.m0[vds]
++ @m.xm2.m0[vth]
++ @m.xm2.m0[vdsat]
++ @m.xm2.m0[gm]
++ @m.xm2.m0[gds]
++ @m.xm2.m0[gmbs]
++ @m.xm2.m0[cdb]
++ @m.xm2.m0[cgd]
++ @m.xm2.m0[cgs]
++ @m.xm2.m0[csb]
+
+
++ @m.xm3.m0[id]
++ @m.xm3.m0[vgs]
++ @m.xm3.m0[vds]
++ @m.xm3.m0[vth]
++ @m.xm3.m0[vdsat]
++ @m.xm3.m0[gm]
++ @m.xm3.m0[gds]
++ @m.xm3.m0[gmbs]
++ @m.xm3.m0[cdb]
++ @m.xm3.m0[cgd]
++ @m.xm3.m0[cgs]
++ @m.xm3.m0[csb]
+
++ @m.xm4.m0[id]
++ @m.xm4.m0[vgs]
++ @m.xm4.m0[vds]
++ @m.xm4.m0[vth]
++ @m.xm4.m0[vdsat]
++ @m.xm4.m0[gm]
++ @m.xm4.m0[gds]
++ @m.xm4.m0[gmbs]
++ @m.xm4.m0[cdb]
++ @m.xm4.m0[cgd]
++ @m.xm4.m0[cgs]
++ @m.xm4.m0[csb]
+
+op
+print all > op_point.csv
+remzerovec
+set appendwrite
+write Lab03.raw
+.endc
+"}
