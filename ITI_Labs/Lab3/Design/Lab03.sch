@@ -158,7 +158,7 @@ spiceprefix=X
 C {devices/vdd.sym} 1080 -340 0 0 {name=l10 lab=VDD}
 C {devices/isource.sym} 1080 -290 0 0 {name=I2 value=20u}
 C {symbols/nmos_3p3.sym} 1060 -60 0 0 {name=M3
-L=350n
+L=5.254u
 W=3.5u
 nf=1
 mult=1
@@ -247,7 +247,6 @@ save all
 op
 print all > op_point.csv
 remzerovec
-set appendwrite
 write Lab03.raw
 .endc
 "}

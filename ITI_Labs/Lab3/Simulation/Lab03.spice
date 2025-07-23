@@ -20,7 +20,7 @@ C2 net5 GND 1p m=1
 XM4 VB VB net7 GND nmos_3p3 L=350n W=3.5u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
 + ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0 m=1
 I2 VDD VB 20u
-XM3 net7 VB GND GND nmos_3p3 L=350n W=3.5u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
+XM3 net7 VB GND GND nmos_3p3 L=5.254u W=3.5u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
 + ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0 m=1
 **** begin user architecture code
 
@@ -101,7 +101,6 @@ save all
 op
 print all > op_point.csv
 remzerovec
-set appendwrite
 write Lab03.raw
 .endc
 
