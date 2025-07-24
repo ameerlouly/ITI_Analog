@@ -1,0 +1,112 @@
+** sch_path: /home/tare/ITI_Analog/ITI_Labs/Lab3/Design/Lab03.sch
+**.subckt Lab03
+V1 net1 GND AC 1
+R1 VSIG net1 1e12 ac=1m m=1
+XM0 net2 VSIG GND GND nmos_3p3 L=350n W=3.5u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0 m=1
+I0 VDD net2 20u
+C1 net2 GND 1p m=1
+V2 VDD GND 1.8
+V3 net3 VSIG DC 0.0939
+R2 net2 net3 1m ac=1e12 m=1
+XM1 net4 VSIG GND GND nmos_3p3 L=350n W=3.5u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0 m=1
+XM2 net5 VB net4 GND nmos_3p3 L=350n W=3.5u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0 m=1
+V4 net6 VSIG DC 0.0875
+I1 VDD net5 20u
+R3 net5 net6 1m ac=1e12 m=1
+C2 net5 GND 1p m=1
+XM4 VB VB net7 GND nmos_3p3 L=350n W=3.5u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0 m=1
+I2 VDD VB 20u
+XM3 net7 VB GND GND nmos_3p3 L=5.254u W=3.5u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0 m=1
+**** begin user architecture code
+
+.include /home/tare/pdk/gf180mcuC/libs.tech/ngspice/design.ngspice
+.lib /home/tare/pdk/gf180mcuC/libs.tech/ngspice/sm141064.ngspice typical
+
+
+
+.control
+save all
++ M0_id;@m.xm0.m0[id]
++ @m.xm0.m0[vgs]
++ @m.xm0.m0[vds]
++ @m.xm0.m0[vth]
++ @m.xm0.m0[vdsat]
++ @m.xm0.m0[gm]
++ @m.xm0.m0[gds]
++ @m.xm0.m0[gmbs]
++ @m.xm0.m0[cdb]
++ @m.xm0.m0[cgd]
++ @m.xm0.m0[cgs]
++ @m.xm0.m0[csb]
+
++ @m.xm1.m0[id]
++ @m.xm1.m0[vgs]
++ @m.xm1.m0[vds]
++ @m.xm1.m0[vth]
++ @m.xm1.m0[vdsat]
++ @m.xm1.m0[gm]
++ @m.xm1.m0[gds]
++ @m.xm1.m0[gmbs]
++ @m.xm1.m0[cdb]
++ @m.xm1.m0[cgd]
++ @m.xm1.m0[cgs]
++ @m.xm1.m0[csb]
+
+
++ @m.xm2.m0[id]
++ @m.xm2.m0[vgs]
++ @m.xm2.m0[vds]
++ @m.xm2.m0[vth]
++ @m.xm2.m0[vdsat]
++ @m.xm2.m0[gm]
++ @m.xm2.m0[gds]
++ @m.xm2.m0[gmbs]
++ @m.xm2.m0[cdb]
++ @m.xm2.m0[cgd]
++ @m.xm2.m0[cgs]
++ @m.xm2.m0[csb]
+
+
++ @m.xm3.m0[id]
++ @m.xm3.m0[vgs]
++ @m.xm3.m0[vds]
++ @m.xm3.m0[vth]
++ @m.xm3.m0[vdsat]
++ @m.xm3.m0[gm]
++ @m.xm3.m0[gds]
++ @m.xm3.m0[gmbs]
++ @m.xm3.m0[cdb]
++ @m.xm3.m0[cgd]
++ @m.xm3.m0[cgs]
++ @m.xm3.m0[csb]
+
++ @m.xm4.m0[id]
++ @m.xm4.m0[vgs]
++ @m.xm4.m0[vds]
++ @m.xm4.m0[vth]
++ @m.xm4.m0[vdsat]
++ @m.xm4.m0[gm]
++ @m.xm4.m0[gds]
++ @m.xm4.m0[gmbs]
++ @m.xm4.m0[cdb]
++ @m.xm4.m0[cgd]
++ @m.xm4.m0[cgs]
++ @m.xm4.m0[csb]
+
+op
+print all > op_point.csv
+remzerovec
+write Lab03.raw
+.endc
+
+
+**** end user architecture code
+**.ends
+.GLOBAL GND
+.GLOBAL VDD
+.end
