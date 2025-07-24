@@ -4,6 +4,28 @@ K {}
 V {}
 S {}
 E {}
+B 2 -10 -750 790 -350 {flags=graph
+y1=-55
+y2=67
+ypos1=0
+ypos2=2
+divy=5
+subdivy=4
+unity=1
+x1=0
+x2=10
+divx=5
+subdivx=8
+xlabmag=1.0
+ylabmag=1.0
+node="vout1 db20()
+vout2 db20()"
+color="4 12"
+dataset=-1
+unitx=1
+logx=1
+logy=0
+linewidth_mult=5}
 N 0 20 0 40 {lab=GND}
 N -0 -70 0 -40 {lab=#net1}
 N 0 -70 20 -70 {lab=#net1}
@@ -13,35 +35,35 @@ N 370 -70 400 -70 {lab=GND}
 N 400 -70 400 -30 {lab=GND}
 N 370 -30 400 -30 {lab=GND}
 N 370 -250 370 -230 {lab=VDD}
-N 370 -110 470 -110 {lab=#net2}
-N 470 -110 470 -90 {lab=#net2}
+N 370 -110 470 -110 {lab=VOUT1}
+N 470 -110 470 -90 {lab=VOUT1}
 N -110 20 -110 40 {lab=GND}
 N -110 -80 -110 -40 {lab=VDD}
 N 190 -70 330 -70 {lab=VSIG}
-N 370 -110 370 -100 {lab=#net2}
-N 370 -170 370 -110 {lab=#net2}
-N 320 -160 370 -160 {lab=#net2}
-N 230 -160 260 -160 {lab=#net3}
-N 230 -160 230 -140 {lab=#net3}
+N 370 -110 370 -100 {lab=VOUT1}
+N 370 -170 370 -110 {lab=VOUT1}
+N 320 -160 370 -160 {lab=VOUT1}
+N 230 -160 260 -160 {lab=#net2}
+N 230 -160 230 -140 {lab=#net2}
 N 230 -80 230 -70 {lab=VSIG}
-N 850 -140 850 -100 {lab=#net4}
+N 850 -140 850 -100 {lab=#net3}
 N 850 -40 850 20 {lab=GND}
 N 550 -70 810 -70 {lab=VSIG}
 N 850 -340 850 -320 {lab=VDD}
-N 850 -260 850 -200 {lab=#net5}
+N 850 -260 850 -200 {lab=VOUT2}
 N 760 -170 810 -170 {lab=VB}
-N 720 -240 850 -240 {lab=#net5}
-N 590 -240 660 -240 {lab=#net6}
-N 590 -240 590 -150 {lab=#net6}
+N 720 -240 850 -240 {lab=VOUT2}
+N 590 -240 660 -240 {lab=#net4}
+N 590 -240 590 -150 {lab=#net4}
 N 590 -90 590 -70 {lab=VSIG}
 N 850 -170 900 -170 {lab=GND}
 N 900 -170 900 -10 {lab=GND}
 N 850 -10 900 -10 {lab=GND}
 N 850 -70 900 -70 {lab=GND}
-N 850 -220 950 -220 {lab=#net5}
-N 950 -220 950 -200 {lab=#net5}
+N 850 -220 950 -220 {lab=VOUT2}
+N 950 -220 950 -200 {lab=VOUT2}
 N 1080 -30 1080 10 {lab=GND}
-N 1080 -140 1080 -90 {lab=#net7}
+N 1080 -140 1080 -90 {lab=#net5}
 N 1070 -170 1130 -170 {lab=GND}
 N 1130 -170 1130 -10 {lab=GND}
 N 1080 -10 1130 -10 {lab=GND}
@@ -177,7 +199,7 @@ C {devices/code.sym} 1190 -340 0 0 {name="NGSPICE" only_toplevel=true
 value="
 .control
 save all
-+ M0_id;@m.xm0.m0[id]
++ @m.xm0.m0[id]
 + @m.xm0.m0[vgs]
 + @m.xm0.m0[vds]
 + @m.xm0.m0[vth]
@@ -244,9 +266,13 @@ save all
 + @m.xm4.m0[cgs]
 + @m.xm4.m0[csb]
 
-op
-print all > op_point.csv
+*op
+*print all > op_point.csv
+ac dec 10 1 10g
+set appendwrite
 remzerovec
 write Lab03.raw
 .endc
 "}
+C {devices/lab_pin.sym} 470 -110 2 0 {name=p6 sig_type=std_logic lab=VOUT1}
+C {devices/lab_pin.sym} 930 -220 1 0 {name=p7 sig_type=std_logic lab=VOUT2}

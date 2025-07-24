@@ -10,6 +10,6 @@ Add this to the ```.bashrc``` file for quick git commits and operation
 ################################
 AmeerGit() {
 	message="${1:-Default Message}"
-	git add *; git commit -m $message; git pull; git push
+	git add *; git commit -m "$message"; git pull; git push
 }
 ```

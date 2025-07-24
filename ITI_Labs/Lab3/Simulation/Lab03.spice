@@ -2,25 +2,25 @@
 **.subckt Lab03
 V1 net1 GND AC 1
 R1 VSIG net1 1e12 ac=1m m=1
-XM0 net2 VSIG GND GND nmos_3p3 L=350n W=3.5u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
+XM0 VOUT1 VSIG GND GND nmos_3p3 L=350n W=3.5u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
 + ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0 m=1
-I0 VDD net2 20u
-C1 net2 GND 1p m=1
+I0 VDD VOUT1 20u
+C1 VOUT1 GND 1p m=1
 V2 VDD GND 1.8
-V3 net3 VSIG DC 0.0939
-R2 net2 net3 1m ac=1e12 m=1
-XM1 net4 VSIG GND GND nmos_3p3 L=350n W=3.5u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
+V3 net2 VSIG DC 0.0939
+R2 VOUT1 net2 1m ac=1e12 m=1
+XM1 net3 VSIG GND GND nmos_3p3 L=350n W=3.5u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
 + ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0 m=1
-XM2 net5 VB net4 GND nmos_3p3 L=350n W=3.5u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
+XM2 VOUT2 VB net3 GND nmos_3p3 L=350n W=3.5u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
 + ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0 m=1
-V4 net6 VSIG DC 0.0875
-I1 VDD net5 20u
-R3 net5 net6 1m ac=1e12 m=1
-C2 net5 GND 1p m=1
-XM4 VB VB net7 GND nmos_3p3 L=350n W=3.5u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
+V4 net4 VSIG DC 0.0875
+I1 VDD VOUT2 20u
+R3 VOUT2 net4 1m ac=1e12 m=1
+C2 VOUT2 GND 1p m=1
+XM4 VB VB net5 GND nmos_3p3 L=350n W=3.5u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
 + ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0 m=1
 I2 VDD VB 20u
-XM3 net7 VB GND GND nmos_3p3 L=5.254u W=3.5u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
+XM3 net5 VB GND GND nmos_3p3 L=5.254u W=3.5u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
 + ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0 m=1
 **** begin user architecture code
 
@@ -31,7 +31,7 @@ XM3 net7 VB GND GND nmos_3p3 L=5.254u W=3.5u nf=1 ad='int((nf+1)/2) * W/nf * 0.1
 
 .control
 save all
-+ M0_id;@m.xm0.m0[id]
++ @m.xm0.m0[id]
 + @m.xm0.m0[vgs]
 + @m.xm0.m0[vds]
 + @m.xm0.m0[vth]
@@ -98,8 +98,10 @@ save all
 + @m.xm4.m0[cgs]
 + @m.xm4.m0[csb]
 
-op
-print all > op_point.csv
+*op
+*print all > op_point.csv
+ac dec 10 1 10g
+set appendwrite
 remzerovec
 write Lab03.raw
 .endc
