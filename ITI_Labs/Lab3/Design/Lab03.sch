@@ -18,8 +18,8 @@ divx=5
 subdivx=8
 xlabmag=1.0
 ylabmag=1.0
-node="vout1 db20()
-vout2 db20()"
+node="\\"CS Gain\\";vout1 db20()
+\\"Cascode Gain\\";vout2 db20()"
 color="4 12"
 dataset=-1
 unitx=1
@@ -30,7 +30,7 @@ N 0 20 0 40 {lab=GND}
 N -0 -70 0 -40 {lab=#net1}
 N 0 -70 20 -70 {lab=#net1}
 N 80 -70 110 -70 {lab=VSIG}
-N 370 -40 370 20 {lab=GND}
+N 370 -30 370 20 {lab=GND}
 N 370 -70 400 -70 {lab=GND}
 N 400 -70 400 -30 {lab=GND}
 N 370 -30 400 -30 {lab=GND}
@@ -39,41 +39,53 @@ N 370 -110 470 -110 {lab=VOUT1}
 N 470 -110 470 -90 {lab=VOUT1}
 N -110 20 -110 40 {lab=GND}
 N -110 -80 -110 -40 {lab=VDD}
-N 190 -70 330 -70 {lab=VSIG}
+N 230 -70 330 -70 {lab=VSIG}
 N 370 -110 370 -100 {lab=VOUT1}
-N 370 -170 370 -110 {lab=VOUT1}
+N 370 -160 370 -110 {lab=VOUT1}
 N 320 -160 370 -160 {lab=VOUT1}
 N 230 -160 260 -160 {lab=#net2}
 N 230 -160 230 -140 {lab=#net2}
 N 230 -80 230 -70 {lab=VSIG}
 N 850 -140 850 -100 {lab=#net3}
-N 850 -40 850 20 {lab=GND}
-N 550 -70 810 -70 {lab=VSIG}
+N 850 -10 850 20 {lab=GND}
+N 590 -70 810 -70 {lab=VSIG}
 N 850 -340 850 -320 {lab=VDD}
-N 850 -260 850 -200 {lab=VOUT2}
+N 850 -220 850 -200 {lab=VOUT2}
 N 760 -170 810 -170 {lab=VB}
 N 720 -240 850 -240 {lab=VOUT2}
 N 590 -240 660 -240 {lab=#net4}
 N 590 -240 590 -150 {lab=#net4}
 N 590 -90 590 -70 {lab=VSIG}
 N 850 -170 900 -170 {lab=GND}
-N 900 -170 900 -10 {lab=GND}
+N 900 -70 900 -10 {lab=GND}
 N 850 -10 900 -10 {lab=GND}
 N 850 -70 900 -70 {lab=GND}
 N 850 -220 950 -220 {lab=VOUT2}
 N 950 -220 950 -200 {lab=VOUT2}
-N 1080 -30 1080 10 {lab=GND}
+N 1080 -10 1080 10 {lab=GND}
 N 1080 -140 1080 -90 {lab=#net5}
 N 1070 -170 1130 -170 {lab=GND}
-N 1130 -170 1130 -10 {lab=GND}
+N 1130 -60 1130 -10 {lab=GND}
 N 1080 -10 1130 -10 {lab=GND}
 N 1080 -60 1130 -60 {lab=GND}
-N 1080 -260 1080 -200 {lab=VB}
+N 1080 -230 1080 -200 {lab=VB}
 N 1080 -340 1080 -320 {lab=VDD}
 N 1000 -230 1080 -230 {lab=VB}
-N 1000 -230 1000 -60 {lab=VB}
+N 1000 -170 1000 -60 {lab=VB}
 N 1000 -60 1040 -60 {lab=VB}
 N 1000 -170 1040 -170 {lab=VB}
+N 370 -40 370 -30 {lab=GND}
+N 370 -170 370 -160 {lab=VOUT1}
+N 190 -70 230 -70 {lab=VSIG}
+N 850 -260 850 -240 {lab=VOUT2}
+N 550 -70 590 -70 {lab=VSIG}
+N 850 -40 850 -10 {lab=GND}
+N 900 -170 900 -70 {lab=GND}
+N 850 -240 850 -220 {lab=VOUT2}
+N 1080 -30 1080 -10 {lab=GND}
+N 1130 -170 1130 -60 {lab=GND}
+N 1080 -260 1080 -230 {lab=VB}
+N 1000 -230 1000 -170 {lab=VB}
 C {devices/vsource.sym} 0 -10 0 0 {name=V1 value="AC 1" savecurrent=false}
 C {devices/gnd.sym} 0 40 0 0 {name=l1 lab=GND}
 C {devices/lab_pin.sym} 110 -70 1 0 {name=p1 sig_type=std_logic lab=VSIG}
@@ -197,82 +209,7 @@ C {devices/gnd.sym} 1080 10 0 0 {name=l11 lab=GND}
 C {devices/lab_pin.sym} 1000 -230 0 0 {name=p5 sig_type=std_logic lab=VB}
 C {devices/code.sym} 1190 -340 0 0 {name="NGSPICE" only_toplevel=true
 value="
-.control
-save all
-+ @m.xm0.m0[id]
-+ @m.xm0.m0[vgs]
-+ @m.xm0.m0[vds]
-+ @m.xm0.m0[vth]
-+ @m.xm0.m0[vdsat]
-+ @m.xm0.m0[gm]
-+ @m.xm0.m0[gds]
-+ @m.xm0.m0[gmbs]
-+ @m.xm0.m0[cdb]
-+ @m.xm0.m0[cgd]
-+ @m.xm0.m0[cgs]
-+ @m.xm0.m0[csb]
-
-+ @m.xm1.m0[id]
-+ @m.xm1.m0[vgs]
-+ @m.xm1.m0[vds]
-+ @m.xm1.m0[vth]
-+ @m.xm1.m0[vdsat]
-+ @m.xm1.m0[gm]
-+ @m.xm1.m0[gds]
-+ @m.xm1.m0[gmbs]
-+ @m.xm1.m0[cdb]
-+ @m.xm1.m0[cgd]
-+ @m.xm1.m0[cgs]
-+ @m.xm1.m0[csb]
-
-
-+ @m.xm2.m0[id]
-+ @m.xm2.m0[vgs]
-+ @m.xm2.m0[vds]
-+ @m.xm2.m0[vth]
-+ @m.xm2.m0[vdsat]
-+ @m.xm2.m0[gm]
-+ @m.xm2.m0[gds]
-+ @m.xm2.m0[gmbs]
-+ @m.xm2.m0[cdb]
-+ @m.xm2.m0[cgd]
-+ @m.xm2.m0[cgs]
-+ @m.xm2.m0[csb]
-
-
-+ @m.xm3.m0[id]
-+ @m.xm3.m0[vgs]
-+ @m.xm3.m0[vds]
-+ @m.xm3.m0[vth]
-+ @m.xm3.m0[vdsat]
-+ @m.xm3.m0[gm]
-+ @m.xm3.m0[gds]
-+ @m.xm3.m0[gmbs]
-+ @m.xm3.m0[cdb]
-+ @m.xm3.m0[cgd]
-+ @m.xm3.m0[cgs]
-+ @m.xm3.m0[csb]
-
-+ @m.xm4.m0[id]
-+ @m.xm4.m0[vgs]
-+ @m.xm4.m0[vds]
-+ @m.xm4.m0[vth]
-+ @m.xm4.m0[vdsat]
-+ @m.xm4.m0[gm]
-+ @m.xm4.m0[gds]
-+ @m.xm4.m0[gmbs]
-+ @m.xm4.m0[cdb]
-+ @m.xm4.m0[cgd]
-+ @m.xm4.m0[cgs]
-+ @m.xm4.m0[csb]
-
-*op
-*print all > op_point.csv
-ac dec 10 1 10g
-set appendwrite
-remzerovec
-write Lab03.raw
-.endc
+.include "sim_script.inc"
 "}
 C {devices/lab_pin.sym} 470 -110 2 0 {name=p6 sig_type=std_logic lab=VOUT1}
 C {devices/lab_pin.sym} 930 -220 1 0 {name=p7 sig_type=std_logic lab=VOUT2}
