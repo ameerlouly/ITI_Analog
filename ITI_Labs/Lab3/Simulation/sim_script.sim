@@ -67,10 +67,31 @@ save all
 + @m.xm4.m0[cgs]
 + @m.xm4.m0[csb]
 
+
 op
-print all > op_point.csv
-* ac dec 10 1 10g
-set appendwrite
+print all > op_point_bw.csv
+
+* ac dec 10 1 10G
+* let AV_CS =abs(v(Vout1))
+* meas ac peak1 MAX vmag(vout1) FROM=1 TO=1.5G
+* let ff1=peak1*0.707
+* meas ac f3db1 WHEN vmag(Vout1)=ff1 FALL =1
+* meas ac UGF1 WHEN vmag(Vout1)=1 FALL =1
+* let GBW1 = Peak1*f3db1
+* print GBW1
+* let AV_CASCODE =abs(v(Vout2))
+* meas ac peak2 MAX vmag(vout2) FROM=1 TO=1.5G
+* let ff2=peak2*0.707
+* meas ac f3db2 WHEN vmag(Vout2)=ff2 FALL =1
+* meas ac UGF2 WHEN vmag(Vout2)=1 FALL =1
+* let GBW2 = Peak2*f3db2
+* print GBW2
+* plot AV_CS AV_CASCODE
+* plot vdb(Vout1) vdb(vout2) xlog
+* print peak1 f3db1 GBW1 UGF1 peak2 f3db2 GBW2 UGF2 >> AC_analysis.txt 
+
 remzerovec
-write Lab03.raw
+set appendwrite
+write Lab03_bw.raw
+
 .endc
