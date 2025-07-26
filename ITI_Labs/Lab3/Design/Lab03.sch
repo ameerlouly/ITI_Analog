@@ -4,7 +4,7 @@ K {}
 V {}
 S {}
 E {}
-B 2 -10 -750 790 -350 {flags=graph
+B 2 -10 -890 790 -490 {flags=graph
 y1=-55
 y2=67
 ypos1=0
@@ -46,15 +46,15 @@ N 320 -160 370 -160 {lab=VOUT1}
 N 230 -160 260 -160 {lab=#net2}
 N 230 -160 230 -140 {lab=#net2}
 N 230 -80 230 -70 {lab=VSIG}
-N 850 -140 850 -100 {lab=#net3}
+N 850 -140 850 -100 {lab=VD1}
 N 850 -10 850 20 {lab=GND}
 N 590 -70 810 -70 {lab=VSIG}
 N 850 -340 850 -320 {lab=VDD}
 N 850 -220 850 -200 {lab=VOUT2}
 N 760 -170 810 -170 {lab=VB}
 N 720 -240 850 -240 {lab=VOUT2}
-N 590 -240 660 -240 {lab=#net4}
-N 590 -240 590 -150 {lab=#net4}
+N 590 -240 660 -240 {lab=#net3}
+N 590 -240 590 -150 {lab=#net3}
 N 590 -90 590 -70 {lab=VSIG}
 N 850 -170 900 -170 {lab=GND}
 N 900 -70 900 -10 {lab=GND}
@@ -63,7 +63,7 @@ N 850 -70 900 -70 {lab=GND}
 N 850 -220 950 -220 {lab=VOUT2}
 N 950 -220 950 -200 {lab=VOUT2}
 N 1080 -10 1080 10 {lab=GND}
-N 1080 -140 1080 -90 {lab=#net5}
+N 1080 -140 1080 -90 {lab=VD3}
 N 1070 -170 1130 -170 {lab=GND}
 N 1130 -60 1130 -10 {lab=GND}
 N 1080 -10 1130 -10 {lab=GND}
@@ -209,7 +209,9 @@ C {devices/gnd.sym} 1080 10 0 0 {name=l11 lab=GND}
 C {devices/lab_pin.sym} 1000 -230 0 0 {name=p5 sig_type=std_logic lab=VB}
 C {devices/code.sym} 1190 -340 0 0 {name="NGSPICE" only_toplevel=true
 value="
-.include "sim_script.inc"
+.include "sim_script.sim"
 "}
 C {devices/lab_pin.sym} 470 -110 2 0 {name=p6 sig_type=std_logic lab=VOUT1}
 C {devices/lab_pin.sym} 930 -220 1 0 {name=p7 sig_type=std_logic lab=VOUT2}
+C {devices/lab_pin.sym} 850 -120 0 0 {name=p8 sig_type=std_logic lab=VD1}
+C {devices/lab_pin.sym} 1080 -120 0 0 {name=p9 sig_type=std_logic lab=VD3}

@@ -1,27 +1,28 @@
-** sch_path: /home/tare/ITI_Analog/ITI_Labs/Lab3/Design/Lab03.sch
-**.subckt Lab03
+** sch_path: /home/tare/ITI_Analog/ITI_Labs/Lab3/Design/Lab03_bw.sch
+**.subckt Lab03_bw
 V1 net1 GND AC 1
 R1 VSIG net1 1e12 ac=1m m=1
-XM0 VOUT1 VSIG GND GND nmos_3p3 L=350n W=3.5u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
+XM0 VOUT1 net3 GND GND nmos_3p3 L=350n W=3.5u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
 + ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0 m=1
-I0 VDD VOUT1 20u
 C1 VOUT1 GND 1p m=1
 V2 VDD GND 1.8
-V3 net2 VSIG DC 0.0939
-R2 VOUT1 net2 1m ac=1e12 m=1
 XM1 VD1 VSIG GND GND nmos_3p3 L=350n W=3.5u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
 + ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0 m=1
 XM2 VOUT2 VB VD1 GND nmos_3p3 L=350n W=3.5u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
 + ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0 m=1
-V4 net3 VSIG DC 0.0875
-I1 VDD VOUT2 20u
-R3 VOUT2 net3 1m ac=1e12 m=1
 C2 VOUT2 GND 1p m=1
 XM4 VB VB VD3 GND nmos_3p3 L=350n W=3.5u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
 + ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0 m=1
 I2 VDD VB 20u
 XM3 VD3 VB GND GND nmos_3p3 L=5.254u W=3.5u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
 + ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0 m=1
+R4 VDD VOUT1 45k m=1
+R3 VDD VOUT2 45k m=1
+XM5 net2 net2 GND GND nmos_3p3 L=350n W=3.5u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0 m=1
+I0 VDD net2 20u
+R5 VSIG net2 1m ac=1e12 m=1
+R2 net3 VSIG 10meg m=1
 **** begin user architecture code
 
 .include /home/tare/pdk/gf180mcuC/libs.tech/ngspice/design.ngspice
