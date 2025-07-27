@@ -8,7 +8,7 @@ Add this to the ```.bashrc``` file for quick git commits and operation
 ################################
 # Ameer Git Aliases
 ################################
-AmeerGit() {
+gpush() {
 	message="${*:-Default Message}"
 	git add *; git commit -m "$message"; git pull; git push
 }
