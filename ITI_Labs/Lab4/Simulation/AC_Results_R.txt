@@ -1,0 +1,6 @@
+const.r_val = 2.000000e+04
+ac1.peaking = 9.977482e-01
+const.r_val = 2.000000e+05
+ac2.peaking = 1.020906e+00
+const.r_val = 2.000000e+06
+ac3.peaking = 2.016143e+00

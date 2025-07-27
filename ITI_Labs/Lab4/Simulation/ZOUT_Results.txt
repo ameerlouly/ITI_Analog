@@ -1,0 +1,8 @@
+rout = 9.785972e+03
+rout_max = 1.866052e+05
+rout = 9.785972e+03
+rout_max = 1.866052e+05
+rout = 9.785972e+03
+rout_max = 1.866052e+05
+rout = 9.785972e+03
+rout_max = 1.866052e+05

@@ -1,0 +1,6 @@
+const.r_val = 2.000000e+04
+tran1.overshoot = 0.000000e+00
+const.r_val = 2.000000e+05
+tran2.overshoot = 7.229703e+00
+const.r_val = 2.000000e+06
+tran3.overshoot = 4.345539e+01
