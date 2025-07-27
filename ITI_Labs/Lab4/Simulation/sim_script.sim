@@ -97,11 +97,18 @@
     * end
 
 *?  ZOUT Code
-    ac dec 10 1 10G
-    meas ac ROUT_MAX MAX vmag(vout) from=1 to=10G
-    meas ac ROUT FIND vmag(vout) at=1
-    print ROUT ROUT_MAX >> ZOUT_Results.txt
+    * ac dec 10 1 10G
+    * meas ac ROUT_MAX MAX vmag(vout) from=1 to=10G
+    * meas ac ROUT FIND vmag(vout) at=1
+    * print ROUT ROUT_MAX >> ZOUT_Results.txt
+    * write Lab04.raw
+    * set appendwrite
+
+*?  PZ Simulation
+    pz vsig 0 vout 0 VOL PZ
     write Lab04.raw
     set appendwrite
+    print all
+
 
 .endc
