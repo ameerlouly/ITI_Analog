@@ -1,0 +1,26 @@
+.control
+    save all
+    + @m.xm0.m0[id]
+    + @m.xm0.m0[vgs]
+    + @m.xm0.m0[vds]
+    + @m.xm0.m0[vth]
+    + @m.xm0.m0[vdsat]
+    + @m.xm0.m0[gm]
+    + @m.xm0.m0[gds]
+    + @m.xm0.m0[gmbs]
+    + @m.xm0.m0[cdb]
+    + @m.xm0.m0[cgd]
+    + @m.xm0.m0[cgs]
+    + @m.xm0.m0[csb]
+
+    * op
+    * print all > op_point.csv
+    ac dec 20 1 10g
+    let AV = abs(v(vout))
+    meas Peaking 
+
+
+    set appendwrite
+    remzerovec
+    write Lab04.raw
+.endc
