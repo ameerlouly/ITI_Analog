@@ -12,8 +12,8 @@ ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=1
-x2=1e+10
+x1=0.5
+x2=10.5
 divx=5
 subdivx=4
 xlabmag=1.0
@@ -34,8 +34,8 @@ ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=1
-x2=1e+10
+x1=0.5
+x2=10.5
 divx=5
 subdivx=4
 xlabmag=1.0
@@ -58,8 +58,8 @@ ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=1
-x2=1e+10
+x1=0.5
+x2=10.5
 divx=5
 subdivx=4
 xlabmag=1.0
@@ -80,8 +80,8 @@ ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=1
-x2=1e+10
+x1=0.5
+x2=10.5
 divx=5
 subdivx=4
 xlabmag=1.0
@@ -104,8 +104,8 @@ ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=0
-x2=10
+x1=0.5
+x2=10.5
 divx=5
 subdivx=8
 xlabmag=1.0
@@ -145,7 +145,7 @@ N 20 -70 80 -70 {lab=VSIG}
 N 590 -140 590 -120 {lab=VOUT}
 N 500 -140 590 -140 {lab=VOUT}
 N 590 -60 590 -20 {lab=GND}
-C {devices/vsource.sym} 0 -10 0 0 {name=V1 value="AC 1" savecurrent=false
+C {devices/vsource.sym} 0 -10 0 0 {name=V1 value="AC 0" savecurrent=false
 }
 C {devices/gnd.sym} 0 40 0 0 {name=l1 lab=GND}
 C {devices/lab_pin.sym} 110 -70 1 0 {name=p1 sig_type=std_logic lab=VSIG}
@@ -191,12 +191,12 @@ m=1
 value=2p
 footprint=1206
 device="ceramic capacitor"
-}
+spice_ignore=true}
 C {devices/gnd.sym} 500 -20 0 0 {name=l4 lab=GND}
 C {devices/gnd.sym} -90 40 0 0 {name=l7 lab=GND}
 C {devices/vsource.sym} -90 -10 0 0 {name=V3 value="pulse(0 0.1 2u 1n 1n 4u 8u)" savecurrent=false
 spice_ignore=true}
 C {devices/isource.sym} 590 -90 2 0 {name=I1 value="AC 1"
-spice_ignore=true}
+}
 C {devices/gnd.sym} 590 -20 0 0 {name=l8 lab=GND}
 C {devices/lab_pin.sym} 310 -70 1 0 {name=p4 sig_type=std_logic lab=VIN}

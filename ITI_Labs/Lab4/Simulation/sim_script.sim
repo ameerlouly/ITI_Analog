@@ -105,7 +105,7 @@
     * set appendwrite
 
 *?  PZ Simulation
-    pz vsig 0 vout 0 VOL PZ
+    pz  VOUT gnd VOUT gnd cur PZ
     write Lab04.raw
     set appendwrite
     print all
