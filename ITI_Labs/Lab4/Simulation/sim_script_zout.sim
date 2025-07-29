@@ -1,0 +1,8 @@
+.control
+*?  PZ Simulation
+    save all
+    pz  VOUT gnd VOUT gnd cur pz
+    write Lab04_ZOUT.raw
+    set appendwrite
+    print all
+.endc

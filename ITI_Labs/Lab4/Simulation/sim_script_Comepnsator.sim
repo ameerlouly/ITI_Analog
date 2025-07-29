@@ -24,20 +24,20 @@
 
     
 *? AC C Parameteric Analysis
-    let C_VAL=2p
-    let C_END=8meg
-    let C_MULT=10
+    * let C_VAL=2p
+    * let C_END=8meg
+    * let C_MULT=10
 
-    while C_VAL le C_END
-        alter C1 R_VAL
-        ac dec 20 1 10g
-        meas ac Peaking MAX vmag(vout) FROM=1 TO=10G 
-        print C_VAL Peaking >> AC_Results_R_Compensator.txt
-        remzerovec
-        write Lab04_compensator.raw
-        set appendwrite
-        let C_VAL = C_MULT * C_VAL
-    end
+    * while C_VAL le C_END
+    *     alter C1 R_VAL
+    *     ac dec 20 1 10g
+    *     meas ac Peaking MAX vmag(vout) FROM=1 TO=10G 
+    *     print C_VAL Peaking >> AC_Results_R_Compensator.txt
+    *     remzerovec
+    *     write Lab04_compensator.raw
+    *     set appendwrite
+    *     let C_VAL = C_MULT * C_VAL
+    * end
     
 *? AC R Parameteric Analysis
     * let R_VAL=20K
@@ -66,23 +66,23 @@
 
 *?  Transient Analysis C Sweep
 
-    * let C_VAL=2p
-    * let C_END=8p
-    * let C_MULT=2
+    let C_VAL=2p
+    let C_END=8p
+    let C_MULT=2
 
-    * while C_VAL le C_END
-    *     alter C1 C_VAL
-    *     tran 10n 10u
-    *     meas tran V_peak MAX v(vout) FROM=2u TO=3.6u
-    *     meas tran V_normal FIND v(vout) AT=5u
-    *     meas tran V_min MIN v(vout) FROM=0 TO=1.5u
-    *     let overshoot = (V_peak-V_normal)*100/(V_normal-V_min)
-    *     print C_VAL overshoot >> Tran_Results_C_Compensator.txt
-    *     remzerovec
-    *     write Lab04_compensator.raw
-    *     set appendwrite
-    *     let C_VAL = C_MULT * C_VAL
-    * end
+    while C_VAL le C_END
+        alter C1 C_VAL
+        tran 10n 10u
+        meas tran V_peak MAX v(vout) FROM=2u TO=3.6u
+        meas tran V_normal FIND v(vout) AT=5u
+        meas tran V_min MIN v(vout) FROM=0 TO=1.5u
+        let overshoot = (V_peak-V_normal)*100/(V_normal-V_min)
+        print C_VAL overshoot >> Tran_Results_C_Compensator.txt
+        remzerovec
+        write Lab04_compensator.raw
+        set appendwrite
+        let C_VAL = C_MULT * C_VAL
+    end
 
 *?  Transient Analysis R Sweep
     * let R_VAL=20K

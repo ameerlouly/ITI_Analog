@@ -12,30 +12,30 @@ ypos2=2
 divy=5
 subdivy=4
 unity=1
-x1=0
-x2=10
+x1=-35
+x2=-5
 divx=5
 subdivx=8
 xlabmag=1.0
 ylabmag=1
-node="ROUT;vout db20()"
+node="VOUT dB;vout db20()"
 color=4
 unitx=1
 logx=1
 logy=0
 rainbow=1
-dataset=0
-}
-B 2 580 140 1380 540 {flags=graph
+dataset=-1
+hcursor1_y=-0.036587364}
+B 2 450 200 1250 600 {flags=graph
 y1=0.93
-y2=1.1
+y2=0.94
 ypos1=0
 ypos2=2
 divy=5
 subdivy=4
 unity=1
-x1=1
-x2=1e+10
+x1=0
+x2=1e-05
 divx=5
 subdivx=4
 xlabmag=1.0
@@ -75,7 +75,7 @@ N -70 -120 10 -120 {lab=#net2}
 N 290 -100 290 -60 {lab=GND}
 N 290 -60 290 -20 {lab=GND}
 N 290 -190 290 -160 {lab=VOUT}
-C {devices/code_shown.sym} -290 90 0 0 {name=MODELS only_toplevel=true
+C {devices/code_shown.sym} -250 120 0 0 {name=MODELS only_toplevel=true
 format="tcleval( @value )"
 value="
 .include $::180MCU_MODELS/design.ngspice
@@ -126,7 +126,7 @@ C {devices/gnd.sym} 400 -30 0 0 {name=l8 lab=GND
 C {devices/lab_pin.sym} 120 -120 1 0 {name=p4 sig_type=std_logic lab=VIN
 }
 C {devices/res.sym} 120 10 0 0 {name=R1
-value=400k
+value=403.52K
 footprint=1206
 device=resistor
 m=1
@@ -142,11 +142,11 @@ device="ceramic capacitor"
 C {devices/gnd.sym} 10 -30 0 0 {name=l1 lab=GND
 }
 C {devices/vsource.sym} 10 -60 0 0 {name=V1 value="AC 1" savecurrent=false
-}
+spice_ignore=true}
 C {devices/gnd.sym} -70 -30 0 0 {name=l4 lab=GND
 }
 C {devices/vsource.sym} -70 -60 0 0 {name=V3 value="pulse(0 0.1 2u 1n 1n 4u 8u)" savecurrent=false
-spice_ignore=true}
+}
 C {devices/capa.sym} 290 -130 0 0 {name=C1
 m=1
 value=2p

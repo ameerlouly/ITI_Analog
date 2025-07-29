@@ -1,13 +1,13 @@
-** sch_path: /home/tare/Desktop/ITI_Analog/ITI_Labs/Lab4/Design/Lab04_compensator.sch
+** sch_path: /home/tare/ITI_Analog/ITI_Labs/Lab4/Design/Lab04_compensator.sch
 **.subckt Lab04_compensator
 I0 VDD VOUT 10u
 V2 VDD GND 1.8
 RSIG VIN net2 2meg m=1
 XM0 GND VIN VOUT VOUT pmos_3p3 L=1u W=20u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
 + ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0 m=1
-R1 net1 GND 400k m=1
+R1 net1 GND 403.52K m=1
 C2 VIN net1 50f m=1
-V1 net2 GND AC 1
+V3 net2 GND pulse(0 0.1 2u 1n 1n 4u 8u)
 C1 VOUT GND 2p m=1
 **** begin user architecture code
 
