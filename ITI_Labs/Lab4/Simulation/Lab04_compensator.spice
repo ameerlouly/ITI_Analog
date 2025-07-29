@@ -1,5 +1,5 @@
-** sch_path: /home/tare/ITI_Analog/ITI_Labs/Lab4/Design/Lab04.sch
-**.subckt Lab04
+** sch_path: /home/tare/ITI_Analog/ITI_Labs/Lab4/Design/Lab04_compensator.sch
+**.subckt Lab04_compensator
 V1 VSIG GND DC 0 AC 0
 I0 VDD VOUT 10u
 V2 VDD GND 1.8
@@ -7,6 +7,7 @@ RSIG VIN VSIG 2meg m=1
 XM0 GND VIN VOUT VOUT pmos_3p3 L=1u W=20u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
 + ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0 m=1
 I1 GND VOUT DC 0 AC 1
+R1 VIN GND 2k m=1
 **** begin user architecture code
 
 .include /home/tare/pdk/gf180mcuC/libs.tech/ngspice/design.ngspice
@@ -14,8 +15,7 @@ I1 GND VOUT DC 0 AC 1
 
 
 
-.include sim_script.sim
-
+.include sim_script_Comepnsator.sim
 
 **** end user architecture code
 **.ends

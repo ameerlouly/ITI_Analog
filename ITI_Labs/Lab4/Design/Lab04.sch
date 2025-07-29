@@ -51,8 +51,8 @@ rainbow=0
 linewidth_mult=2
 dataset=-1}
 B 2 -260 -960 540 -560 {flags=graph
-y1=0
-y2=0.1
+y1=0.02
+y2=0.12
 ypos1=0
 ypos2=2
 divy=5
@@ -145,23 +145,34 @@ N 20 -70 80 -70 {lab=VSIG}
 N 590 -140 590 -120 {lab=VOUT}
 N 500 -140 590 -140 {lab=VOUT}
 N 590 -60 590 -20 {lab=GND}
-C {devices/vsource.sym} 0 -10 0 0 {name=V1 value="AC 1" savecurrent=false
+N 500 -20 500 20 {lab=GND}
+N 590 -20 590 20 {lab=GND}
+C {devices/vsource.sym} 0 -10 0 0 {name=V1 value="DC 0 AC 0" savecurrent=false
 }
-C {devices/gnd.sym} 0 40 0 0 {name=l1 lab=GND}
-C {devices/lab_pin.sym} 110 -70 1 0 {name=p1 sig_type=std_logic lab=VSIG}
+C {devices/gnd.sym} 0 40 0 0 {name=l1 lab=GND
+}
+C {devices/lab_pin.sym} 110 -70 1 0 {name=p1 sig_type=std_logic lab=VSIG
+}
 C {devices/code_shown.sym} -100 140 0 0 {name=MODELS only_toplevel=true
 format="tcleval( @value )"
 value="
 .include $::180MCU_MODELS/design.ngspice
 .lib $::180MCU_MODELS/sm141064.ngspice typical
 "}
-C {devices/gnd.sym} 370 20 0 0 {name=l2 lab=GND}
-C {devices/vdd.sym} 370 -250 0 0 {name=l3 lab=VDD}
-C {devices/isource.sym} 370 -200 0 0 {name=I0 value=10u}
-C {devices/vsource.sym} -180 -10 0 0 {name=V2 value=1.8 savecurrent=false}
-C {devices/gnd.sym} -180 40 0 0 {name=l5 lab=GND}
-C {devices/vdd.sym} -180 -80 0 0 {name=l6 lab=VDD}
-C {devices/lab_pin.sym} 190 -70 1 0 {name=p2 sig_type=std_logic lab=VSIG}
+C {devices/gnd.sym} 370 20 0 0 {name=l2 lab=GND
+}
+C {devices/vdd.sym} 370 -250 0 0 {name=l3 lab=VDD
+}
+C {devices/isource.sym} 370 -200 0 0 {name=I0 value=10u
+}
+C {devices/vsource.sym} -180 -10 0 0 {name=V2 value=1.8 savecurrent=false
+}
+C {devices/gnd.sym} -180 40 0 0 {name=l5 lab=GND
+}
+C {devices/vdd.sym} -180 -80 0 0 {name=l6 lab=VDD
+}
+C {devices/lab_pin.sym} 190 -70 1 0 {name=p2 sig_type=std_logic lab=VSIG
+}
 C {devices/code.sym} 680 -130 0 0 {name="NGSPICE" only_toplevel=true
 value="
 .include "sim_script.sim"
@@ -170,8 +181,10 @@ C {devices/res.sym} 260 -70 1 0 {name=RSIG
 value=2meg
 footprint=1206
 device=resistor
-m=1}
-C {devices/lab_pin.sym} 370 -140 0 0 {name=p3 sig_type=std_logic lab=VOUT}
+m=1
+}
+C {devices/lab_pin.sym} 370 -140 0 0 {name=p3 sig_type=std_logic lab=VOUT
+}
 C {symbols/pmos_3p3.sym} 350 -70 0 0 {name=M0
 L=1u
 W=20u
@@ -191,12 +204,16 @@ m=1
 value=2p
 footprint=1206
 device="ceramic capacitor"
+spice_ignore=true}
+C {devices/gnd.sym} 500 20 0 0 {name=l4 lab=GND
 }
-C {devices/gnd.sym} 500 -20 0 0 {name=l4 lab=GND}
-C {devices/gnd.sym} -90 40 0 0 {name=l7 lab=GND}
+C {devices/gnd.sym} -90 40 0 0 {name=l7 lab=GND
+}
 C {devices/vsource.sym} -90 -10 0 0 {name=V3 value="pulse(0 0.1 2u 1n 1n 4u 8u)" savecurrent=false
 spice_ignore=true}
-C {devices/isource.sym} 590 -90 2 0 {name=I1 value="AC 1"
-spice_ignore=true}
-C {devices/gnd.sym} 590 -20 0 0 {name=l8 lab=GND}
-C {devices/lab_pin.sym} 310 -70 1 0 {name=p4 sig_type=std_logic lab=VIN}
+C {devices/isource.sym} 590 -90 2 0 {name=I1 value="DC 0 AC 1"
+}
+C {devices/gnd.sym} 590 20 0 0 {name=l8 lab=GND
+}
+C {devices/lab_pin.sym} 310 -70 1 0 {name=p4 sig_type=std_logic lab=VIN
+}
