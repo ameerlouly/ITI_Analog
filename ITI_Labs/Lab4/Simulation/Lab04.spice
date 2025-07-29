@@ -1,4 +1,4 @@
-** sch_path: /home/tare/ITI_Analog/ITI_Labs/Lab4/Design/Lab04.sch
+** sch_path: /home/tare/Desktop/ITI_Analog/ITI_Labs/Lab4/Design/Lab04.sch
 **.subckt Lab04
 V1 VSIG GND DC 0 AC 0
 I0 VDD VOUT 10u

@@ -1,5 +1,5 @@
 .control
-    * save all
+    save all
     * + @m.xm0.m0[id]
     * + @m.xm0.m0[vgs]
     * + @m.xm0.m0[vds]
@@ -15,38 +15,45 @@
 
     * op
     * print all > op_point.csv
+
+*? AC Analysis
+
+    * ac dec 20 1 10g
+    * write Lab04_compensator.raw
+    * set appendwrite
+
     
 *? AC C Parameteric Analysis
-    * let C_VAL=2p
-    * let C_END=8meg
-    * let C_MULT=10
+    let C_VAL=2p
+    let C_END=8meg
+    let C_MULT=10
 
-    * while C_VAL le C_END
-    *     alter C1 R_VAL
+    while C_VAL le C_END
+        alter C1 R_VAL
+        ac dec 20 1 10g
+        meas ac Peaking MAX vmag(vout) FROM=1 TO=10G 
+        print C_VAL Peaking >> AC_Results_R_Compensator.txt
+        remzerovec
+        write Lab04_compensator.raw
+        set appendwrite
+        let C_VAL = C_MULT * C_VAL
+    end
+    
+*? AC R Parameteric Analysis
+    * let R_VAL=20K
+    * let R_END=2meg
+    * let R_MULT=10
+
+    * while R_VAL le R_END
+    *     alter RSIG R_VAL
     *     ac dec 20 1 10g
     *     meas ac Peaking MAX vmag(vout) FROM=1 TO=10G 
-    *     print C_VAL Peaking >> AC_Results_R.txt
+    *     print R_VAL Peaking >> AC_Results_R.txt
     *     remzerovec
     *     write Lab04.raw
     *     set appendwrite
-    *     let C_VAL = C_MULT * C_VAL
+    *     let R_VAL = R_MULT * R_VAL
     * end
-    
-*? AC R Parameteric Analysis
-*     let R_VAL=20K
-*     let R_END=2meg
-*     let R_MULT=10
-
-*     while R_VAL le R_END
-*         alter RSIG R_VAL
-*         ac dec 20 1 10g
-*         meas ac Peaking MAX vmag(vout) FROM=1 TO=10G 
-*         print R_VAL Peaking >> AC_Results_R.txt
-*         remzerovec
-*         write Lab04.raw
-*         set appendwrite
-*         let R_VAL = R_MULT * R_VAL
-*     end
 
 *?  Transient Analysis
     * tran 10n 10u
@@ -70,9 +77,9 @@
     *     meas tran V_normal FIND v(vout) AT=5u
     *     meas tran V_min MIN v(vout) FROM=0 TO=1.5u
     *     let overshoot = (V_peak-V_normal)*100/(V_normal-V_min)
-    *     print C_VAL overshoot >> Tran_Results_C.txt
+    *     print C_VAL overshoot >> Tran_Results_C_Compensator.txt
     *     remzerovec
-    *     write Lab04.raw
+    *     write Lab04_compensator.raw
     *     set appendwrite
     *     let C_VAL = C_MULT * C_VAL
     * end
@@ -97,16 +104,16 @@
     * end
 
 *?  ZOUT Code
-    ac dec 10 1 10G
-    meas ac ROUT_MAX MAX vmag(vout) from=1 to=10G
-    meas ac ROUT FIND vmag(vout) at=1
-    print ROUT ROUT_MAX >> ZOUT_Results_compensator.txt
-    write Lab04_compensator.raw
-    set appendwrite
+    * ac dec 10 1 10G
+    * meas ac ROUT_MAX MAX vmag(vout) from=1 to=10G
+    * meas ac ROUT FIND vmag(vout) at=1
+    * print ROUT ROUT_MAX >> ZOUT_Results_compensator.txt
+    * write Lab04_compensator.raw
+    * set appendwrite
 
 *?  PZ Simulation
     * pz  VOUT gnd VOUT gnd cur PZ
-    * write Lab04.raw
+    * write Lab04_compensator.raw
     * set appendwrite
     * print all
 
