@@ -1,0 +1,41 @@
+.control
+    save all
+    + @m.xm0.m0[id]
+    + @m.xm1.m0[id]
+    + @m.xm2.m0[id]
+    + @m.xm5.m0[id]
+    
+*?  OP Point
+    * let x = 0
+    * set num = {$&x}
+    * dowhile x < 6
+    *     save @m.xm{$num}.m0[id]
+    *     save @m.xm{$num}.m0[vgs]
+    *     save @m.xm{$num}.m0[vds]
+    *     save @m.xm{$num}.m0[vth]
+    *     save @m.xm{$num}.m0[vdsat]
+    *     save @m.xm{$num}.m0[gm]
+    *     save @m.xm{$num}.m0[gds]
+    *     save @m.xm{$num}.m0[gmbs]
+
+    *     let x = x + 1
+    *     set num = {$&x}s
+    * end
+
+    * op
+    * write Lab5.raw
+    * print all
+    * print all >> op_point.csv
+
+*?  RB Sweep
+
+    * dc RB 10k 40k 0.5k
+    * write Lab5.raw
+    * set appendwrite
+
+*?  DC Iout vs VOUT
+    dc VOUT 0 1.8 10m
+    write Lab5.raw
+    set appendwrite
+
+.endc
