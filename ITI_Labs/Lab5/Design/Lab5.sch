@@ -5,14 +5,14 @@ V {}
 S {}
 E {}
 B 2 -1130 -850 -330 -450 {flags=graph
-y1=0.084
-y2=0.3
+y1=0.11
+y2=0.21
 ypos1=0
 ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=0
+x1=0.15
 x2=1.8
 divx=5
 subdivx=1
@@ -26,14 +26,14 @@ logx=0
 logy=0
 hcursor1_y=0.2}
 B 2 -1130 -340 -330 60 {flags=graph
-y1=0
+y1=1.9e-05
 y2=2.1e-05
 ypos1=0
 ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=0
+x1=0.15
 x2=1.8
 divx=5
 subdivx=1
@@ -47,6 +47,26 @@ unitx=1
 logx=0
 logy=0
 }
+B 2 -190 -830 610 -430 {flags=graph
+y1=0
+y2=0.01
+ypos1=0
+ypos2=2
+divy=5
+subdivy=4
+unity=1
+x1=-0.82390874
+x2=0.25527251
+divx=5
+subdivx=8
+xlabmag=1.0
+ylabmag=1.0
+dataset=-1
+unitx=1
+logx=1
+logy=0
+color=4
+node=ROUT1}
 N -170 -110 -170 -90 {lab=GND}
 N -170 -190 -170 -170 {lab=VDD}
 N -70 -150 -70 -130 {lab=VDD}
@@ -92,6 +112,7 @@ N 420 -220 420 -100 {lab=#net7}
 N 360 -140 410 -140 {lab=#net4}
 N 410 -140 410 -10 {lab=#net4}
 N 740 -120 740 -90 {lab=VOUT}
+N 740 -160 740 -120 {lab=VOUT}
 C {symbols/nmos_3p3.sym} -50 -10 0 1 {name=M0
 L=1.42u
 W=14.58u
@@ -117,13 +138,12 @@ C {devices/vdd.sym} -70 -150 0 0 {name=l3 lab=VDD}
 C {devices/gnd.sym} -70 50 0 0 {name=l4 lab=GND}
 C {devices/gnd.sym} 120 50 0 0 {name=l5 lab=GND}
 C {devices/vsource.sym} 30 -10 1 0 {name=VGMIS value=0 savecurrent=false}
-C {devices/vsource.sym} 740 -60 0 0 {name=VOUT value=0.9 savecurrent=false}
 C {devices/gnd.sym} 740 -30 0 0 {name=l6 lab=GND}
 C {devices/vdd.sym} 360 -310 0 0 {name=l7 lab=VDD}
 C {devices/gnd.sym} 360 50 0 0 {name=l8 lab=GND}
 C {devices/gnd.sym} 550 50 0 0 {name=l9 lab=GND}
 C {devices/res.sym} 360 -180 0 0 {name=RB
-value=20k
+value=27.258k
 footprint=1206
 device=resistor
 m=1}
@@ -198,7 +218,7 @@ sa=0 sb=0 sd=0
 model=nmos_3p3
 spiceprefix=X
 }
-C {devices/code_shown.sym} -150 150 0 0 {name=MODELS only_toplevel=true
+C {devices/code_shown.sym} 140 150 0 0 {name=MODELS only_toplevel=true
 format="tcleval( @value )"
 value="
 .include $::180MCU_MODELS/design.ngspice
@@ -206,7 +226,12 @@ value="
 "}
 C {devices/vsource.sym} 460 -10 1 0 {name=VGMIS1 value=0 savecurrent=false}
 C {devices/vsource.sym} 460 -100 1 0 {name=VGMIS2 value=0 savecurrent=false}
-C {devices/lab_pin.sym} 120 -90 0 0 {name=p1 sig_type=std_logic lab=VOUT}
-C {devices/lab_pin.sym} 550 -160 0 0 {name=p2 sig_type=std_logic lab=VOUT}
 C {devices/lab_pin.sym} 550 -60 0 0 {name=p3 sig_type=std_logic lab=VDS3}
-C {devices/lab_pin.sym} 740 -120 0 0 {name=p4 sig_type=std_logic lab=VOUT}
+C {devices/lab_pin.sym} 740 -160 0 0 {name=p4 sig_type=std_logic lab=VOUT
+}
+C {devices/vsource.sym} 740 -60 0 0 {name=VOUT value="DC 0.9 AC 1" savecurrent=false
+}
+C {devices/lab_pin.sym} 550 -160 0 0 {name=p1 sig_type=std_logic lab=VOUT
+}
+C {devices/lab_pin.sym} 120 -90 0 0 {name=p2 sig_type=std_logic lab=VOUT
+}

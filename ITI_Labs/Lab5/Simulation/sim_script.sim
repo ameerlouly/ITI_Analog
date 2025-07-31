@@ -1,26 +1,33 @@
 .control
     save all
+    * Simple CM Main Device
     + @m.xm0.m0[id]
+    * Simple CM Mirroring Device
     + @m.xm1.m0[id]
+
+    * Cascode CM Main Device
     + @m.xm2.m0[id]
+    * Cascode CM cascode Device 
     + @m.xm5.m0[id]
+    * Cascode CM mirroring Device 
+    + @m.xm3.m0[id]
     
 *?  OP Point
-    * let x = 0
-    * set num = {$&x}
-    * dowhile x < 6
-    *     save @m.xm{$num}.m0[id]
-    *     save @m.xm{$num}.m0[vgs]
-    *     save @m.xm{$num}.m0[vds]
-    *     save @m.xm{$num}.m0[vth]
-    *     save @m.xm{$num}.m0[vdsat]
-    *     save @m.xm{$num}.m0[gm]
-    *     save @m.xm{$num}.m0[gds]
-    *     save @m.xm{$num}.m0[gmbs]
+    let x = 0
+    set num = {$&x}
+    dowhile x < 6
+        save @m.xm{$num}.m0[id]
+        save @m.xm{$num}.m0[vgs]
+        save @m.xm{$num}.m0[vds]
+        save @m.xm{$num}.m0[vth]
+        save @m.xm{$num}.m0[vdsat]
+        save @m.xm{$num}.m0[gm]
+        save @m.xm{$num}.m0[gds]
+        save @m.xm{$num}.m0[gmbs]
 
-    *     let x = x + 1
-    *     set num = {$&x}s
-    * end
+        let x = x + 1
+        set num = {$&x}s
+    end
 
     * op
     * write Lab5.raw
@@ -34,8 +41,38 @@
     * set appendwrite
 
 *?  DC Iout vs VOUT
-    dc VOUT 0 1.8 10m
+    * dc VOUT 0 1.8 10m
+    * write Lab5.raw
+    * set appendwrite
+    * let IOUT_Expected = 20e-6
+    * meas dc I1 FIND @m.xm1.m0[id] AT=0.5
+    * meas dc I2 FIND @m.xm1.m0[id] AT=1.5
+    * let I_ERROR = abs((I1 - I2) * 100 / IOUT_Expected)
+    * print I_ERROR
+
+*?  Iout Error and ROUT
+    dc VOUT 150m 1.8 10m
     write Lab5.raw
     set appendwrite
+
+    let IB = 20e-6
+    let Iout1_Error = abs((IB - @m.xm1.m0[id]) * 100 / IB)
+    let Iout2_Error = abs((IB - @m.xm5.m0[id]) * 100 / IB)
+    plot Iout1_Error Iout2_Error
+
+    let ROUT1 = 1/@m.xm1.m0[gds]
+    let ROUT2 = (@m.xm5.m0[gm] + @m.xm5.m0[gmbs]) / (@m.xm5.m0[gds] * @m.xm3.m0[gds])
+    plot ROUT1 ROUT2
+    save par('ROUT1') ROUT2
+    write Lab5.raw
+    
+    
+
+*?  ROUT from AC Analysis
+    * ac dec 10 1 10G
+    * write Lab5.raw
+    * set appendwrite
+
+
 
 .endc
