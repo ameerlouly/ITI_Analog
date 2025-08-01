@@ -137,7 +137,7 @@ C {devices/isource.sym} -70 -100 0 0 {name=IB1 value=10u}
 C {devices/vdd.sym} -70 -150 0 0 {name=l3 lab=VDD}
 C {devices/gnd.sym} -70 50 0 0 {name=l4 lab=GND}
 C {devices/gnd.sym} 120 50 0 0 {name=l5 lab=GND}
-C {devices/vsource.sym} 30 -10 1 0 {name=VGMIS value=0 savecurrent=false}
+C {devices/vsource.sym} 30 -10 1 0 {name=VGMIS0 value=0 savecurrent=false}
 C {devices/gnd.sym} 740 -30 0 0 {name=l6 lab=GND}
 C {devices/vdd.sym} 360 -310 0 0 {name=l7 lab=VDD}
 C {devices/gnd.sym} 360 50 0 0 {name=l8 lab=GND}

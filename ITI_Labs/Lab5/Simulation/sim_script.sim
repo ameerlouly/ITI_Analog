@@ -29,10 +29,11 @@
         set num = {$&x}s
     end
 
-    * op
-    * write Lab5.raw
-    * print all
-    * print all >> op_point.csv
+*?  OP Analysis
+    op
+    write Lab5.raw
+    print all
+    print all >> op_point.csv
 
 *?  RB Sweep
 
@@ -51,28 +52,27 @@
     * print I_ERROR
 
 *?  Iout Error and ROUT
-    dc VOUT 150m 1.8 10m
-    write Lab5.raw
-    set appendwrite
+    * dc VOUT 150m 1.8 10m
+    * write Lab5.raw
+    * set appendwrite
 
-    let IB = 20e-6
-    let Iout1_Error = abs((IB - @m.xm1.m0[id]) * 100 / IB)
-    let Iout2_Error = abs((IB - @m.xm5.m0[id]) * 100 / IB)
-    plot Iout1_Error Iout2_Error
+    * let IB = 20e-6
+    * let Iout1_Error = abs((IB - @m.xm1.m0[id]) * 100 / IB)
+    * let Iout2_Error = abs((IB - @m.xm5.m0[id]) * 100 / IB)
+    * plot Iout1_Error Iout2_Error
 
-    let ROUT1 = 1/@m.xm1.m0[gds]
-    let ROUT2 = (@m.xm5.m0[gm] + @m.xm5.m0[gmbs]) / (@m.xm5.m0[gds] * @m.xm3.m0[gds])
-    plot ROUT1 ROUT2
-    save par('ROUT1') ROUT2
-    write Lab5.raw
-    
-    
+    * let ROUT1 = 1/@m.xm1.m0[gds]
+    * let ROUT2 = (@m.xm5.m0[gm] + @m.xm5.m0[gmbs]) / (@m.xm5.m0[gds] * @m.xm3.m0[gds])
+    * plot ylog ROUT1 ROUT2
+    * meas dc ROUT1_VDD_2 FIND ROUT1 AT = 0.9 
+    * meas dc ROUT2_VDD_2 FIND ROUT2 AT = 0.9 
 
 *?  ROUT from AC Analysis
     * ac dec 10 1 10G
     * write Lab5.raw
     * set appendwrite
 
+*?  Mismatch
 
 
 .endc

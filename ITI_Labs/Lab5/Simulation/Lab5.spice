@@ -4,7 +4,7 @@ XM0 net1 net1 GND GND nmos_3p3 L=1.42u W=14.58u nf=1 ad='int((nf+1)/2) * W/nf * 
 + ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0 m=1
 VDD VDD GND 1.8
 IB1 VDD net1 10u
-VGMIS net2 net1 0
+VGMIS0 net2 net1 0
 RB net7 net4 27.258k m=1
 XM1 VOUT net2 GND GND nmos_3p3 L=1.42u W=2*14.58u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
 + ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0 m=1
