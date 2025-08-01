@@ -61,8 +61,10 @@
     * let Iout2_Error = abs((IB - @m.xm5.m0[id]) * 100 / IB)
     * plot Iout1_Error Iout2_Error
 
-    * let ROUT1 = 1/@m.xm1.m0[gds]
-    * let ROUT2 = (@m.xm5.m0[gm] + @m.xm5.m0[gmbs]) / (@m.xm5.m0[gds] * @m.xm3.m0[gds])
+    * * let ROUT1 = 1/@m.xm1.m0[gds]
+    * * let ROUT2 = (@m.xm5.m0[gm] + @m.xm5.m0[gmbs]) / (@m.xm5.m0[gds] * @m.xm3.m0[gds])
+    * let ROUT1 = abs(1 / deriv(@m.xm1.m0[id]))
+    * let ROUT2 = abs(1 / deriv(@m.xm5.m0[id]))
     * plot ylog ROUT1 ROUT2
     * meas dc ROUT1_VDD_2 FIND ROUT1 AT = 0.9 
     * meas dc ROUT2_VDD_2 FIND ROUT2 AT = 0.9 
@@ -73,6 +75,16 @@
     * set appendwrite
 
 *?  Mismatch
+    * dc VGMIS0 0 0.942m 1u
+    * let I_MIS_1 = abs((@m.xm1.m0[id] - 20u) * 100 / 20u)
+    * plot I_MIS_1
 
 
+    * dc VGMIS1 0 0.942m 1u
+    * let I_MIS_2 = abs((@m.xm5.m0[id] - 20u) * 100 / 20u)
+    * plot I_MIS_2
+
+    * dc VGMIS2 0 0.942m 1u
+    * let I_MIS_2_2 = abs((@m.xm5.m0[id] - 20u) * 100 / 20u)
+    * plot I_MIS_2_2
 .endc

@@ -12,7 +12,7 @@ ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=0.15
+x1=0
 x2=1.8
 divx=5
 subdivx=1
@@ -26,14 +26,14 @@ logx=0
 logy=0
 hcursor1_y=0.2}
 B 2 -1130 -340 -330 60 {flags=graph
-y1=1.9e-05
+y1=0
 y2=2.1e-05
 ypos1=0
 ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=0.15
+x1=0
 x2=1.8
 divx=5
 subdivx=1
@@ -55,7 +55,7 @@ ypos2=2
 divy=5
 subdivy=4
 unity=1
-x1=-0.82390874
+x1=-35
 x2=0.25527251
 divx=5
 subdivx=8
@@ -113,6 +113,9 @@ N 360 -140 410 -140 {lab=#net4}
 N 410 -140 410 -10 {lab=#net4}
 N 740 -120 740 -90 {lab=VOUT}
 N 740 -160 740 -120 {lab=VOUT}
+N 200 -150 200 -130 {lab=VOUT}
+N 120 -150 200 -150 {lab=VOUT}
+N 120 -150 120 -90 {lab=VOUT}
 C {symbols/nmos_3p3.sym} -50 -10 0 1 {name=M0
 L=1.42u
 W=14.58u
@@ -234,4 +237,7 @@ C {devices/vsource.sym} 740 -60 0 0 {name=VOUT value="DC 0.9 AC 1" savecurrent=f
 C {devices/lab_pin.sym} 550 -160 0 0 {name=p1 sig_type=std_logic lab=VOUT
 }
 C {devices/lab_pin.sym} 120 -90 0 0 {name=p2 sig_type=std_logic lab=VOUT
+spice_ignore=true}
+C {devices/gnd.sym} 200 -70 0 0 {name=l10 lab=GND}
+C {devices/vsource.sym} 200 -100 0 0 {name=VOUT1 value="DC 0.9 AC 1" savecurrent=false
 }
