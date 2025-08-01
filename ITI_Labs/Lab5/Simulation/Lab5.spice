@@ -4,22 +4,23 @@ XM0 net1 net1 GND GND nmos_3p3 L=1.42u W=14.58u nf=1 ad='int((nf+1)/2) * W/nf * 
 + ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0 m=1
 VDD VDD GND 1.8
 IB1 VDD net1 10u
-VGMIS net2 net1 0
-RB net7 net4 27.258k m=1
-XM1 VOUT net2 GND GND nmos_3p3 L=1.42u W=2*14.58u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
+VGMIS0 net2 net1 0
+RB net8 net5 27.258k m=1
+XM1 net3 net2 GND GND nmos_3p3 L=1.42u W=2*14.58u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
 + ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0 m=1
-IB2 VDD net7 10u
-XM2 net3 net4 GND GND nmos_3p3 L=1.42u W=14.58u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
+IB2 VDD net8 10u
+XM2 net4 net5 GND GND nmos_3p3 L=1.42u W=14.58u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
 + ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0 m=1
-XM3 VDS3 net6 GND GND nmos_3p3 L=1.42u W=2*14.58u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
+XM3 VDS3 net7 GND GND nmos_3p3 L=1.42u W=2*14.58u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
 + ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0 m=1
-XM4 net4 net7 net3 GND nmos_3p3 L=1.42u W=14.58u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
+XM4 net5 net8 net4 GND nmos_3p3 L=1.42u W=14.58u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
 + ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0 m=1
-XM5 VOUT net5 VDS3 GND nmos_3p3 L=1.42u W=2*14.58u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
+XM5 VOUT net6 VDS3 GND nmos_3p3 L=1.42u W=2*14.58u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
 + ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0 m=1
-VGMIS1 net6 net4 0
-VGMIS2 net5 net7 0
+VGMIS1 net7 net5 0
+VGMIS2 net6 net8 0
 VOUT VOUT GND DC 0.9 AC 1
+VOUT1 net3 GND DC 0.9 AC 1
 **** begin user architecture code
 
 
