@@ -78,14 +78,14 @@ N -90 30 -70 30 {lab=GND}
 N -30 -10 -0 -10 {lab=#net1}
 N 60 -10 80 -10 {lab=#net2}
 N 120 20 120 50 {lab=GND}
-N 120 -90 120 -40 {lab=VOUT}
-N 360 -70 360 -40 {lab=#net3}
-N 400 -10 430 -10 {lab=#net4}
-N 490 -100 510 -100 {lab=#net5}
+N 120 -90 120 -40 {lab=#net3}
+N 360 -70 360 -40 {lab=#net4}
+N 400 -10 430 -10 {lab=#net5}
+N 490 -100 510 -100 {lab=#net6}
 N 340 -60 340 -10 {lab=GND}
 N 550 -100 570 -100 {lab=GND}
 N 570 -100 570 -10 {lab=GND}
-N 360 -150 360 -130 {lab=#net4}
+N 360 -150 360 -130 {lab=#net5}
 N -70 -50 -20 -50 {lab=#net1}
 N -20 -50 -20 -10 {lab=#net1}
 N 120 -10 140 -10 {lab=GND}
@@ -96,26 +96,23 @@ N 360 20 360 50 {lab=GND}
 N 340 -10 360 -10 {lab=GND}
 N 340 -10 340 30 {lab=GND}
 N 340 30 360 30 {lab=GND}
-N 490 -10 510 -10 {lab=#net6}
+N 490 -10 510 -10 {lab=#net7}
 N 550 20 550 50 {lab=GND}
 N 340 -100 360 -100 {lab=GND}
 N 340 -100 340 -60 {lab=GND}
-N 400 -100 430 -100 {lab=#net7}
+N 400 -100 430 -100 {lab=#net8}
 N 550 -70 550 -40 {lab=VDS3}
 N 550 -10 570 -10 {lab=GND}
 N 570 -10 570 30 {lab=GND}
 N 550 30 570 30 {lab=GND}
-N 360 -230 360 -210 {lab=#net7}
+N 360 -230 360 -210 {lab=#net8}
 N 550 -160 550 -130 {lab=VOUT}
-N 360 -220 420 -220 {lab=#net7}
-N 420 -220 420 -100 {lab=#net7}
-N 360 -140 410 -140 {lab=#net4}
-N 410 -140 410 -10 {lab=#net4}
+N 360 -220 420 -220 {lab=#net8}
+N 420 -220 420 -100 {lab=#net8}
+N 360 -140 410 -140 {lab=#net5}
+N 410 -140 410 -10 {lab=#net5}
 N 740 -120 740 -90 {lab=VOUT}
 N 740 -160 740 -120 {lab=VOUT}
-N 200 -150 200 -130 {lab=VOUT}
-N 120 -150 200 -150 {lab=VOUT}
-N 120 -150 120 -90 {lab=VOUT}
 C {symbols/nmos_3p3.sym} -50 -10 0 1 {name=M0
 L=1.42u
 W=14.58u
@@ -237,7 +234,4 @@ C {devices/vsource.sym} 740 -60 0 0 {name=VOUT value="DC 0.9 AC 1" savecurrent=f
 C {devices/lab_pin.sym} 550 -160 0 0 {name=p1 sig_type=std_logic lab=VOUT
 }
 C {devices/lab_pin.sym} 120 -90 0 0 {name=p2 sig_type=std_logic lab=VOUT
-spice_ignore=true}
-C {devices/gnd.sym} 200 -70 0 0 {name=l10 lab=GND}
-C {devices/vsource.sym} 200 -100 0 0 {name=VOUT1 value="DC 0.9 AC 1" savecurrent=false
 }
