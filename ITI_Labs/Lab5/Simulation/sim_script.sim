@@ -30,10 +30,10 @@
     end
 
 *?  OP Analysis
-    op
-    write Lab5.raw
-    print all
-    print all >> op_point.csv
+    * op
+    * write Lab5.raw
+    * print all
+    * print all >> op_point.csv
 
 *?  RB Sweep
 
@@ -75,16 +75,40 @@
     * set appendwrite
 
 *?  Mismatch
+    * let IB = 20u
     * dc VGMIS0 0 0.942m 1u
-    * let I_MIS_1 = abs((@m.xm1.m0[id] - 20u) * 100 / 20u)
-    * plot I_MIS_1
-
+    * meas dc I_ERROR_1_at0 FIND @m.xm1.m0[id] AT = 0;
+    * meas dc I_ERROR_1_at924 FIND @m.xm1.m0[id] AT = 0.942m;
+    * let I_PERCENT_CM = (I_ERROR_1_at924 - I_ERROR_1_at0) * 100 / I_ERROR_1_at0
+    
+    * print I_PERCENT_CM
 
     * dc VGMIS1 0 0.942m 1u
-    * let I_MIS_2 = abs((@m.xm5.m0[id] - 20u) * 100 / 20u)
-    * plot I_MIS_2
+    * meas dc I_ERROR_2_at0 FIND @m.xm5.m0[id] AT = 0;
+    * meas dc I_ERROR_2_at924 FIND @m.xm5.m0[id] AT = 0.942m;
+    * let I_PERCENT_1_Cascode = (I_ERROR_2_at924 - I_ERROR_2_at0) * 100 / I_ERROR_2_at0 
+
+    * print I_PERCENT_1_Cascode
+
 
     * dc VGMIS2 0 0.942m 1u
-    * let I_MIS_2_2 = abs((@m.xm5.m0[id] - 20u) * 100 / 20u)
-    * plot I_MIS_2_2
+    * meas dc I_ERROR_22_at0 FIND @m.xm5.m0[id] AT = 0;
+    * meas dc I_ERROR_22_at924 FIND @m.xm5.m0[id] AT = 0.942m;
+    * let I_PERCENT_2 = (I_ERROR_22_at924 - I_ERROR_22_at0) * 100 / I_ERROR_22_at0 
+
+    * print I_PERCENT_2
+
+*?  Monte Carlo
+
+    let mc_runs = 1000
+    let run = 1
+
+    dowhile run <= mc_runs
+        reset
+        op
+        print @m.xm5.m0[id] >> Cascode_MC.csv
+        print @m.xm1.m0[id] >> Simple_MC.csv
+        
+        let run = run + 1
+    end
 .endc
