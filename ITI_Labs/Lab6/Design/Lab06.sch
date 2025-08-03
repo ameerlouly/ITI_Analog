@@ -28,47 +28,8 @@ N 180 -210 230 -210 {lab=Vin+}
 N 250 -170 270 -170 {lab=Vout-}
 N 480 -170 530 -170 {lab=Vout+}
 N 520 -210 560 -210 {lab=Vin-}
-C {symbols/pmos_3p3.sym} 250 -210 0 0 {name=M1
-L=350n
-W=31u
-nf=1
-mult=1
-ad="'int((nf+1)/2) * W/nf * 0.18u'"
-pd="'2*int((nf+1)/2) * (W/nf + 0.18u)'"
-as="'int((nf+2)/2) * W/nf * 0.18u'"
-ps="'2*int((nf+2)/2) * (W/nf + 0.18u)'"
-nrd="'0.18u / W'" nrs="'0.18u / W'"
-sa=0 sb=0 sd=0
-model=pmos_3p3
-spiceprefix=X
-}
-C {devices/code_shown.sym} 0 30 0 0 {name=MODELS only_toplevel=true
-format="tcleval( @value )"
-value="
-.include $::180MCU_MODELS/design.spice
-.lib $::180MCU_MODELS/sm141064.spice typical
-"}
-C {symbols/pmos_3p3.sym} 360 -360 0 0 {name=M3
-L=517.8n
-W=18.13u
-nf=1
-mult=1
-ad="'int((nf+1)/2) * W/nf * 0.18u'"
-pd="'2*int((nf+1)/2) * (W/nf + 0.18u)'"
-as="'int((nf+2)/2) * W/nf * 0.18u'"
-ps="'2*int((nf+2)/2) * (W/nf + 0.18u)'"
-nrd="'0.18u / W'" nrs="'0.18u / W'"
-sa=0 sb=0 sd=0
-model=pmos_3p3
-spiceprefix=X
-}
 C {devices/res.sym} 270 -120 0 0 {name=R1
-value=1k
-footprint=1206
-device=resistor
-m=1}
-C {devices/res.sym} 480 -120 0 0 {name=R2
-value=1k
+value=30k
 footprint=1206
 device=resistor
 m=1}
@@ -81,11 +42,25 @@ C {devices/iopin.sym} 560 -210 0 0 {name=p6 lab=Vin-}
 C {devices/iopin.sym} 250 -170 2 0 {name=p7 lab=Vout-}
 C {devices/iopin.sym} 530 -170 0 0 {name=p8 lab=Vout+}
 C {devices/iopin.sym} 380 -60 1 0 {name=p9 lab=GND}
-C {symbols/pmos_3p3.sym} 500 -210 0 1 {name=M2
+C {symbols/pmos_3p3.sym} 250 -210 0 0 {name=M1
 L=350n
 W=31u
 nf=1
-mult=1
+m=1
+ad="'int((nf+1)/2) * W/nf * 0.18u'"
+pd="'2*int((nf+1)/2) * (W/nf + 0.18u)'"
+as="'int((nf+2)/2) * W/nf * 0.18u'"
+ps="'2*int((nf+2)/2) * (W/nf + 0.18u)'"
+nrd="'0.18u / W'" nrs="'0.18u / W'"
+sa=0 sb=0 sd=0
+model=pmos_3p3
+spiceprefix=X
+}
+C {symbols/pmos_3p3.sym} 360 -360 0 0 {name=M2
+L=517.8n
+W=18.13u
+nf=1
+m=1
 ad="'int((nf+1)/2) * W/nf * 0.18u'"
 pd="'2*int((nf+1)/2) * (W/nf + 0.18u)'"
 as="'int((nf+2)/2) * W/nf * 0.18u'"
@@ -99,7 +74,7 @@ C {symbols/pmos_3p3.sym} 140 -360 0 1 {name=M4
 L=517.8n
 W=18.13u
 nf=1
-mult=1
+m=1
 ad="'int((nf+1)/2) * W/nf * 0.18u'"
 pd="'2*int((nf+1)/2) * (W/nf + 0.18u)'"
 as="'int((nf+2)/2) * W/nf * 0.18u'"
@@ -109,3 +84,22 @@ sa=0 sb=0 sd=0
 model=pmos_3p3
 spiceprefix=X
 }
+C {symbols/pmos_3p3.sym} 500 -210 0 1 {name=M3
+L=350n
+W=31u
+nf=1
+m=1
+ad="'int((nf+1)/2) * W/nf * 0.18u'"
+pd="'2*int((nf+1)/2) * (W/nf + 0.18u)'"
+as="'int((nf+2)/2) * W/nf * 0.18u'"
+ps="'2*int((nf+2)/2) * (W/nf + 0.18u)'"
+nrd="'0.18u / W'" nrs="'0.18u / W'"
+sa=0 sb=0 sd=0
+model=pmos_3p3
+spiceprefix=X
+}
+C {devices/res.sym} 480 -120 0 0 {name=R2
+value=30k
+footprint=1206
+device=resistor
+m=1}

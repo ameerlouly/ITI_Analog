@@ -1,0 +1,67 @@
+** sch_path: /home/tare/ITI_Analog/ITI_Labs/Lab6/Design/Lab06_Diff_Amp.sch
+**.subckt Lab06_Diff_Amp
+X1 VDD net7 net3 net4 net5 net6 GND Lab06
+Xbalun1 net2 net1 net3 net4 balun
+Xbalun2 VDIFF VCM net5 net6 balun
+V1 VDD GND 1.8
+I0 net7 GND 40u
+VICM net1 GND 0.5 AC 1
+VID net2 GND 0 AC 0
+**** begin user architecture code
+
+
+.include sim_script.sim
+
+
+
+.include /home/tare/pdk/gf180mcuC/libs.tech/ngspice/design.ngspice
+.lib /home/tare/pdk/gf180mcuC/libs.tech/ngspice/sm141064.ngspice typical
+
+**** end user architecture code
+**.ends
+
+* expanding   symbol:  Lab06.sym # of pins=7
+** sym_path: /home/tare/ITI_Analog/ITI_Labs/Lab6/Design/Lab06.sym
+** sch_path: /home/tare/ITI_Analog/ITI_Labs/Lab6/Design/Lab06.sch
+.subckt Lab06 VDD IBn Vin+ Vin- Vout- Vout+ GND
+*.iopin VDD
+*.iopin IBn
+*.iopin Vin+
+*.iopin Vin-
+*.iopin Vout-
+*.iopin Vout+
+*.iopin GND
+R1 Vout- GND 30k m=1
+XM1 Vout- Vin+ net1 VDD pmos_3p3 L=350n W=31u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0 m=1
+XM2 net1 IBn VDD VDD pmos_3p3 L=517.8n W=18.13u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0 m=1
+XM4 IBn IBn VDD VDD pmos_3p3 L=517.8n W=18.13u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0 m=1
+XM3 Vout+ Vin- net1 VDD pmos_3p3 L=350n W=31u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0 m=1
+R2 Vout+ GND 30k m=1
+.ends
+
+
+* expanding   symbol:  balun.sym # of pins=4
+** sym_path: /home/tare/ITI_Analog/ITI_Labs/Lab6/Design/balun.sym
+** sch_path: /home/tare/ITI_Analog/ITI_Labs/Lab6/Design/balun.sch
+.subckt balun d c p n
+*.iopin p
+*.iopin n
+*.iopin d
+*.iopin c
+E1 net1 c d 0 0.5
+V1 p net1 0
+F1 d 0 V1 -0.5
+R1 d 0 1T m=1
+E2 net2 n d 0 0.5
+V2 c net3 0
+F2 d 0 V2 -0.5
+R2 net3 net2 1u m=1
+.ends
+
+.GLOBAL VDD
+.GLOBAL GND
+.end

@@ -1,0 +1,25 @@
+.control
+*?  OP Analysis
+    * save all
+    * op
+    * show m : id : gm : gds : vgs : vth : vds : vdsat
+
+*?  AC Analysis
+    * save all
+    * op
+    * ac dec 10 1 10G
+    * meas ac Gain MAX vmag(VDIFF) FROM=1 TO=10G
+    * let ff2 = Gain*0.7071
+    * meas ac BW WHEN vmag(VDIFF)=ff2 FALL =1
+    * save v(VDIFF)
+    * remzerovec
+    * write lab6_ac.raw
+
+*?  AC CM Analysis
+    save all
+    op
+    ac dec 10 1 10G
+    meas ac CMGain MAX vmag(VCM) FROM=1 TO=1k
+    remzerovec
+    write lab6_ac.raw
+.endc
