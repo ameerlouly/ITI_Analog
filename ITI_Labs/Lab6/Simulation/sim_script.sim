@@ -2,7 +2,7 @@
 *?  OP Analysis
     * save all
     * op
-    * show m : id : gm : gds : vgs : vth : vds : vdsat
+    * show m : id : gm : gmbs : gds : vgs : vth : vds : vdsat
 
 *?  AC Analysis
     * save all
@@ -16,10 +16,272 @@
     * write lab6_ac.raw
 
 *?  AC CM Analysis
+    * save all
+    * op
+    * ac dec 10 1 10G
+    * meas ac CMGain MAX vmag(VCM) FROM=1 TO=1k
+    * remzerovec
+    * write lab6_ac.raw
+
+*?  CMRR
+    * save all
+    * op
+    * ac dec 10 1 1G
+    * meas ac CMGain MAX vmag(VCM) FROM=1 TO=1MEG
+    * meas ac DiffGain MAX vmag(VDIFF2) FROM=1 TO=1MEG
+    * let CMRR_val = DiffGain / CMGain
+    * print CMRR_val
+    * let CMRR = v(VDIFF2) / v(VCM)
+    * save CMRR
+    * remzerovec
+    * write lab6_ac_CM.raw
+
+*?  Diff Large Signal
+
+    * save all
+    * dc VID -1.8 1.8 0.1
+    * let VDIFF_real= Vpos - Vneg
+    * save VDIFF_real
+    * plot VDIFF_real
+    * remzerovec
+    * write lab6_ID.raw
+
+* ?  CM Large Signal CCS (Manual Code)
+
+    shell rm Lab6_param.raw
+    let Vstart = -0.6
+    let Vstop = 1.2
+    let Vstep = 10m
+    let Vact = Vstart
+    let VICMmax = 0
+    let VICMmin = 0
     save all
-    op
-    ac dec 10 1 10G
-    meas ac CMGain MAX vmag(VCM) FROM=1 TO=1k
-    remzerovec
-    write lab6_ac.raw
+
+    let num_points = (Vstop - Vstart) / Vstep + 1
+
+    * Pre-allocate vectors
+    let vicm_vec = vector(num_points) *0
+    let avd_vec = vector(num_points) *0
+    let gbw_vec = vector(num_points) *0
+    let bw_vec = vector(num_points) *0
+
+    let i = 0
+    while Vact le Vstop
+        alter VICM Vact
+
+        ac dec 10 1 100G
+        let vodiff = VOP - VON
+
+        meas ac DiffGain MAX vmag(vodiff) FROM = 1 TO = 100Meg
+        let ff1 = DiffGain * 0.7071
+        meas ac f3db WHEN vmag(vodiff) = ff1 FALL = 1
+        let GBW = DiffGain * f3db
+        save vodiff
+        save GBW
+
+        let vicm_vec[i] = Vact
+        let avd_vec[i] = DiffGain
+        let gbw_vec[i] = GBW
+        let bw_vec[i] = f3db
+
+        set appendwrite
+        remzerovec
+        write Lab6_param.raw
+
+        if (GBW > 40MEG)
+            let VICMmax = Vact
+        endif
+        if (GBW < 40MEG)
+            if (Vact < 0.5)
+                let VICMmin = Vact
+            endif
+        endif
+
+        let Vact = Vact + Vstep
+        let i = i + 1
+    end
+
+    let GBW_Max = maximum(gbw_vec)
+    print GBW_Max
+    plot bw_vec vs vicm_vec
+    plot avd_vec vs vicm_vec
+    plot gbw_vec vs vicm_vec
+    print VICMmax
+    print VICMmin
+
+*?  CM Large Signal (TA Code)
+
+    * save all
+    * * === DIFFERENTIAL GAIN vs VICM SWEEP ===
+    * let vicm_start = -1.8
+    * let vicm_stop = 1.8
+    * let vicm_step = 20m
+    * let num_points = (vicm_stop - vicm_start) / vicm_step + 1
+
+    * * Pre-allocate vectors
+    * let vicm_vec = vector(num_points) *0
+    * let avd_vec = vector(num_points) *0
+
+    * let vicm_val = vicm_start
+    * let i = 0
+
+    * while vicm_val le vicm_stop
+    *     echo "Loop Started"
+    *     * Set CM voltage and enable differential input
+    *     alter VICM vicm_val
+        
+    *     * Single point AC at 1Hz to get DC gain
+    *     ac lin 1 1 1
+        
+    *     * Store results in pre-allocated vectors
+    *     let vicm_vec[i] = vicm_val
+    *     let avd_vec[i] = mag(v(VDIFF))
+        
+    *     let vicm_val = vicm_val + vicm_step
+    *     let i = i + 1
+        
+    *     echo "Loop Finished"
+    *     * echo \"Loop $&i Finished"
+    * end
+
+    * * === FIND CMIR (10% drop from max gain) ===
+    * let avd_max = maximum(avd_vec)
+    * let avd_90percent = avd_max * 0.9
+
+    * * === MEASURE CMIR BOUNDARIES ===
+    * * Find CMIR boundaries using vector search
+    * let vicm_min = 0
+    * let vicm_max = 0
+    * let found_min = 0
+    * let found_max = 0
+
+    * let j = 0
+    * while j lt length(avd_vec)
+    *     if avd_vec[j] ge avd_90percent and found_min eq 0
+    *         let vicm_min = vicm_vec[j]
+    *         let found_min = 1
+    *     end
+    *     if avd_vec[j] ge avd_90percent
+    *         let vicm_max = vicm_vec[j]
+    *     end
+    *     let j = j + 1
+    * end
+
+    * let cmir_range = vicm_max - vicm_min
+
+    * * white background
+    * set color0=white
+    * * black grid and text (only needed with X11, automatic with MS Win)
+    * set color1=black
+    * * wider plot lines
+    * set xbrushwidth=4
+
+    * * === PLOT AND RESULTS ===
+    * plot avd_vec vs vicm_vec title \"Differential Gain vs VICM\"
+    * let gain = avd_vec
+    * save gain
+    * echo "Max Gain: $&avd_max"
+    * echo "90% Gain Level: $&avd_90percent V/V\"
+    * echo "CMIR Min: $&vicm_min V\"
+    * echo "CMIR Max: $&vicm_max V\"
+    * echo "CMIR Range: $&cmir_range V\"
+
+    * * === EXPORT ===
+    * print avd_max avd_90percent vicm_min vicm_max cmir_range > cmir_results.txt
+
+    * write diff_amp_tb_cmir.raw
+
+*?  CM Large Signal (Second TA)
+
+    * shell rm Lab6_Vicm.raw
+    * let Vstop=1.8
+    * let Vstep=5m
+    * let Vact=-600m
+    * let VICMmax=0
+    * let VICMmin=0
+    * save all
+    * op
+    * while Vact le Vstop
+    *     alter VICM Vact
+    *     op
+    *     ac dec 10 1 10G
+
+    *     let VODIFF=VOP-VON
+    *     meas ac GAIN MAX VODIFF FROM=1 TO=100MEG
+    *     let BW_STOP=GAIN*0.707
+    *     meas ac BW WHEN VODIFF=BW_STOP FALL=1
+    *     let GBW=GAIN*BW
+    *     let VCM=Vact
+    *     save GBW VCM
+    *     print GBW VCM
+
+    *     if (GBW>26MEG)
+    *         let VICMmax = Vact
+    *     endif
+
+    *         if (GBW<26MEG & Vact<0.5) 
+    *             let VICMmin = Vact
+    *     endif
+
+    *     set appendwrite
+    *     remzerovec
+    *     write Lab6_Vicm.raw
+
+    *     let Vact=Vact+Vstep
+    * end
+
+    * print VICMmax 
+    * print VICMmin
+
+*?  CM Large Signal (Group Code)
+
+    * set filetype=ascii
+    * compose V_CM start=-0.6 stop=1.2 step=0.01
+    * settype voltage V_CM 
+    * let GBW_vec = V_CM
+    * settype frequency GBW_vec
+    * setscale V_CM
+
+    * echo "Entering Foreach loop"
+    * let index = 0
+    * foreach val $V_CM
+    *     echo "inside Foreach loop"
+    *     save all
+    *     alter VICM $val
+    *     AC DEC 10 1 10G
+    *     let VDIFF = VOP - VON
+    *     meas AC DC_GAIN MAX vmag(VDIFF)
+    *     let pole_gain = DC_GAIN * 1/sqrt(2)
+    *     meas AC BW WHEN vmag(VDIFF)=pole_gain
+    *     let GBW = DC_GAIN * BW
+    *     let GBW_vec[index] = GBW
+    *     let index = index + 1
+    *     remzerovec
+    * end
+    * echo "Left foreach loop"
+
+    * meas AC ref_GBW max f(GBW_vec)
+    * let cut_off_GBW = ref_GBW * 0.9
+    * let index = 0
+    * foreach val $&GBW_vec
+    * if $val >= cut_off_GBW
+    * break
+    * end
+    * let index = index + 1
+    * end
+    * let VCM_min = V_CM[index]
+    * let index_1 = 0
+    * foreach val $&GBW_vec
+    * if (index_1 > index)
+    * if ($val <= cut_off_GBW)
+    * break
+    * end
+    * end
+    * let index_1 = index_1 + 1
+    * end
+    * let VCM_max = V_CM[index_1]
+    * write GBW.raw GBW_vec
+    * print VCM_min VCM_max 
+
+
 .endc
