@@ -1,0 +1,5 @@
+avd_max = 7.771283e+00
+avd_90percent = 6.994155e+00
+vicm_min = -3.00000e-01
+vicm_max = 8.200000e-01
+cmir_range = 1.120000e+00

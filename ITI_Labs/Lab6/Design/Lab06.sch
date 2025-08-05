@@ -42,7 +42,7 @@ C {devices/iopin.sym} 560 -210 0 0 {name=p6 lab=Vin-}
 C {devices/iopin.sym} 250 -170 2 0 {name=p7 lab=Vout-}
 C {devices/iopin.sym} 530 -170 0 0 {name=p8 lab=Vout+}
 C {devices/iopin.sym} 380 -60 1 0 {name=p9 lab=GND}
-C {symbols/pmos_3p3.sym} 250 -210 0 0 {name=M1
+C {symbols/pmos_3p3.sym} 250 -210 0 0 {name=M4
 L=350n
 W=31u
 nf=1
@@ -56,9 +56,9 @@ sa=0 sb=0 sd=0
 model=pmos_3p3
 spiceprefix=X
 }
-C {symbols/pmos_3p3.sym} 360 -360 0 0 {name=M2
+C {symbols/pmos_3p3.sym} 360 -360 0 0 {name=M1
 L=517.8n
-W=18.13u
+W=2*18.13u
 nf=1
 m=1
 ad="'int((nf+1)/2) * W/nf * 0.18u'"
@@ -70,7 +70,7 @@ sa=0 sb=0 sd=0
 model=pmos_3p3
 spiceprefix=X
 }
-C {symbols/pmos_3p3.sym} 140 -360 0 1 {name=M4
+C {symbols/pmos_3p3.sym} 140 -360 0 1 {name=M2
 L=517.8n
 W=18.13u
 nf=1
