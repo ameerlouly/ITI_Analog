@@ -1,4 +1,88 @@
 .control
+    save all
 
+*?  OP Analysis
+    op
+    show m : id : gm : gmbs : gds : vgs : vth : vds : vdsat
+
+*?  AC Analysis
+
+    shell rm Lab07_tb.raw
+    AC DEC 10 1 10G
+    set appendwrite
+    remzerovec
+    write Lab07_tb.raw
+
+*?  CM Large Signal Analysis
+
+    * DC VICM 0 1.8 10m
+    * set appendwrite
+    * remzerovec
+    * write Lab07_tb.raw
+
+*?  CMIR
+    save all
+
+    shell rm Lab6_param.raw
+    let Vstart = 0.8
+    let Vstop = 1.8
+    let Vstep = 10m
+    let Vact = Vstart
+    let VICMmax = 0
+    let VICMmin = 0
+    save all
+
+    let num_points = (Vstop - Vstart) / Vstep + 1
+
+    * Pre-allocate vectors
+    let vicm_vec = vector(num_points) *0
+    let avd_vec = vector(num_points) *0
+    let gbw_vec = vector(num_points) *0
+    let bw_vec = vector(num_points) *0
+    echo "Creating Vectors"
+
+    let i = 0
+    while Vact le Vstop
+        alter VICM Vact
+
+        ac dec 10 1 10G
+        let vodiff = VOUT
+
+        meas ac DiffGain MAX vmag(vodiff) FROM = 1 TO = 100Meg
+        let ff1 = DiffGain * 0.7071
+        meas ac f3db WHEN vmag(vodiff) = ff1 FALL = 1
+        let GBW = DiffGain * f3db
+        save vodiff
+        save GBW
+
+        let vicm_vec[i] = Vact
+        let avd_vec[i] = DiffGain
+        let gbw_vec[i] = GBW
+        let bw_vec[i] = f3db
+
+        set appendwrite
+        remzerovec
+        write Lab6_param.raw
+
+        if (GBW > 40MEG)
+            let VICMmax = Vact
+        endif
+        if (GBW < 40MEG)
+            if (Vact < 0.5)
+                let VICMmin = Vact
+            endif
+        endif
+
+        let Vact = Vact + Vstep
+        let i = i + 1
+    end
+
+    let GBW_Max = maximum(gbw_vec)
+    print GBW_Max
+    plot bw_vec vs vicm_vec
+    plot avd_vec vs vicm_vec
+    plot gbw_vec vs vicm_vec
+    print VICMmax
+    print VICMmin
 
 .endc
