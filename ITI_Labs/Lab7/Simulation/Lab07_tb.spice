@@ -1,0 +1,74 @@
+** sch_path: /home/tare/ITI_Analog/ITI_Labs/Lab7/Design/Lab07_tb.sch
+**.subckt Lab07_tb
+X1 VDD net9 net3 net4 VOUT GND Lab07
+Xbalun1 net2 net1 net3 net4 balun
+V1 VDD GND 1.8
+I0 VDD net9 10u
+VICM net1 GND 1.25 AC 0
+VID net2 GND DC 0 AC 1
+C1 VOUT GND 5p m=1
+X2 VDD net10 net7 net8 VOUT1 GND Lab07
+Xbalun2 net6 net5 net7 net8 balun
+I1 VDD net10 10u
+VICM1 net5 GND 1.25 AC 1
+VID1 net6 GND DC 0 AC 0
+C2 VOUT1 GND 5p m=1
+**** begin user architecture code
+
+
+.include sim_script.sim
+
+
+
+.include /home/tare/pdk/gf180mcuC/libs.tech/ngspice/design.ngspice
+.lib /home/tare/pdk/gf180mcuC/libs.tech/ngspice/sm141064.ngspice typical
+
+**** end user architecture code
+**.ends
+
+* expanding   symbol:  Lab07.sym # of pins=6
+** sym_path: /home/tare/ITI_Analog/ITI_Labs/Lab7/Design/Lab07.sym
+** sch_path: /home/tare/ITI_Analog/ITI_Labs/Lab7/Design/Lab07.sch
+.subckt Lab07 VDD IBn Vin+ Vin- Vout GND
+*.iopin VDD
+*.iopin GND
+*.iopin IBn
+*.iopin Vin-
+*.iopin Vin+
+*.iopin Vout
+XM1 net1 Vin+ net2 GND nmos_3p3 L=450n W=25u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0 m=1
+XM4 net1 net1 VDD VDD pmos_3p3 L=330n W=2.62u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0 m=1
+XM5 net2 IBn GND GND nmos_3p3 L=2.2u W=40u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0 m=1
+XM2 Vout Vin- net2 GND nmos_3p3 L=450n W=25u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0 m=1
+XM3 Vout net1 VDD VDD pmos_3p3 L=330n W=2.62u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0 m=1
+XM6 IBn IBn GND GND nmos_3p3 L=2.2u W=10u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0 m=1
+.ends
+
+
+* expanding   symbol:  balun.sym # of pins=4
+** sym_path: /home/tare/ITI_Analog/ITI_Labs/Lab7/Design/balun.sym
+** sch_path: /home/tare/ITI_Analog/ITI_Labs/Lab7/Design/balun.sch
+.subckt balun d c p n
+*.iopin p
+*.iopin n
+*.iopin d
+*.iopin c
+E1 net1 c d 0 0.5
+V1 p net1 0
+F1 d 0 V1 -0.5
+R1 d 0 1T m=1
+E2 net2 n d 0 0.5
+V2 c net3 0
+F2 d 0 V2 -0.5
+R2 net3 net2 1u m=1
+.ends
+
+.GLOBAL VDD
+.GLOBAL GND
+.end
