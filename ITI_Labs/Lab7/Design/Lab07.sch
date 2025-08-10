@@ -46,7 +46,7 @@ C {devices/iopin.sym} 800 -220 2 0 {name=p14 lab=Vin+}
 C {devices/iopin.sym} 1050 -280 0 0 {name=p15 lab=Vout}
 C {symbols/nmos_3p3.sym} 840 -220 0 0 {name=M1
 L=450n
-W=22u
+W=20u
 nf=1
 m=1
 ad="'int((nf+1)/2) * W/nf * 0.18u'"
@@ -60,7 +60,7 @@ spiceprefix=X
 }
 C {symbols/pmos_3p3.sym} 880 -340 0 1 {name=M4
 L=330n
-W=3u
+W=3.5u
 nf=1
 m=1
 ad="'int((nf+1)/2) * W/nf * 0.18u'"
@@ -74,7 +74,7 @@ spiceprefix=X
 }
 C {symbols/nmos_3p3.sym} 930 -90 0 0 {name=M5
 L=2.2u
-W=40u
+W=4*10u
 nf=1
 m=1
 ad="'int((nf+1)/2) * W/nf * 0.18u'"
@@ -104,7 +104,7 @@ C {devices/lab_pin.sym} 960 -220 3 0 {name=p2 sig_type=std_logic lab=GND}
 C {devices/lab_pin.sym} 860 -270 0 0 {name=p1 sig_type=std_logic lab=V1}
 C {symbols/pmos_3p3.sym} 1030 -340 0 0 {name=M3
 L=330n
-W=3u
+W=3.5u
 nf=1
 m=1
 ad="'int((nf+1)/2) * W/nf * 0.18u'"
@@ -118,7 +118,7 @@ spiceprefix=X
 }
 C {symbols/nmos_3p3.sym} 1070 -220 0 1 {name=M2
 L=450n
-W=22u
+W=20u
 nf=1
 m=1
 ad="'int((nf+1)/2) * W/nf * 0.18u'"
