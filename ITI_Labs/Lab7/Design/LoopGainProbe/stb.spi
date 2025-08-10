@@ -1,0 +1,59 @@
+.func tian_loop() {1/(1-1/(2*(ac1.I(v.X999.Vi)*ac2.V(X999.x)-ac1.V(X999.x)*ac2.I(v.X999.Vi))+ac1.V(X999.x)+ac2.I(v.X999.Vi)))}
+
+
+
+*----------------------------------------------------------------
+* Probes
+*----------------------------------------------------------------
+.save V(X999.x) I(v.X999.Vi)
+
+
+
+*----------------------------------------------------------------
+* CONTROL BLOCK
+*----------------------------------------------------------------
+.control
+	set num_threads=8
+	set color0=white
+	set color1=black
+	set xbrushwidth =3
+	unset askquit
+
+	optran 0 0 0 100n 4u 0
+	op
+	write stb.raw
+	set appendwrite
+
+	*----------------------------------------------------------------
+	* LSTB analysis
+	*----------------------------------------------------------------
+	* Set voltage AC to 1
+	ac dec 50 100 10G
+
+	* Set Current to 1
+	alter i.X999.Ii acmag=1
+	alter v.X999.Vi acmag=0
+	ac dec 50 100 10G
+
+	let tian_signal = tian_loop()
+
+	let loop_gain_db = db(tian_signal)
+	let loop_gain_ph = 180*cph(tian_signal)/pi
+
+
+	*plot loop_gain_db
+	*plot loop_gain_ph
+
+
+
+  	meas ac GAIN_CROSSOVER_FREQ WHEN loop_gain_db=0
+  	meas ac phaseatzerogain FIND loop_gain_ph AT=GAIN_CROSSOVER_FREQ
+  	let PM = abs(180 - phaseatzerogain)
+  	print PM
+
+  	Remzerovec
+	write stb.raw tian_signal
+	
+.endc
+
+

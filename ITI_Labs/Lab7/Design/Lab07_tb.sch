@@ -5,28 +5,30 @@ V {}
 S {}
 E {}
 B 2 680 -200 1480 200 {flags=graph
-y1=-1.3e-08
-y2=61
+y1=-69
+y2=-48
 ypos1=0
 ypos2=2
 divy=5
 subdivy=4
 unity=1
-x1=-1.8
-x2=1.8
+x1=0
+x2=10
 divx=5
-subdivx=4
+subdivx=8
 xlabmag=1.0
 ylabmag=1.0
 dataset=-1
 unitx=1
-logx=0
+logx=1
 logy=0
 mode=Line
 rainbow=0
 color=4
-node="VOUT deriv()"
-}
+node="VOUT db20()"
+rawfile=/home/tare/ITI_Analog/ITI_Labs/Lab7/Simulation/Lab07_tb.raw
+sim_type=ac
+autoload=1}
 B 2 680 -630 1480 -230 {flags=graph
 y1=0.65
 y2=83
