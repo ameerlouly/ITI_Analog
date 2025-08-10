@@ -1,16 +1,14 @@
-** sch_path: /home/tare/ITI_Analog/ITI_Labs/Lab7/Design/Lab07_tb.sch
-**.subckt Lab07_tb
-X1 VDD net5 net3 net4 VOUT GND Lab07
-Xbalun1 net2 net1 net3 net4 balun
+** sch_path: /home/tare/Desktop/ITI_Analog/ITI_Labs/Lab7/Design/Lab07_cl_tb.sch
+**.subckt Lab07_cl_tb
+X1 VDD net2 net1 VOUT VOUT GND Lab07
 V1 VDD GND 1.8
-I0 VDD net5 10u
-VICM net1 GND 1.25 AC 0
-VID net2 GND DC 0 AC 1
+I0 VDD net2 10u
+VID net1 GND 0.90372
 C1 VOUT GND 5p m=1
 **** begin user architecture code
 
 
-.include sim_script.sim
+.include sim_script_cl.sim
 
 
 
@@ -42,25 +40,6 @@ XM3 Vout V1 VDD VDD pmos_3p3 L=330n W=3u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' 
 + ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0 m=1
 XM2 Vout Vin- net1 GND nmos_3p3 L=450n W=22u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
 + ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0 m=1
-.ends
-
-
-* expanding   symbol:  balun.sym # of pins=4
-** sym_path: /home/tare/ITI_Analog/ITI_Labs/Lab7/Design/balun.sym
-** sch_path: /home/tare/ITI_Analog/ITI_Labs/Lab7/Design/balun.sch
-.subckt balun d c p n
-*.iopin p
-*.iopin n
-*.iopin d
-*.iopin c
-E1 net1 c d 0 0.5
-V1 p net1 0
-F1 d 0 V1 -0.5
-R1 d 0 1T m=1
-E2 net2 n d 0 0.5
-V2 c net3 0
-F2 d 0 V2 -0.5
-R2 net3 net2 1u m=1
 .ends
 
 .GLOBAL VDD

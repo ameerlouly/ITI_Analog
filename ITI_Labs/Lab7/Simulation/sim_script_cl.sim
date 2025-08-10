@@ -1,0 +1,114 @@
+.control
+    save all
+
+    let x = 1
+    let num = 1
+    dowhile x <= 6
+        set num = {$&x}
+        save @m.x1.xm{$num}.m0[id]
+        save @m.x1.xm{$num}.m0[vgs]
+        save @m.x1.xm{$num}.m0[vds]
+        save @m.x1.xm{$num}.m0[vdsat]
+        save @m.x1.xm{$num}.m0[vth]
+        save @m.x1.xm{$num}.m0[gm]
+        save @m.x1.xm{$num}.m0[gds]
+        save @m.x1.xm{$num}.m0[gmbs]
+        save @m.x1.xm{$num}.m0[cgs]
+        save @m.x1.xm{$num}.m0[cgd]
+        save @m.x1.xm{$num}.m0[csb]
+        save @m.x1.xm{$num}.m0[cdb]
+        let x = x + 1
+    end
+
+*?  OP Analysis
+    op
+    show m : id : gm : gmbs : gds : vgs : vth : vds : vdsat
+    set appendwrite
+    write Lab07_tb.raw
+
+*?  Small Signal
+    * shell rm Lab07_tb.raw
+    * ac dec 10 1 10g
+    * set appendwrite
+    * write Lab07_tb.raw
+
+*?  CMRR Analysis
+
+*     shell rm 5t_ota_tb_ac.raw
+
+* * === DIFFERENTIAL MODE ===
+
+*     alter VID AC = 1
+*     alter VICM AC = 0
+*     ac dec 10 1 10g
+
+* * === COMMON MODE ===
+
+*     alter VID AC = 0
+*     alter VICM AC = 1
+*     ac dec 10 1 10g
+
+* * === EXTRACT RESULTS ===
+
+*     let vod = ac1.v(VOUT)
+*     let vocm = ac2.v(VOUT)
+*     let cmrr_freq = vdb(vod) - vdb(vocm)
+*     save cmrr_freq
+*     write 5t_ota_tb_ac.raw
+
+*?  Diff Large Signal
+
+    * shell rm Lab07_tb.raw
+    * dc VID -1.8 1.8 1m
+    * let DC_Gain = deriv(VOUT)
+    * meas DC peak MAX DC_Gain FROM = -0.5 TO = 0.5
+    * set appendwrite
+    * write Lab07_tb.raw
+
+*?  CM Large Signal
+
+    *     * === DIFFERENTIAL GAIN vs VICM SWEEP ===
+
+    * let vicm_start = 0
+    * let vicm_stop = 1.8
+    * let vicm_step = 20m
+    * let num_points = (vicm_stop - vicm_start) / vicm_step
+
+    * * Pre-allocate vectors
+    * let vicm_vec = vector(num_points) *0
+    * let gbw_vec = vector(num_points) *0
+
+    * * Define vectors type
+    * settype voltage vicm_vec
+    * setscale vicm_vec
+    * settype frequency gbw_vec
+    * let vicm_val = vicm_start
+    * let i = 0
+    * while vicm_val le vicm_stop
+    *     * Set CM voltage and enable differential input
+    *     alter VICM DC = vicm_val
+    *     * AC to get DC gain and BW
+    *     ac DEC 10 1 10G
+    *     meas AC gain MAX vmag(VOUT)
+    *     let stop_band = gain * 0.707
+    *     meas AC bw WHEN vmag(VOUT)=stop_band
+    *     * Store results in pre-allocated vectors
+    *     let vicm_vec[i] = vicm_val
+    *     let gbw_vec[i] = gain * bw
+    *     let vicm_val = vicm_val + vicm_step
+    *     let i = i + 1
+    * end
+
+    * * === MEASUREMENTS ===
+    * meas AC max_gbw max f(gbw_vec)
+    * let limit_gbw = 0.9*max_gbw
+    * meas AC min_vincm find v(vicm_vec) when f(gbw_vec)=limit_gbw RISE=1
+    * meas AC max_vincm find v(vicm_vec) when f(gbw_vec)=limit_gbw FALL=1
+    * let CMIR = max_vincm-min_vincm
+    * print min_vincm max_vincm CMIR
+    * save gbw_vec vicm_vec
+    * write 5t_ota_tb_cmir.raw gbw_vec
+    * plot gbw_vec vs vicm_vec
+
+
+.endc
