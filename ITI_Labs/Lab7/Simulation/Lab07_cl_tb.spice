@@ -1,10 +1,11 @@
-** sch_path: /home/tare/Desktop/ITI_Analog/ITI_Labs/Lab7/Design/Lab07_cl_tb.sch
+** sch_path: /home/tare/ITI_Analog/ITI_Labs/Lab7/Design/Lab07_cl_tb.sch
 **.subckt Lab07_cl_tb
-X1 VDD net2 net1 VOUT VOUT GND Lab07
+X1 VDD net3 net1 net2 VOUT GND Lab07
 V1 VDD GND 1.8
-I0 VDD net2 10u
-VID net1 GND 0.90372
+I0 VDD net3 10u
+VID net1 GND 1.188
 C1 VOUT GND 5p m=1
+X999 VOUT net2 loopgainprobe
 **** begin user architecture code
 
 
@@ -28,18 +29,39 @@ C1 VOUT GND 5p m=1
 *.iopin Vin-
 *.iopin Vin+
 *.iopin Vout
-XM1 V1 Vin+ net1 GND nmos_3p3 L=450n W=22u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
+XM1 V1 Vin+ V2 GND nmos_3p3 L=450n W=20u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
 + ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0 m=1
-XM4 V1 V1 VDD VDD pmos_3p3 L=330n W=3u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
+XM4 V1 V1 VDD VDD pmos_3p3 L=330n W=3.5u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
 + ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0 m=1
-XM5 net1 IBn GND GND nmos_3p3 L=2.2u W=40u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
+XM5 V2 IBn GND GND nmos_3p3 L=2.1u W=4*10u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
 + ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0 m=1
 XM6 IBn IBn GND GND nmos_3p3 L=2.2u W=10u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
 + ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0 m=1
-XM3 Vout V1 VDD VDD pmos_3p3 L=330n W=3u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
+XM3 Vout V1 VDD VDD pmos_3p3 L=330n W=3.5u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
 + ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0 m=1
-XM2 Vout Vin- net1 GND nmos_3p3 L=450n W=22u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
+XM2 Vout Vin- V2 GND nmos_3p3 L=450n W=20u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
 + ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0 m=1
+.ends
+
+
+* expanding   symbol:  /home/tare/ITI_Analog/ITI_Labs/Lab7/Design/LoopGainProbe/loopgainprobe.sym # of pins=2
+** sym_path: /home/tare/ITI_Analog/ITI_Labs/Lab7/Design/LoopGainProbe/loopgainprobe.sym
+** sch_path: /home/tare/ITI_Analog/ITI_Labs/Lab7/Design/LoopGainProbe/loopgainprobe.sch
+.subckt loopgainprobe a b
+*.iopin a
+*.iopin b
+**** begin user architecture code
+
+
+
+Ii 0 x DC 0 AC 0
+Vi x a DC 0 AC 1
+Vnodebuffer b x 0
+
+
+
+
+**** end user architecture code
 .ends
 
 .GLOBAL VDD

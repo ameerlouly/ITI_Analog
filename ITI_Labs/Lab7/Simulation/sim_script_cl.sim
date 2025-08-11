@@ -21,16 +21,16 @@
     end
 
 *?  OP Analysis
-    op
-    show m : id : gm : gmbs : gds : vgs : vth : vds : vdsat
-    set appendwrite
-    write Lab07_tb.raw
-
-*?  Small Signal
-    * shell rm Lab07_tb.raw
-    * ac dec 10 1 10g
+    * op
+    * show m : id : gm : gmbs : gds : vgs : vth : vds : vdsat
     * set appendwrite
     * write Lab07_tb.raw
+
+*?  Small Signal
+    shell rm Lab07_tb.raw
+    ac dec 10 1 10g
+    set appendwrite
+    write Lab07_cl_tb.raw
 
 *?  CMRR Analysis
 
@@ -67,7 +67,7 @@
 
 *?  CM Large Signal
 
-    *     * === DIFFERENTIAL GAIN vs VICM SWEEP ===
+        * === DIFFERENTIAL GAIN vs VICM SWEEP ===
 
     * let vicm_start = 0
     * let vicm_stop = 1.8
@@ -77,6 +77,8 @@
     * * Pre-allocate vectors
     * let vicm_vec = vector(num_points) *0
     * let gbw_vec = vector(num_points) *0
+    * let gain_vec = vector(num_points) *0
+    * let bw_vec = vector(num_points) *0
 
     * * Define vectors type
     * settype voltage vicm_vec
@@ -86,7 +88,7 @@
     * let i = 0
     * while vicm_val le vicm_stop
     *     * Set CM voltage and enable differential input
-    *     alter VICM DC = vicm_val
+    *     alter VID DC = vicm_val
     *     * AC to get DC gain and BW
     *     ac DEC 10 1 10G
     *     meas AC gain MAX vmag(VOUT)
@@ -95,6 +97,8 @@
     *     * Store results in pre-allocated vectors
     *     let vicm_vec[i] = vicm_val
     *     let gbw_vec[i] = gain * bw
+    *     let gain_vec[i] = gain
+    *     let bw_vec[i] = bw
     *     let vicm_val = vicm_val + vicm_step
     *     let i = i + 1
     * end
@@ -106,9 +110,9 @@
     * meas AC max_vincm find v(vicm_vec) when f(gbw_vec)=limit_gbw FALL=1
     * let CMIR = max_vincm-min_vincm
     * print min_vincm max_vincm CMIR
-    * save gbw_vec vicm_vec
-    * write 5t_ota_tb_cmir.raw gbw_vec
-    * plot gbw_vec vs vicm_vec
+    * save gbw_vec vicm_vec bw_vec gain_vec
+    * write Lab07_cl_tb.raw gbw_vec vicm_vec bw_vec gain_vec
+    * plot bw_vec vs vicm_vec
 
 
 .endc

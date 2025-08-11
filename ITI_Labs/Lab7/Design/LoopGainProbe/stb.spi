@@ -41,8 +41,8 @@
 	let loop_gain_ph = 180*cph(tian_signal)/pi
 
 
-	*plot loop_gain_db
-	*plot loop_gain_ph
+	plot loop_gain_db
+	plot loop_gain_ph
 
 
 
@@ -52,6 +52,8 @@
   	print PM
 
   	Remzerovec
+	save loop_gain_db
+	save loop_gain_ph
 	write stb.raw tian_signal
 	
 .endc

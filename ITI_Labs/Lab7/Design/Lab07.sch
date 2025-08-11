@@ -18,10 +18,10 @@ N 1050 -400 1090 -400 {lab=VDD}
 N 830 -340 860 -340 {lab=VDD}
 N 830 -390 830 -340 {lab=VDD}
 N 830 -390 860 -390 {lab=VDD}
-N 860 -190 860 -160 {lab=#net1}
-N 860 -160 1050 -160 {lab=#net1}
-N 1050 -190 1050 -160 {lab=#net1}
-N 950 -160 950 -120 {lab=#net1}
+N 860 -190 860 -160 {lab=V2}
+N 860 -160 1050 -160 {lab=V2}
+N 1050 -190 1050 -160 {lab=V2}
+N 950 -160 950 -120 {lab=V2}
 N 770 -90 910 -90 {lab=IBn}
 N 730 -60 730 -30 {lab=GND}
 N 730 -30 950 -30 {lab=GND}
@@ -73,7 +73,7 @@ model=pmos_3p3
 spiceprefix=X
 }
 C {symbols/nmos_3p3.sym} 930 -90 0 0 {name=M5
-L=2.2u
+L=2.1u
 W=4*10u
 nf=1
 m=1
@@ -101,7 +101,7 @@ model=nmos_3p3
 spiceprefix=X
 }
 C {devices/lab_pin.sym} 960 -220 3 0 {name=p2 sig_type=std_logic lab=GND}
-C {devices/lab_pin.sym} 860 -270 0 0 {name=p1 sig_type=std_logic lab=V1}
+C {devices/lab_pin.sym} 860 -280 0 0 {name=p1 sig_type=std_logic lab=V1}
 C {symbols/pmos_3p3.sym} 1030 -340 0 0 {name=M3
 L=330n
 W=3.5u
@@ -130,3 +130,5 @@ sa=0 sb=0 sd=0
 model=nmos_3p3
 spiceprefix=X
 }
+C {devices/lab_pin.sym} 950 -150 0 0 {name=p3 sig_type=std_logic lab=V2}
+C {devices/lab_pin.sym} 800 -110 0 0 {name=p4 sig_type=std_logic lab=IBn}

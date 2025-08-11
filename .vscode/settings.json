@@ -1,6 +1,7 @@
 {
   "files.associations": {
     "*.sim": "spice",
-    "*.deck": "spice"
+    "*.deck": "spice",
+    "*.spi": "spice"
   }
 }
