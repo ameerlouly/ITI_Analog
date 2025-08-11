@@ -3,18 +3,16 @@
 X1 VDD net3 net1 net2 VOUT GND Lab07
 V1 VDD GND 1.8
 I0 VDD net3 10u
-VID net1 GND 1.188
+VID net1 GND 1.25
 C1 VOUT GND 5p m=1
 X999 VOUT net2 loopgainprobe
 **** begin user architecture code
 
-
-.include sim_script_cl.sim
-
-
-
 .include /home/tare/pdk/gf180mcuC/libs.tech/ngspice/design.ngspice
 .lib /home/tare/pdk/gf180mcuC/libs.tech/ngspice/sm141064.ngspice typical
+
+
+.include ../Design/LoopGainProbe/stb.spi
 
 **** end user architecture code
 **.ends
