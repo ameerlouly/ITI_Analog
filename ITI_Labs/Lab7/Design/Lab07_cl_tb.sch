@@ -124,13 +124,13 @@ C {devices/gnd.sym} -60 0 0 0 {name=l2 lab=GND}
 C {devices/gnd.sym} 430 10 0 0 {name=l3 lab=GND}
 C {devices/isource.sym} 400 50 2 0 {name=I0 value=10u}
 C {devices/vdd.sym} 420 -140 0 0 {name=l5 lab=VDD}
-C {devices/vsource.sym} 30 -40 0 0 {name=VID value="1.188" savecurrent=false
+C {devices/vsource.sym} 30 -40 0 0 {name=VID value="1.25" savecurrent=false
 }
 C {devices/gnd.sym} 30 -10 0 0 {name=l7 lab=GND}
 C {devices/code.sym} 80 -410 0 0 {name=NGSPICE only_toplevel=false value="
 .include "sim_script_cl.sim"
 "
-}
+spice_ignore=true}
 C {devices/code_shown.sym} 90 -530 0 0 {name=MODELS only_toplevel=true
 format="tcleval( @value )"
 value="
@@ -152,4 +152,4 @@ format="tcleval( @value )"
 value="
 .include ../Design/LoopGainProbe/stb.spi
 "
-spice_ignore=true}
+}
