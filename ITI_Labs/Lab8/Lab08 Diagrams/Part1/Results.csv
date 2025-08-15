@@ -1,0 +1,16 @@
+Point,Test,Output,Nominal,Spec,Weight,Pass/Fail
+Parameters: CIN=4p,,,,,,
+1,Lab08_ITI:Testbench:1,"gainBwProd(VF(""/VOUT""))",10.02e6,,,
+1,Lab08_ITI:Testbench:1,"VF(""/VOUT"")",,,,
+1,Lab08_ITI:Testbench:1,"dB20(VF(""/VOUT""))",,,,
+1,Lab08_ITI:Testbench:1,"ymax(dB20(VF(""/VOUT"")))",5.703,,,
+1,Lab08_ITI:Testbench:1,"ymax(mag(VF(""/VOUT"")))",1.928,,,
+1,Lab08_ITI:Testbench:1,"bandwidth(VF(""/VOUT"") 3 ""low"")",5.185e6,,,
+Parameters: CIN=12p,,,,,,
+2,Lab08_ITI:Testbench:1,"gainBwProd(VF(""/VOUT""))",10.03e6,,,
+2,Lab08_ITI:Testbench:1,"VF(""/VOUT"")",,,,
+2,Lab08_ITI:Testbench:1,"dB20(VF(""/VOUT""))",,,,
+2,Lab08_ITI:Testbench:1,"ymax(dB20(VF(""/VOUT"")))",11.42,,,
+2,Lab08_ITI:Testbench:1,"ymax(mag(VF(""/VOUT"")))",3.722,,,
+2,Lab08_ITI:Testbench:1,"bandwidth(VF(""/VOUT"") 3 ""low"")",2.688e6,,,
+
