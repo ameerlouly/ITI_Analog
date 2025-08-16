@@ -1,0 +1,7 @@
+Test,Output,Nominal,Spec,Weight,Pass/Fail,,,,
+Lab08_ITI:Testbench:1,Input,,,,,,,,
+Lab08_ITI:Testbench:1,Output,,,,,,,,
+Lab08_ITI:Testbench:1,VID,,,,,,VIN,VOUT,VID
+Lab08_ITI:Testbench:1,PeakToPeak VIN,1.00E-01,,,,PeakToPeak (V),1.00E-01,1.93E-01,5.10E-03
+Lab08_ITI:Testbench:1,PeakToPeak VOUT,1.93E-01,,,,,,,
+Lab08_ITI:Testbench:1,PeakToPeak VID,5.10E-03,,,,,,,
