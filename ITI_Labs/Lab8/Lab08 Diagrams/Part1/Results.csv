@@ -1,16 +1,6 @@
-Point,Test,Output,Nominal,Spec,Weight,Pass/Fail
-Parameters: CIN=4p,,,,,,
-1,Lab08_ITI:Testbench:1,"gainBwProd(VF(""/VOUT""))",10.02e6,,,
-1,Lab08_ITI:Testbench:1,"VF(""/VOUT"")",,,,
-1,Lab08_ITI:Testbench:1,"dB20(VF(""/VOUT""))",,,,
-1,Lab08_ITI:Testbench:1,"ymax(dB20(VF(""/VOUT"")))",5.703,,,
-1,Lab08_ITI:Testbench:1,"ymax(mag(VF(""/VOUT"")))",1.928,,,
-1,Lab08_ITI:Testbench:1,"bandwidth(VF(""/VOUT"") 3 ""low"")",5.185e6,,,
-Parameters: CIN=12p,,,,,,
-2,Lab08_ITI:Testbench:1,"gainBwProd(VF(""/VOUT""))",10.03e6,,,
-2,Lab08_ITI:Testbench:1,"VF(""/VOUT"")",,,,
-2,Lab08_ITI:Testbench:1,"dB20(VF(""/VOUT""))",,,,
-2,Lab08_ITI:Testbench:1,"ymax(dB20(VF(""/VOUT"")))",11.42,,,
-2,Lab08_ITI:Testbench:1,"ymax(mag(VF(""/VOUT"")))",3.722,,,
-2,Lab08_ITI:Testbench:1,"bandwidth(VF(""/VOUT"") 3 ""low"")",2.688e6,,,
-
+,CIN = 4pF,,CIN = 12pF,
+,Simulation,Analytic,Simulation,Analytic
+DC Gain (dB),5.703,,11.42,
+DC Gain,1.928,1.9272,3.722,3.72
+BW,5.19E+06,5.25E+06,2.69E+06,2.72E+06
+GBW,1.00E+07,1.01E+07,1.00E+07,1.01E+07
