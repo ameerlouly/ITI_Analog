@@ -1,0 +1,33 @@
+Starting Single Run, Sweeps and Corners...
+
+Current time: Sat Aug 23 14:55:00 2025 
+Best design point: 1
+Design specs: 
+	ITI_Lab09:Testbench_cl:1	corner	Nominal - 
+	Vout		Error	No
+	Vin		Error	No
+	Slewrate Func		Error	No
+	Slewrate Deriv		Error	No
+	Phase Margin		75.41
+	ymax(mag(getData("loopGain" ?result "stb")))		3.508k
+	unityGainFreq(mag(getData("loopGain" ?result "stb")))		5.828M
+	gainBwProd(mag(getData("loopGain" ?result "stb")))		6.242M
+	VF("/VOUT")		Error	No
+	bandwidth(VF("/VOUT") 3 "low")		Error	No
+	gainBwProd(VF("/VOUT"))		Error	No
+	dB20(VF("/VOUT"))		Error	No
+Design parameters: 
+	Cc		2p
+	CL		5p
+	IB		10u
+	Rc		5k
+	VDD		1.8
+	VICM		600m
+	W5		6.26u
+	VCIM		600m
+
+Interactive.49
+Number of points completed: 1
+Number of simulation errors: 8
+Interactive.49 completed. 
+Current time: Sat Aug 23 14:55:06 2025 

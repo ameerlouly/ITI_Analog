@@ -1,0 +1,27 @@
+Starting Single Run, Sweeps and Corners...
+
+Current time: Sat Aug 23 03:57:51 2025 
+Best design point: 1
+Design specs: 
+	ITI_Lab09:Testbench:1	corner	Nominal - 
+	GBW		5.444M
+	Diff Gain		71.97
+	CM Gain		-4.566
+	CMRR		76.54
+Design parameters: 
+	Cc		2.3p
+	CL		5p
+	IB		10u
+	Rc		13k
+	VDD		1.8
+	VICM		600m
+	W5		6.26u
+	VID		1
+	VICMAC		0
+	VIDDC		0
+
+Interactive.255
+Number of points completed: 1
+Number of simulation errors: 0
+Interactive.255 completed. 
+Current time: Sat Aug 23 03:57:57 2025 

@@ -1,0 +1,26 @@
+Starting Single Run, Sweeps and Corners...
+
+Current time: Sat Aug 23 14:36:12 2025 
+Best design point: 1
+Design specs: 
+	ITI_Lab09:Testbench_cl:1	corner	Nominal - 
+	Vout		Error	No
+	Vin		Error	No
+	Slewrate Func		Error	No
+	Slewrate Deriv		Error	No
+	Phase Margin		71.52
+Design parameters: 
+	Cc		2p
+	CL		5p
+	IB		10u
+	Rc		4k
+	VDD		1.8
+	VICM		600m
+	W5		6.26u
+	VCIM		600m
+
+Interactive.43
+Number of points completed: 1
+Number of simulation errors: 4
+Interactive.43 completed. 
+Current time: Sat Aug 23 14:36:19 2025 

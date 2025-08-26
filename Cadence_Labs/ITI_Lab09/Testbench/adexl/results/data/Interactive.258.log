@@ -1,0 +1,24 @@
+Starting Single Run, Sweeps and Corners...
+
+Current time: Sat Aug 23 04:37:26 2025 
+Best design point: 1
+Design specs: 
+	ITI_Lab09:Testbench:1	corner	Nominal - 
+	GBW		Error	No
+Design parameters: 
+	Cc		2.3p
+	CL		5p
+	IB		10u
+	Rc		13k
+	VDD		1.8
+	VICM		600m
+	W5		6.26u
+	VID		1
+	VICMAC		0
+	VIDDC		0
+
+Interactive.258
+Number of points completed: 1
+Number of simulation errors: 1
+Interactive.258 completed. 
+Current time: Sat Aug 23 04:37:33 2025 
