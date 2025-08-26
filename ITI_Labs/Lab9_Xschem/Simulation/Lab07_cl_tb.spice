@@ -1,43 +1,51 @@
-** sch_path: /home/tare/ITI_Analog/ITI_Labs/Lab7/Design/Lab07_cl_tb.sch
+** sch_path: /home/tare/ITI_Analog/ITI_Labs/Lab9_Xschem/Design/Lab07_cl_tb.sch
 **.subckt Lab07_cl_tb
-X1 VDD net3 net1 net2 VOUT GND Lab07
+X1 VDD net3 net1 net2 VOUT GND Lab09
 V1 VDD GND 1.8
-I0 VDD net3 10u
-VID net1 GND 1.25
+I0 net3 GND 10u
+VID net1 GND 0.6
 C1 VOUT GND 5p m=1
 X999 VOUT net2 loopgainprobe
 **** begin user architecture code
 
+
+.include sim_script_cl.sim
+
+
+
 .include /home/tare/pdk/gf180mcuC/libs.tech/ngspice/design.ngspice
 .lib /home/tare/pdk/gf180mcuC/libs.tech/ngspice/sm141064.ngspice typical
-
-
-.include ../Design/LoopGainProbe/stb.spi
 
 **** end user architecture code
 **.ends
 
-* expanding   symbol:  Lab07.sym # of pins=6
-** sym_path: /home/tare/ITI_Analog/ITI_Labs/Lab7/Design/Lab07.sym
-** sch_path: /home/tare/ITI_Analog/ITI_Labs/Lab7/Design/Lab07.sch
-.subckt Lab07 VDD IBn Vin+ Vin- Vout GND
+* expanding   symbol:  Lab09.sym # of pins=6
+** sym_path: /home/tare/ITI_Analog/ITI_Labs/Lab9_Xschem/Design/Lab09.sym
+** sch_path: /home/tare/ITI_Analog/ITI_Labs/Lab9_Xschem/Design/Lab09.sch
+.subckt Lab09 VDD IBn Vin+ Vin- Vout GND
 *.iopin VDD
 *.iopin GND
 *.iopin IBn
 *.iopin Vin-
 *.iopin Vin+
 *.iopin Vout
-XM1 V1 Vin+ V2 GND nmos_3p3 L=450n W=20u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
+XM2 V1 Vin+ V2 V2 pmos_3p3 L=430n W=10.3u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
 + ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0 m=1
-XM4 V1 V1 VDD VDD pmos_3p3 L=330n W=3.5u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
+XM3 net1 net1 GND GND nmos_3p3 L=460n W=1u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
 + ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0 m=1
-XM5 V2 IBn GND GND nmos_3p3 L=2.1u W=4*10u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
+XM4 V1 net1 GND GND nmos_3p3 L=460n W=1u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
 + ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0 m=1
-XM6 IBn IBn GND GND nmos_3p3 L=2.2u W=10u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
+XM1 net1 Vin- V2 V2 pmos_3p3 L=430n W=10.3u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
 + ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0 m=1
-XM3 Vout V1 VDD VDD pmos_3p3 L=330n W=3.5u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
+XM5 V2 IBn VDD VDD pmos_3p3 L=600n W=17.3u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
 + ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0 m=1
-XM2 Vout Vin- V2 GND nmos_3p3 L=450n W=20u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
+XM6 Vout V1 GND GND nmos_3p3 L=390n W=6.26u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0 m=1
+XM8 IBn IBn VDD VDD pmos_3p3 L=600n W=14.5u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0 m=1
+R1 V1 net2 13k m=1
+C1 net2 Vout 2.3p m=1
+XM7 Vout IBn VDD VDD pmos_3p3 L=600n W=4*17.3u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
 + ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0 m=1
 .ends
 

@@ -3,7 +3,7 @@
 
     let x = 1
     let num = 1
-    dowhile x <= 6
+    dowhile x <= 9
         set num = {$&x}
         save @m.x1.xm{$num}.m0[id]
         save @m.x1.xm{$num}.m0[vgs]
@@ -21,16 +21,16 @@
     end
 
 *?  OP Analysis
-    * op
-    * show m : id : gm : gmbs : gds : vgs : vth : vds : vdsat
-    * set appendwrite
-    * write Lab07_tb.raw
-
-*?  Small Signal
-    shell rm Lab07_tb.raw
-    ac dec 10 1 10g
+    op
+    show m : id : gm : gmbs : gds : vgs : vth : vds : vdsat
     set appendwrite
     write Lab07_cl_tb.raw
+
+*?  Small Signal
+    * shell rm Lab07_tb.raw
+    * ac dec 10 1 10g
+    * set appendwrite
+    * write Lab07_cl_tb.raw
 
 *?  CMRR Analysis
 
