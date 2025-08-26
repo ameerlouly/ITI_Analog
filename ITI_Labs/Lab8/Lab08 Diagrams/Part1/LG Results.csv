@@ -1,0 +1,14 @@
+Point,Test,Output,Nominal,Spec,Weight,Pass/Fail
+Parameters: CIN=4p,,,,,,
+1,Lab08_ITI:Testbench:1,"mag(getData(""loopGain"" ?result ""stb""))",,,,
+1,Lab08_ITI:Testbench:1,"ymax(mag(getData(""loopGain"" ?result ""stb"")))",26.81,,,
+1,Lab08_ITI:Testbench:1,"dB20(mag(getData(""loopGain"" ?result ""stb"")))",,,,
+1,Lab08_ITI:Testbench:1,"ymax(dB20(mag(getData(""loopGain"" ?result ""stb""))))",28.57,,,
+1,Lab08_ITI:Testbench:1,"unityGainFreq(mag(getData(""loopGain"" ?result ""stb"")))",5e6,,,
+Parameters: CIN=12p,,,,,,
+2,Lab08_ITI:Testbench:1,"mag(getData(""loopGain"" ?result ""stb""))",,,,
+2,Lab08_ITI:Testbench:1,"ymax(mag(getData(""loopGain"" ?result ""stb"")))",13.41,,,
+2,Lab08_ITI:Testbench:1,"dB20(mag(getData(""loopGain"" ?result ""stb"")))",,,,
+2,Lab08_ITI:Testbench:1,"ymax(dB20(mag(getData(""loopGain"" ?result ""stb""))))",22.55,,,
+2,Lab08_ITI:Testbench:1,"unityGainFreq(mag(getData(""loopGain"" ?result ""stb"")))",2.497e6,,,
+

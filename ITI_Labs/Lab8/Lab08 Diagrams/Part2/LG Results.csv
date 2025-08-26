@@ -1,0 +1,16 @@
+Point,Test,Output,Nominal,Spec,Weight,Pass/Fail
+Parameters: CIN=4p,,,,,,
+1,Lab08_ITI:Testbench:1,LG Mag,,,,
+1,Lab08_ITI:Testbench:1,LG dB,,,,
+1,Lab08_ITI:Testbench:1,LG dB Val,28.66,,,
+1,Lab08_ITI:Testbench:1,LG Mag Val,27.09,,,
+1,Lab08_ITI:Testbench:1,LG Wu,3.659e6,,,
+1,Lab08_ITI:Testbench:1,LG BW,133.5e3,,,
+Parameters: CIN=12p,,,,,,
+2,Lab08_ITI:Testbench:1,LG Mag,,,,
+2,Lab08_ITI:Testbench:1,LG dB,,,,
+2,Lab08_ITI:Testbench:1,LG dB Val,22.84,,,
+2,Lab08_ITI:Testbench:1,LG Mag Val,13.86,,,
+2,Lab08_ITI:Testbench:1,LG Wu,1.582e6,,,
+2,Lab08_ITI:Testbench:1,LG BW,114.5e3,,,
+

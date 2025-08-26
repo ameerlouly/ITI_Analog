@@ -1,0 +1,6 @@
+,CIN = 4pF,,CIN = 12pF,
+,Simulation,Analytic,Simulation,Analytic
+DC Gain (dB),5.703,,11.42,
+DC Gain,1.928,1.9272,3.722,3.72
+BW,5.19E+06,5.25E+06,2.69E+06,2.72E+06
+GBW,1.00E+07,1.01E+07,1.00E+07,1.01E+07
