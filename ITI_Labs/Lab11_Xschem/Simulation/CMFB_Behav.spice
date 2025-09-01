@@ -1,0 +1,21 @@
+** sch_path: /home/tare/ITI_Analog/ITI_Labs/Lab11_Xschem/Design/CMFB_Behav.sch
+**.subckt CMFB_Behav AVDD AGND VBN VOUT1 VCTRLP VREF VBP VOUT2
+*.iopin VOUT1
+*.iopin VOUT2
+*.iopin VREF
+*.iopin VCTRLP
+*.iopin VBP
+*.iopin AVDD
+*.iopin AGND
+*.iopin VBN
+E1 net3 GND VOUT1 GND 1
+E2 net1 GND VOUT2 GND 1
+E3 VCTRLP VBP net2 VREF 1
+R1 net3 net2 50k m=1
+R2 net2 net1 50k m=1
+* noconn AVDD
+* noconn AGND
+* noconn VBN
+**.ends
+.GLOBAL GND
+.end
