@@ -4,10 +4,10 @@ K {}
 V {}
 S {}
 E {}
-N 0 70 0 90 {lab=#net1}
-N 0 70 40 70 {lab=#net1}
-N -60 10 -60 30 {lab=#net2}
-N -60 10 40 10 {lab=#net2}
+N 0 70 0 90 {lab=VINCM}
+N 0 70 40 70 {lab=VINCM}
+N -60 10 -60 30 {lab=VINDIFF}
+N -60 10 40 10 {lab=VINDIFF}
 N 120 10 150 10 {lab=VINP}
 N 120 70 150 70 {lab=VINN}
 N 170 -10 180 -10 {lab=VINN}
@@ -18,8 +18,8 @@ N 480 80 500 80 {lab=VOUTP}
 N 500 80 500 100 {lab=VOUTP}
 N 500 20 550 20 {lab=VOUTN}
 N 500 80 550 80 {lab=VOUTP}
-N 630 20 700 20 {lab=VOUTCM}
-N 630 80 700 80 {lab=VOUTDIFF}
+N 630 20 700 20 {lab=VOUTDIFF}
+N 630 80 700 80 {lab=VOUTCM}
 N 850 0 900 0 {lab=VOUTN}
 N 850 30 900 30 {lab=VOUTP}
 N 850 90 900 90 {lab=VREF}
@@ -37,10 +37,11 @@ C {devices/vsource.sym} 0 120 0 0 {name=VICM value="0.5 AC 0" savecurrent=false}
 C {devices/gnd.sym} 0 150 0 0 {name=l6 lab=GND}
 C {devices/vsource.sym} -60 60 0 0 {name=VID value="DC 0 AC 1" savecurrent=false}
 C {devices/gnd.sym} -60 90 0 0 {name=l7 lab=GND}
-C {devices/code.sym} -200 270 0 0 {name=NGSPICE only_toplevel=false value="
+C {devices/code.sym} -170 -410 0 0 {name=NGSPICE only_toplevel=false value="
 .include "sim_script.sim"
-"}
-C {devices/code_shown.sym} -30 320 0 0 {name=MODELS only_toplevel=true
+"
+}
+C {devices/code_shown.sym} 0 -360 0 0 {name=MODELS only_toplevel=true
 format="tcleval( @value )"
 value="
 .include $::180MCU_MODELS/design.ngspice
@@ -63,12 +64,14 @@ value=500f
 footprint=1206
 device="ceramic capacitor"}
 C {devices/gnd.sym} 500 -60 2 0 {name=l9 lab=GND}
-C {balun.sym} 590 50 2 0 {name=balun2}
-C {devices/lab_pin.sym} 700 20 1 0 {name=p1 sig_type=std_logic lab=VOUTCM}
-C {devices/lab_pin.sym} 700 80 3 0 {name=p6 sig_type=std_logic lab=VOUTDIFF}
+C {balun.sym} 590 50 0 1 {name=balun2}
+C {devices/lab_pin.sym} 690 80 3 0 {name=p1 sig_type=std_logic lab=VOUTCM}
+C {devices/lab_pin.sym} 690 20 1 0 {name=p6 sig_type=std_logic lab=VOUTDIFF}
 C {devices/lab_pin.sym} 530 20 1 0 {name=p7 sig_type=std_logic lab=VOUTN}
 C {devices/lab_pin.sym} 530 80 3 0 {name=p8 sig_type=std_logic lab=VOUTP}
-C {CMFB_Behav.sym} 1050 40 0 0 {name=x2}
+C {CMFB.sym} 1050 40 0 0 {name=x2
+*schematic=CMFB_Behav.sch
+schematic=CMFB_real.sch}
 C {devices/gnd.sym} 1020 140 0 0 {name=l10 lab=GND}
 C {devices/lab_pin.sym} 260 170 0 0 {name=p9 sig_type=std_logic lab=VBP}
 C {devices/lab_pin.sym} 1050 -60 2 0 {name=p10 sig_type=std_logic lab=VBP}
@@ -85,3 +88,5 @@ C {devices/lab_pin.sym} 850 90 0 0 {name=p18 sig_type=std_logic lab=VREF}
 C {devices/vdd.sym} 1020 -60 0 0 {name=l12 lab=VDD}
 C {devices/noconn.sym} 700 20 2 0 {name=l13}
 C {devices/noconn.sym} 700 80 2 0 {name=l14}
+C {devices/lab_pin.sym} 10 10 1 0 {name=p19 sig_type=std_logic lab=VINDIFF}
+C {devices/lab_pin.sym} 30 70 1 0 {name=p20 sig_type=std_logic lab=VINCM}

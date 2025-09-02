@@ -1,0 +1,691 @@
+Title: ** sch_path: /home/tare/iti_analog/iti_labs/lab11_xschem/design/testbench.sch
+Date: Wed Sep  3 02:42:42  2025
+Plotname: Operating Point
+Flags: real
+No. Variables: 673
+No. Points: 1
+Variables:
+	0	v(x1.vds2)	voltage
+	1	@m.x1.xm1.m0[cdb]	capacitance
+	2	@m.x1.xm1.m0[cgd]	capacitance
+	3	@m.x1.xm1.m0[cgs]	capacitance
+	4	@m.x1.xm1.m0[csb]	capacitance
+	5	@m.x1.xm1.m0[gds]	admittance
+	6	@m.x1.xm1.m0[gm]	admittance
+	7	@m.x1.xm1.m0[gmbs]	admittance
+	8	i(@m.x1.xm1.m0[id])	current
+	9	v(@m.x1.xm1.m0[vds])	voltage
+	10	v(@m.x1.xm1.m0[vdsat])	voltage
+	11	v(@m.x1.xm1.m0[vgs])	voltage
+	12	v(@m.x1.xm1.m0[vth])	voltage
+	13	@m.x1.xm2.m0[cdb]	capacitance
+	14	@m.x1.xm2.m0[cgd]	capacitance
+	15	@m.x1.xm2.m0[cgs]	capacitance
+	16	@m.x1.xm2.m0[csb]	capacitance
+	17	@m.x1.xm2.m0[gds]	admittance
+	18	@m.x1.xm2.m0[gm]	admittance
+	19	@m.x1.xm2.m0[gmbs]	admittance
+	20	i(@m.x1.xm2.m0[id])	current
+	21	v(@m.x1.xm2.m0[vds])	voltage
+	22	v(@m.x1.xm2.m0[vdsat])	voltage
+	23	v(@m.x1.xm2.m0[vgs])	voltage
+	24	v(@m.x1.xm2.m0[vth])	voltage
+	25	@m.x1.xm3.m0[cdb]	capacitance
+	26	@m.x1.xm3.m0[cgd]	capacitance
+	27	@m.x1.xm3.m0[cgs]	capacitance
+	28	@m.x1.xm3.m0[csb]	capacitance
+	29	@m.x1.xm3.m0[gds]	admittance
+	30	@m.x1.xm3.m0[gm]	admittance
+	31	@m.x1.xm3.m0[gmbs]	admittance
+	32	i(@m.x1.xm3.m0[id])	current
+	33	v(@m.x1.xm3.m0[vds])	voltage
+	34	v(@m.x1.xm3.m0[vdsat])	voltage
+	35	v(@m.x1.xm3.m0[vgs])	voltage
+	36	v(@m.x1.xm3.m0[vth])	voltage
+	37	@m.x1.xm4.m0[cdb]	capacitance
+	38	@m.x1.xm4.m0[cgd]	capacitance
+	39	@m.x1.xm4.m0[cgs]	capacitance
+	40	@m.x1.xm4.m0[csb]	capacitance
+	41	@m.x1.xm4.m0[gds]	admittance
+	42	@m.x1.xm4.m0[gm]	admittance
+	43	@m.x1.xm4.m0[gmbs]	admittance
+	44	i(@m.x1.xm4.m0[id])	current
+	45	v(@m.x1.xm4.m0[vds])	voltage
+	46	v(@m.x1.xm4.m0[vdsat])	voltage
+	47	v(@m.x1.xm4.m0[vgs])	voltage
+	48	v(@m.x1.xm4.m0[vth])	voltage
+	49	@m.x1.xm5.m0[cdb]	capacitance
+	50	@m.x1.xm5.m0[cgd]	capacitance
+	51	@m.x1.xm5.m0[cgs]	capacitance
+	52	@m.x1.xm5.m0[csb]	capacitance
+	53	@m.x1.xm5.m0[gds]	admittance
+	54	@m.x1.xm5.m0[gm]	admittance
+	55	@m.x1.xm5.m0[gmbs]	admittance
+	56	i(@m.x1.xm5.m0[id])	current
+	57	v(@m.x1.xm5.m0[vds])	voltage
+	58	v(@m.x1.xm5.m0[vdsat])	voltage
+	59	v(@m.x1.xm5.m0[vgs])	voltage
+	60	v(@m.x1.xm5.m0[vth])	voltage
+	61	@m.x1.xm6.m0[cdb]	capacitance
+	62	@m.x1.xm6.m0[cgd]	capacitance
+	63	@m.x1.xm6.m0[cgs]	capacitance
+	64	@m.x1.xm6.m0[csb]	capacitance
+	65	@m.x1.xm6.m0[gds]	admittance
+	66	@m.x1.xm6.m0[gm]	admittance
+	67	@m.x1.xm6.m0[gmbs]	admittance
+	68	i(@m.x1.xm6.m0[id])	current
+	69	v(@m.x1.xm6.m0[vds])	voltage
+	70	v(@m.x1.xm6.m0[vdsat])	voltage
+	71	v(@m.x1.xm6.m0[vgs])	voltage
+	72	v(@m.x1.xm6.m0[vth])	voltage
+	73	@m.x1.xm7.m0[cdb]	capacitance
+	74	@m.x1.xm7.m0[cgd]	capacitance
+	75	@m.x1.xm7.m0[cgs]	capacitance
+	76	@m.x1.xm7.m0[csb]	capacitance
+	77	@m.x1.xm7.m0[gds]	admittance
+	78	@m.x1.xm7.m0[gm]	admittance
+	79	@m.x1.xm7.m0[gmbs]	admittance
+	80	i(@m.x1.xm7.m0[id])	current
+	81	v(@m.x1.xm7.m0[vds])	voltage
+	82	v(@m.x1.xm7.m0[vdsat])	voltage
+	83	v(@m.x1.xm7.m0[vgs])	voltage
+	84	v(@m.x1.xm7.m0[vth])	voltage
+	85	@m.x1.xm8.m0[cdb]	capacitance
+	86	@m.x1.xm8.m0[cgd]	capacitance
+	87	@m.x1.xm8.m0[cgs]	capacitance
+	88	@m.x1.xm8.m0[csb]	capacitance
+	89	@m.x1.xm8.m0[gds]	admittance
+	90	@m.x1.xm8.m0[gm]	admittance
+	91	@m.x1.xm8.m0[gmbs]	admittance
+	92	i(@m.x1.xm8.m0[id])	current
+	93	v(@m.x1.xm8.m0[vds])	voltage
+	94	v(@m.x1.xm8.m0[vdsat])	voltage
+	95	v(@m.x1.xm8.m0[vgs])	voltage
+	96	v(@m.x1.xm8.m0[vth])	voltage
+	97	@m.x1.xm9.m0[cdb]	capacitance
+	98	@m.x1.xm9.m0[cgd]	capacitance
+	99	@m.x1.xm9.m0[cgs]	capacitance
+	100	@m.x1.xm9.m0[csb]	capacitance
+	101	@m.x1.xm9.m0[gds]	admittance
+	102	@m.x1.xm9.m0[gm]	admittance
+	103	@m.x1.xm9.m0[gmbs]	admittance
+	104	i(@m.x1.xm9.m0[id])	current
+	105	v(@m.x1.xm9.m0[vds])	voltage
+	106	v(@m.x1.xm9.m0[vdsat])	voltage
+	107	v(@m.x1.xm9.m0[vgs])	voltage
+	108	v(@m.x1.xm9.m0[vth])	voltage
+	109	@m.x1.xm10.m0[cdb]	capacitance
+	110	@m.x1.xm10.m0[cgd]	capacitance
+	111	@m.x1.xm10.m0[cgs]	capacitance
+	112	@m.x1.xm10.m0[csb]	capacitance
+	113	@m.x1.xm10.m0[gds]	admittance
+	114	@m.x1.xm10.m0[gm]	admittance
+	115	@m.x1.xm10.m0[gmbs]	admittance
+	116	i(@m.x1.xm10.m0[id])	current
+	117	v(@m.x1.xm10.m0[vds])	voltage
+	118	v(@m.x1.xm10.m0[vdsat])	voltage
+	119	v(@m.x1.xm10.m0[vgs])	voltage
+	120	v(@m.x1.xm10.m0[vth])	voltage
+	121	@m.x1.xm11.m0[cdb]	capacitance
+	122	@m.x1.xm11.m0[cgd]	capacitance
+	123	@m.x1.xm11.m0[cgs]	capacitance
+	124	@m.x1.xm11.m0[csb]	capacitance
+	125	@m.x1.xm11.m0[gds]	admittance
+	126	@m.x1.xm11.m0[gm]	admittance
+	127	@m.x1.xm11.m0[gmbs]	admittance
+	128	i(@m.x1.xm11.m0[id])	current
+	129	v(@m.x1.xm11.m0[vds])	voltage
+	130	v(@m.x1.xm11.m0[vdsat])	voltage
+	131	v(@m.x1.xm11.m0[vgs])	voltage
+	132	v(@m.x1.xm11.m0[vth])	voltage
+	133	@m.x1.xm12.m0[cdb]	capacitance
+	134	@m.x1.xm12.m0[cgd]	capacitance
+	135	@m.x1.xm12.m0[cgs]	capacitance
+	136	@m.x1.xm12.m0[csb]	capacitance
+	137	@m.x1.xm12.m0[gds]	admittance
+	138	@m.x1.xm12.m0[gm]	admittance
+	139	@m.x1.xm12.m0[gmbs]	admittance
+	140	i(@m.x1.xm12.m0[id])	current
+	141	v(@m.x1.xm12.m0[vds])	voltage
+	142	v(@m.x1.xm12.m0[vdsat])	voltage
+	143	v(@m.x1.xm12.m0[vgs])	voltage
+	144	v(@m.x1.xm12.m0[vth])	voltage
+	145	@m.x1.xm13.m0[cdb]	capacitance
+	146	@m.x1.xm13.m0[cgd]	capacitance
+	147	@m.x1.xm13.m0[cgs]	capacitance
+	148	@m.x1.xm13.m0[csb]	capacitance
+	149	@m.x1.xm13.m0[gds]	admittance
+	150	@m.x1.xm13.m0[gm]	admittance
+	151	@m.x1.xm13.m0[gmbs]	admittance
+	152	i(@m.x1.xm13.m0[id])	current
+	153	v(@m.x1.xm13.m0[vds])	voltage
+	154	v(@m.x1.xm13.m0[vdsat])	voltage
+	155	v(@m.x1.xm13.m0[vgs])	voltage
+	156	v(@m.x1.xm13.m0[vth])	voltage
+	157	@m.x1.xm14.m0[cdb]	capacitance
+	158	@m.x1.xm14.m0[cgd]	capacitance
+	159	@m.x1.xm14.m0[cgs]	capacitance
+	160	@m.x1.xm14.m0[csb]	capacitance
+	161	@m.x1.xm14.m0[gds]	admittance
+	162	@m.x1.xm14.m0[gm]	admittance
+	163	@m.x1.xm14.m0[gmbs]	admittance
+	164	i(@m.x1.xm14.m0[id])	current
+	165	v(@m.x1.xm14.m0[vds])	voltage
+	166	v(@m.x1.xm14.m0[vdsat])	voltage
+	167	v(@m.x1.xm14.m0[vgs])	voltage
+	168	v(@m.x1.xm14.m0[vth])	voltage
+	169	@m.x1.xm15.m0[cdb]	capacitance
+	170	@m.x1.xm15.m0[cgd]	capacitance
+	171	@m.x1.xm15.m0[cgs]	capacitance
+	172	@m.x1.xm15.m0[csb]	capacitance
+	173	@m.x1.xm15.m0[gds]	admittance
+	174	@m.x1.xm15.m0[gm]	admittance
+	175	@m.x1.xm15.m0[gmbs]	admittance
+	176	i(@m.x1.xm15.m0[id])	current
+	177	v(@m.x1.xm15.m0[vds])	voltage
+	178	v(@m.x1.xm15.m0[vdsat])	voltage
+	179	v(@m.x1.xm15.m0[vgs])	voltage
+	180	v(@m.x1.xm15.m0[vth])	voltage
+	181	@m.x1.xm16.m0[cdb]	capacitance
+	182	@m.x1.xm16.m0[cgd]	capacitance
+	183	@m.x1.xm16.m0[cgs]	capacitance
+	184	@m.x1.xm16.m0[csb]	capacitance
+	185	@m.x1.xm16.m0[gds]	admittance
+	186	@m.x1.xm16.m0[gm]	admittance
+	187	@m.x1.xm16.m0[gmbs]	admittance
+	188	i(@m.x1.xm16.m0[id])	current
+	189	v(@m.x1.xm16.m0[vds])	voltage
+	190	v(@m.x1.xm16.m0[vdsat])	voltage
+	191	v(@m.x1.xm16.m0[vgs])	voltage
+	192	v(@m.x1.xm16.m0[vth])	voltage
+	193	@m.x1.xm17.m0[cdb]	capacitance
+	194	@m.x1.xm17.m0[cgd]	capacitance
+	195	@m.x1.xm17.m0[cgs]	capacitance
+	196	@m.x1.xm17.m0[csb]	capacitance
+	197	@m.x1.xm17.m0[gds]	admittance
+	198	@m.x1.xm17.m0[gm]	admittance
+	199	@m.x1.xm17.m0[gmbs]	admittance
+	200	i(@m.x1.xm17.m0[id])	current
+	201	v(@m.x1.xm17.m0[vds])	voltage
+	202	v(@m.x1.xm17.m0[vdsat])	voltage
+	203	v(@m.x1.xm17.m0[vgs])	voltage
+	204	v(@m.x1.xm17.m0[vth])	voltage
+	205	@m.x1.xm18.m0[cdb]	capacitance
+	206	@m.x1.xm18.m0[cgd]	capacitance
+	207	@m.x1.xm18.m0[cgs]	capacitance
+	208	@m.x1.xm18.m0[csb]	capacitance
+	209	@m.x1.xm18.m0[gds]	admittance
+	210	@m.x1.xm18.m0[gm]	admittance
+	211	@m.x1.xm18.m0[gmbs]	admittance
+	212	i(@m.x1.xm18.m0[id])	current
+	213	v(@m.x1.xm18.m0[vds])	voltage
+	214	v(@m.x1.xm18.m0[vdsat])	voltage
+	215	v(@m.x1.xm18.m0[vgs])	voltage
+	216	v(@m.x1.xm18.m0[vth])	voltage
+	217	@m.x1.xm19.m0[cdb]	capacitance
+	218	@m.x1.xm19.m0[cgd]	capacitance
+	219	@m.x1.xm19.m0[cgs]	capacitance
+	220	@m.x1.xm19.m0[csb]	capacitance
+	221	@m.x1.xm19.m0[gds]	admittance
+	222	@m.x1.xm19.m0[gm]	admittance
+	223	@m.x1.xm19.m0[gmbs]	admittance
+	224	i(@m.x1.xm19.m0[id])	current
+	225	v(@m.x1.xm19.m0[vds])	voltage
+	226	v(@m.x1.xm19.m0[vdsat])	voltage
+	227	v(@m.x1.xm19.m0[vgs])	voltage
+	228	v(@m.x1.xm19.m0[vth])	voltage
+	229	@m.x1.xm20.m0[cdb]	capacitance
+	230	@m.x1.xm20.m0[cgd]	capacitance
+	231	@m.x1.xm20.m0[cgs]	capacitance
+	232	@m.x1.xm20.m0[csb]	capacitance
+	233	@m.x1.xm20.m0[gds]	admittance
+	234	@m.x1.xm20.m0[gm]	admittance
+	235	@m.x1.xm20.m0[gmbs]	admittance
+	236	i(@m.x1.xm20.m0[id])	current
+	237	v(@m.x1.xm20.m0[vds])	voltage
+	238	v(@m.x1.xm20.m0[vdsat])	voltage
+	239	v(@m.x1.xm20.m0[vgs])	voltage
+	240	v(@m.x1.xm20.m0[vth])	voltage
+	241	@m.x1.xm21.m0[cdb]	capacitance
+	242	@m.x1.xm21.m0[cgd]	capacitance
+	243	@m.x1.xm21.m0[cgs]	capacitance
+	244	@m.x1.xm21.m0[csb]	capacitance
+	245	@m.x1.xm21.m0[gds]	admittance
+	246	@m.x1.xm21.m0[gm]	admittance
+	247	@m.x1.xm21.m0[gmbs]	admittance
+	248	i(@m.x1.xm21.m0[id])	current
+	249	v(@m.x1.xm21.m0[vds])	voltage
+	250	v(@m.x1.xm21.m0[vdsat])	voltage
+	251	v(@m.x1.xm21.m0[vgs])	voltage
+	252	v(@m.x1.xm21.m0[vth])	voltage
+	253	@m.x1.xm22.m0[cdb]	capacitance
+	254	@m.x1.xm22.m0[cgd]	capacitance
+	255	@m.x1.xm22.m0[cgs]	capacitance
+	256	@m.x1.xm22.m0[csb]	capacitance
+	257	@m.x1.xm22.m0[gds]	admittance
+	258	@m.x1.xm22.m0[gm]	admittance
+	259	@m.x1.xm22.m0[gmbs]	admittance
+	260	i(@m.x1.xm22.m0[id])	current
+	261	v(@m.x1.xm22.m0[vds])	voltage
+	262	v(@m.x1.xm22.m0[vdsat])	voltage
+	263	v(@m.x1.xm22.m0[vgs])	voltage
+	264	v(@m.x1.xm22.m0[vth])	voltage
+	265	@m.x1.xm23.m0[cdb]	capacitance
+	266	@m.x1.xm23.m0[cgd]	capacitance
+	267	@m.x1.xm23.m0[cgs]	capacitance
+	268	@m.x1.xm23.m0[csb]	capacitance
+	269	@m.x1.xm23.m0[gds]	admittance
+	270	@m.x1.xm23.m0[gm]	admittance
+	271	@m.x1.xm23.m0[gmbs]	admittance
+	272	i(@m.x1.xm23.m0[id])	current
+	273	v(@m.x1.xm23.m0[vds])	voltage
+	274	v(@m.x1.xm23.m0[vdsat])	voltage
+	275	v(@m.x1.xm23.m0[vgs])	voltage
+	276	v(@m.x1.xm23.m0[vth])	voltage
+	277	@m.x1.xm24.m0[cdb]	capacitance
+	278	@m.x1.xm24.m0[cgd]	capacitance
+	279	@m.x1.xm24.m0[cgs]	capacitance
+	280	@m.x1.xm24.m0[csb]	capacitance
+	281	@m.x1.xm24.m0[gds]	admittance
+	282	@m.x1.xm24.m0[gm]	admittance
+	283	@m.x1.xm24.m0[gmbs]	admittance
+	284	i(@m.x1.xm24.m0[id])	current
+	285	v(@m.x1.xm24.m0[vds])	voltage
+	286	v(@m.x1.xm24.m0[vdsat])	voltage
+	287	v(@m.x1.xm24.m0[vgs])	voltage
+	288	v(@m.x1.xm24.m0[vth])	voltage
+	289	@m.x1.xm25.m0[cdb]	capacitance dims=0
+	290	@m.x1.xm25.m0[cgd]	capacitance dims=0
+	291	@m.x1.xm25.m0[cgs]	capacitance dims=0
+	292	@m.x1.xm25.m0[csb]	capacitance dims=0
+	293	@m.x1.xm25.m0[gds]	admittance dims=0
+	294	@m.x1.xm25.m0[gm]	admittance dims=0
+	295	@m.x1.xm25.m0[gmbs]	admittance dims=0
+	296	i(@m.x1.xm25.m0[id])	current dims=0
+	297	v(@m.x1.xm25.m0[vds])	voltage dims=0
+	298	v(@m.x1.xm25.m0[vdsat])	voltage dims=0
+	299	v(@m.x1.xm25.m0[vgs])	voltage dims=0
+	300	v(@m.x1.xm25.m0[vth])	voltage dims=0
+	301	@m.x1.xm26.m0[cdb]	capacitance dims=0
+	302	@m.x1.xm26.m0[cgd]	capacitance dims=0
+	303	@m.x1.xm26.m0[cgs]	capacitance dims=0
+	304	@m.x1.xm26.m0[csb]	capacitance dims=0
+	305	@m.x1.xm26.m0[gds]	admittance dims=0
+	306	@m.x1.xm26.m0[gm]	admittance dims=0
+	307	@m.x1.xm26.m0[gmbs]	admittance dims=0
+	308	i(@m.x1.xm26.m0[id])	current dims=0
+	309	v(@m.x1.xm26.m0[vds])	voltage dims=0
+	310	v(@m.x1.xm26.m0[vdsat])	voltage dims=0
+	311	v(@m.x1.xm26.m0[vgs])	voltage dims=0
+	312	v(@m.x1.xm26.m0[vth])	voltage dims=0
+	313	@m.x2.xm1.m0[cdb]	capacitance
+	314	@m.x2.xm1.m0[cgd]	capacitance
+	315	@m.x2.xm1.m0[cgs]	capacitance
+	316	@m.x2.xm1.m0[csb]	capacitance
+	317	@m.x2.xm1.m0[gds]	admittance
+	318	@m.x2.xm1.m0[gm]	admittance
+	319	@m.x2.xm1.m0[gmbs]	admittance
+	320	i(@m.x2.xm1.m0[id])	current
+	321	v(@m.x2.xm1.m0[vds])	voltage
+	322	v(@m.x2.xm1.m0[vdsat])	voltage
+	323	v(@m.x2.xm1.m0[vgs])	voltage
+	324	v(@m.x2.xm1.m0[vth])	voltage
+	325	@m.x2.xm2.m0[cdb]	capacitance
+	326	@m.x2.xm2.m0[cgd]	capacitance
+	327	@m.x2.xm2.m0[cgs]	capacitance
+	328	@m.x2.xm2.m0[csb]	capacitance
+	329	@m.x2.xm2.m0[gds]	admittance
+	330	@m.x2.xm2.m0[gm]	admittance
+	331	@m.x2.xm2.m0[gmbs]	admittance
+	332	i(@m.x2.xm2.m0[id])	current
+	333	v(@m.x2.xm2.m0[vds])	voltage
+	334	v(@m.x2.xm2.m0[vdsat])	voltage
+	335	v(@m.x2.xm2.m0[vgs])	voltage
+	336	v(@m.x2.xm2.m0[vth])	voltage
+	337	@m.x2.xm3.m0[cdb]	capacitance
+	338	@m.x2.xm3.m0[cgd]	capacitance
+	339	@m.x2.xm3.m0[cgs]	capacitance
+	340	@m.x2.xm3.m0[csb]	capacitance
+	341	@m.x2.xm3.m0[gds]	admittance
+	342	@m.x2.xm3.m0[gm]	admittance
+	343	@m.x2.xm3.m0[gmbs]	admittance
+	344	i(@m.x2.xm3.m0[id])	current
+	345	v(@m.x2.xm3.m0[vds])	voltage
+	346	v(@m.x2.xm3.m0[vdsat])	voltage
+	347	v(@m.x2.xm3.m0[vgs])	voltage
+	348	v(@m.x2.xm3.m0[vth])	voltage
+	349	@m.x2.xm4.m0[cdb]	capacitance
+	350	@m.x2.xm4.m0[cgd]	capacitance
+	351	@m.x2.xm4.m0[cgs]	capacitance
+	352	@m.x2.xm4.m0[csb]	capacitance
+	353	@m.x2.xm4.m0[gds]	admittance
+	354	@m.x2.xm4.m0[gm]	admittance
+	355	@m.x2.xm4.m0[gmbs]	admittance
+	356	i(@m.x2.xm4.m0[id])	current
+	357	v(@m.x2.xm4.m0[vds])	voltage
+	358	v(@m.x2.xm4.m0[vdsat])	voltage
+	359	v(@m.x2.xm4.m0[vgs])	voltage
+	360	v(@m.x2.xm4.m0[vth])	voltage
+	361	@m.x2.xm5.m0[cdb]	capacitance
+	362	@m.x2.xm5.m0[cgd]	capacitance
+	363	@m.x2.xm5.m0[cgs]	capacitance
+	364	@m.x2.xm5.m0[csb]	capacitance
+	365	@m.x2.xm5.m0[gds]	admittance
+	366	@m.x2.xm5.m0[gm]	admittance
+	367	@m.x2.xm5.m0[gmbs]	admittance
+	368	i(@m.x2.xm5.m0[id])	current
+	369	v(@m.x2.xm5.m0[vds])	voltage
+	370	v(@m.x2.xm5.m0[vdsat])	voltage
+	371	v(@m.x2.xm5.m0[vgs])	voltage
+	372	v(@m.x2.xm5.m0[vth])	voltage
+	373	@m.x2.xm6.m0[cdb]	capacitance
+	374	@m.x2.xm6.m0[cgd]	capacitance
+	375	@m.x2.xm6.m0[cgs]	capacitance
+	376	@m.x2.xm6.m0[csb]	capacitance
+	377	@m.x2.xm6.m0[gds]	admittance
+	378	@m.x2.xm6.m0[gm]	admittance
+	379	@m.x2.xm6.m0[gmbs]	admittance
+	380	i(@m.x2.xm6.m0[id])	current
+	381	v(@m.x2.xm6.m0[vds])	voltage
+	382	v(@m.x2.xm6.m0[vdsat])	voltage
+	383	v(@m.x2.xm6.m0[vgs])	voltage
+	384	v(@m.x2.xm6.m0[vth])	voltage
+	385	@m.x2.xm7.m0[cdb]	capacitance
+	386	@m.x2.xm7.m0[cgd]	capacitance
+	387	@m.x2.xm7.m0[cgs]	capacitance
+	388	@m.x2.xm7.m0[csb]	capacitance
+	389	@m.x2.xm7.m0[gds]	admittance
+	390	@m.x2.xm7.m0[gm]	admittance
+	391	@m.x2.xm7.m0[gmbs]	admittance
+	392	i(@m.x2.xm7.m0[id])	current
+	393	v(@m.x2.xm7.m0[vds])	voltage
+	394	v(@m.x2.xm7.m0[vdsat])	voltage
+	395	v(@m.x2.xm7.m0[vgs])	voltage
+	396	v(@m.x2.xm7.m0[vth])	voltage
+	397	@m.x2.xm8.m0[cdb]	capacitance
+	398	@m.x2.xm8.m0[cgd]	capacitance
+	399	@m.x2.xm8.m0[cgs]	capacitance
+	400	@m.x2.xm8.m0[csb]	capacitance
+	401	@m.x2.xm8.m0[gds]	admittance
+	402	@m.x2.xm8.m0[gm]	admittance
+	403	@m.x2.xm8.m0[gmbs]	admittance
+	404	i(@m.x2.xm8.m0[id])	current
+	405	v(@m.x2.xm8.m0[vds])	voltage
+	406	v(@m.x2.xm8.m0[vdsat])	voltage
+	407	v(@m.x2.xm8.m0[vgs])	voltage
+	408	v(@m.x2.xm8.m0[vth])	voltage
+	409	@m.x2.xm9.m0[cdb]	capacitance
+	410	@m.x2.xm9.m0[cgd]	capacitance
+	411	@m.x2.xm9.m0[cgs]	capacitance
+	412	@m.x2.xm9.m0[csb]	capacitance
+	413	@m.x2.xm9.m0[gds]	admittance
+	414	@m.x2.xm9.m0[gm]	admittance
+	415	@m.x2.xm9.m0[gmbs]	admittance
+	416	i(@m.x2.xm9.m0[id])	current
+	417	v(@m.x2.xm9.m0[vds])	voltage
+	418	v(@m.x2.xm9.m0[vdsat])	voltage
+	419	v(@m.x2.xm9.m0[vgs])	voltage
+	420	v(@m.x2.xm9.m0[vth])	voltage
+	421	@m.x2.xm10.m0[cdb]	capacitance
+	422	@m.x2.xm10.m0[cgd]	capacitance
+	423	@m.x2.xm10.m0[cgs]	capacitance
+	424	@m.x2.xm10.m0[csb]	capacitance
+	425	@m.x2.xm10.m0[gds]	admittance
+	426	@m.x2.xm10.m0[gm]	admittance
+	427	@m.x2.xm10.m0[gmbs]	admittance
+	428	i(@m.x2.xm10.m0[id])	current
+	429	v(@m.x2.xm10.m0[vds])	voltage
+	430	v(@m.x2.xm10.m0[vdsat])	voltage
+	431	v(@m.x2.xm10.m0[vgs])	voltage
+	432	v(@m.x2.xm10.m0[vth])	voltage
+	433	@m.x2.xm11.m0[cdb]	capacitance dims=0
+	434	@m.x2.xm11.m0[cgd]	capacitance dims=0
+	435	@m.x2.xm11.m0[cgs]	capacitance dims=0
+	436	@m.x2.xm11.m0[csb]	capacitance dims=0
+	437	@m.x2.xm11.m0[gds]	admittance dims=0
+	438	@m.x2.xm11.m0[gm]	admittance dims=0
+	439	@m.x2.xm11.m0[gmbs]	admittance dims=0
+	440	i(@m.x2.xm11.m0[id])	current dims=0
+	441	v(@m.x2.xm11.m0[vds])	voltage dims=0
+	442	v(@m.x2.xm11.m0[vdsat])	voltage dims=0
+	443	v(@m.x2.xm11.m0[vgs])	voltage dims=0
+	444	v(@m.x2.xm11.m0[vth])	voltage dims=0
+	445	@m.x2.xm12.m0[cdb]	capacitance dims=0
+	446	@m.x2.xm12.m0[cgd]	capacitance dims=0
+	447	@m.x2.xm12.m0[cgs]	capacitance dims=0
+	448	@m.x2.xm12.m0[csb]	capacitance dims=0
+	449	@m.x2.xm12.m0[gds]	admittance dims=0
+	450	@m.x2.xm12.m0[gm]	admittance dims=0
+	451	@m.x2.xm12.m0[gmbs]	admittance dims=0
+	452	i(@m.x2.xm12.m0[id])	current dims=0
+	453	v(@m.x2.xm12.m0[vds])	voltage dims=0
+	454	v(@m.x2.xm12.m0[vdsat])	voltage dims=0
+	455	v(@m.x2.xm12.m0[vgs])	voltage dims=0
+	456	v(@m.x2.xm12.m0[vth])	voltage dims=0
+	457	@m.x2.xm13.m0[cdb]	capacitance
+	458	@m.x2.xm13.m0[cgd]	capacitance
+	459	@m.x2.xm13.m0[cgs]	capacitance
+	460	@m.x2.xm13.m0[csb]	capacitance
+	461	@m.x2.xm13.m0[gds]	admittance
+	462	@m.x2.xm13.m0[gm]	admittance
+	463	@m.x2.xm13.m0[gmbs]	admittance
+	464	i(@m.x2.xm13.m0[id])	current
+	465	v(@m.x2.xm13.m0[vds])	voltage
+	466	v(@m.x2.xm13.m0[vdsat])	voltage
+	467	v(@m.x2.xm13.m0[vgs])	voltage
+	468	v(@m.x2.xm13.m0[vth])	voltage
+	469	@m.x2.xm14.m0[cdb]	capacitance dims=0
+	470	@m.x2.xm14.m0[cgd]	capacitance dims=0
+	471	@m.x2.xm14.m0[cgs]	capacitance dims=0
+	472	@m.x2.xm14.m0[csb]	capacitance dims=0
+	473	@m.x2.xm14.m0[gds]	admittance dims=0
+	474	@m.x2.xm14.m0[gm]	admittance dims=0
+	475	@m.x2.xm14.m0[gmbs]	admittance dims=0
+	476	i(@m.x2.xm14.m0[id])	current dims=0
+	477	v(@m.x2.xm14.m0[vds])	voltage dims=0
+	478	v(@m.x2.xm14.m0[vdsat])	voltage dims=0
+	479	v(@m.x2.xm14.m0[vgs])	voltage dims=0
+	480	v(@m.x2.xm14.m0[vth])	voltage dims=0
+	481	@m.x2.xm15.m0[cdb]	capacitance dims=0
+	482	@m.x2.xm15.m0[cgd]	capacitance dims=0
+	483	@m.x2.xm15.m0[cgs]	capacitance dims=0
+	484	@m.x2.xm15.m0[csb]	capacitance dims=0
+	485	@m.x2.xm15.m0[gds]	admittance dims=0
+	486	@m.x2.xm15.m0[gm]	admittance dims=0
+	487	@m.x2.xm15.m0[gmbs]	admittance dims=0
+	488	i(@m.x2.xm15.m0[id])	current dims=0
+	489	v(@m.x2.xm15.m0[vds])	voltage dims=0
+	490	v(@m.x2.xm15.m0[vdsat])	voltage dims=0
+	491	v(@m.x2.xm15.m0[vgs])	voltage dims=0
+	492	v(@m.x2.xm15.m0[vth])	voltage dims=0
+	493	@m.x2.xm16.m0[cdb]	capacitance dims=0
+	494	@m.x2.xm16.m0[cgd]	capacitance dims=0
+	495	@m.x2.xm16.m0[cgs]	capacitance dims=0
+	496	@m.x2.xm16.m0[csb]	capacitance dims=0
+	497	@m.x2.xm16.m0[gds]	admittance dims=0
+	498	@m.x2.xm16.m0[gm]	admittance dims=0
+	499	@m.x2.xm16.m0[gmbs]	admittance dims=0
+	500	i(@m.x2.xm16.m0[id])	current dims=0
+	501	v(@m.x2.xm16.m0[vds])	voltage dims=0
+	502	v(@m.x2.xm16.m0[vdsat])	voltage dims=0
+	503	v(@m.x2.xm16.m0[vgs])	voltage dims=0
+	504	v(@m.x2.xm16.m0[vth])	voltage dims=0
+	505	@m.x2.xm17.m0[cdb]	capacitance dims=0
+	506	@m.x2.xm17.m0[cgd]	capacitance dims=0
+	507	@m.x2.xm17.m0[cgs]	capacitance dims=0
+	508	@m.x2.xm17.m0[csb]	capacitance dims=0
+	509	@m.x2.xm17.m0[gds]	admittance dims=0
+	510	@m.x2.xm17.m0[gm]	admittance dims=0
+	511	@m.x2.xm17.m0[gmbs]	admittance dims=0
+	512	i(@m.x2.xm17.m0[id])	current dims=0
+	513	v(@m.x2.xm17.m0[vds])	voltage dims=0
+	514	v(@m.x2.xm17.m0[vdsat])	voltage dims=0
+	515	v(@m.x2.xm17.m0[vgs])	voltage dims=0
+	516	v(@m.x2.xm17.m0[vth])	voltage dims=0
+	517	@m.x2.xm18.m0[cdb]	capacitance dims=0
+	518	@m.x2.xm18.m0[cgd]	capacitance dims=0
+	519	@m.x2.xm18.m0[cgs]	capacitance dims=0
+	520	@m.x2.xm18.m0[csb]	capacitance dims=0
+	521	@m.x2.xm18.m0[gds]	admittance dims=0
+	522	@m.x2.xm18.m0[gm]	admittance dims=0
+	523	@m.x2.xm18.m0[gmbs]	admittance dims=0
+	524	i(@m.x2.xm18.m0[id])	current dims=0
+	525	v(@m.x2.xm18.m0[vds])	voltage dims=0
+	526	v(@m.x2.xm18.m0[vdsat])	voltage dims=0
+	527	v(@m.x2.xm18.m0[vgs])	voltage dims=0
+	528	v(@m.x2.xm18.m0[vth])	voltage dims=0
+	529	@m.x2.xm19.m0[cdb]	capacitance dims=0
+	530	@m.x2.xm19.m0[cgd]	capacitance dims=0
+	531	@m.x2.xm19.m0[cgs]	capacitance dims=0
+	532	@m.x2.xm19.m0[csb]	capacitance dims=0
+	533	@m.x2.xm19.m0[gds]	admittance dims=0
+	534	@m.x2.xm19.m0[gm]	admittance dims=0
+	535	@m.x2.xm19.m0[gmbs]	admittance dims=0
+	536	i(@m.x2.xm19.m0[id])	current dims=0
+	537	v(@m.x2.xm19.m0[vds])	voltage dims=0
+	538	v(@m.x2.xm19.m0[vdsat])	voltage dims=0
+	539	v(@m.x2.xm19.m0[vgs])	voltage dims=0
+	540	v(@m.x2.xm19.m0[vth])	voltage dims=0
+	541	@m.x2.xm20.m0[cdb]	capacitance dims=0
+	542	@m.x2.xm20.m0[cgd]	capacitance dims=0
+	543	@m.x2.xm20.m0[cgs]	capacitance dims=0
+	544	@m.x2.xm20.m0[csb]	capacitance dims=0
+	545	@m.x2.xm20.m0[gds]	admittance dims=0
+	546	@m.x2.xm20.m0[gm]	admittance dims=0
+	547	@m.x2.xm20.m0[gmbs]	admittance dims=0
+	548	i(@m.x2.xm20.m0[id])	current dims=0
+	549	v(@m.x2.xm20.m0[vds])	voltage dims=0
+	550	v(@m.x2.xm20.m0[vdsat])	voltage dims=0
+	551	v(@m.x2.xm20.m0[vgs])	voltage dims=0
+	552	v(@m.x2.xm20.m0[vth])	voltage dims=0
+	553	@m.x2.xm21.m0[cdb]	capacitance dims=0
+	554	@m.x2.xm21.m0[cgd]	capacitance dims=0
+	555	@m.x2.xm21.m0[cgs]	capacitance dims=0
+	556	@m.x2.xm21.m0[csb]	capacitance dims=0
+	557	@m.x2.xm21.m0[gds]	admittance dims=0
+	558	@m.x2.xm21.m0[gm]	admittance dims=0
+	559	@m.x2.xm21.m0[gmbs]	admittance dims=0
+	560	i(@m.x2.xm21.m0[id])	current dims=0
+	561	v(@m.x2.xm21.m0[vds])	voltage dims=0
+	562	v(@m.x2.xm21.m0[vdsat])	voltage dims=0
+	563	v(@m.x2.xm21.m0[vgs])	voltage dims=0
+	564	v(@m.x2.xm21.m0[vth])	voltage dims=0
+	565	@m.x2.xm22.m0[cdb]	capacitance dims=0
+	566	@m.x2.xm22.m0[cgd]	capacitance dims=0
+	567	@m.x2.xm22.m0[cgs]	capacitance dims=0
+	568	@m.x2.xm22.m0[csb]	capacitance dims=0
+	569	@m.x2.xm22.m0[gds]	admittance dims=0
+	570	@m.x2.xm22.m0[gm]	admittance dims=0
+	571	@m.x2.xm22.m0[gmbs]	admittance dims=0
+	572	i(@m.x2.xm22.m0[id])	current dims=0
+	573	v(@m.x2.xm22.m0[vds])	voltage dims=0
+	574	v(@m.x2.xm22.m0[vdsat])	voltage dims=0
+	575	v(@m.x2.xm22.m0[vgs])	voltage dims=0
+	576	v(@m.x2.xm22.m0[vth])	voltage dims=0
+	577	@m.x2.xm23.m0[cdb]	capacitance dims=0
+	578	@m.x2.xm23.m0[cgd]	capacitance dims=0
+	579	@m.x2.xm23.m0[cgs]	capacitance dims=0
+	580	@m.x2.xm23.m0[csb]	capacitance dims=0
+	581	@m.x2.xm23.m0[gds]	admittance dims=0
+	582	@m.x2.xm23.m0[gm]	admittance dims=0
+	583	@m.x2.xm23.m0[gmbs]	admittance dims=0
+	584	i(@m.x2.xm23.m0[id])	current dims=0
+	585	v(@m.x2.xm23.m0[vds])	voltage dims=0
+	586	v(@m.x2.xm23.m0[vdsat])	voltage dims=0
+	587	v(@m.x2.xm23.m0[vgs])	voltage dims=0
+	588	v(@m.x2.xm23.m0[vth])	voltage dims=0
+	589	@m.x2.xm24.m0[cdb]	capacitance dims=0
+	590	@m.x2.xm24.m0[cgd]	capacitance dims=0
+	591	@m.x2.xm24.m0[cgs]	capacitance dims=0
+	592	@m.x2.xm24.m0[csb]	capacitance dims=0
+	593	@m.x2.xm24.m0[gds]	admittance dims=0
+	594	@m.x2.xm24.m0[gm]	admittance dims=0
+	595	@m.x2.xm24.m0[gmbs]	admittance dims=0
+	596	i(@m.x2.xm24.m0[id])	current dims=0
+	597	v(@m.x2.xm24.m0[vds])	voltage dims=0
+	598	v(@m.x2.xm24.m0[vdsat])	voltage dims=0
+	599	v(@m.x2.xm24.m0[vgs])	voltage dims=0
+	600	v(@m.x2.xm24.m0[vth])	voltage dims=0
+	601	@m.x2.xm25.m0[cdb]	capacitance dims=0
+	602	@m.x2.xm25.m0[cgd]	capacitance dims=0
+	603	@m.x2.xm25.m0[cgs]	capacitance dims=0
+	604	@m.x2.xm25.m0[csb]	capacitance dims=0
+	605	@m.x2.xm25.m0[gds]	admittance dims=0
+	606	@m.x2.xm25.m0[gm]	admittance dims=0
+	607	@m.x2.xm25.m0[gmbs]	admittance dims=0
+	608	i(@m.x2.xm25.m0[id])	current dims=0
+	609	v(@m.x2.xm25.m0[vds])	voltage dims=0
+	610	v(@m.x2.xm25.m0[vdsat])	voltage dims=0
+	611	v(@m.x2.xm25.m0[vgs])	voltage dims=0
+	612	v(@m.x2.xm25.m0[vth])	voltage dims=0
+	613	@m.x2.xm26.m0[cdb]	capacitance dims=0
+	614	@m.x2.xm26.m0[cgd]	capacitance dims=0
+	615	@m.x2.xm26.m0[cgs]	capacitance dims=0
+	616	@m.x2.xm26.m0[csb]	capacitance dims=0
+	617	@m.x2.xm26.m0[gds]	admittance dims=0
+	618	@m.x2.xm26.m0[gm]	admittance dims=0
+	619	@m.x2.xm26.m0[gmbs]	admittance dims=0
+	620	i(@m.x2.xm26.m0[id])	current dims=0
+	621	v(@m.x2.xm26.m0[vds])	voltage dims=0
+	622	v(@m.x2.xm26.m0[vdsat])	voltage dims=0
+	623	v(@m.x2.xm26.m0[vgs])	voltage dims=0
+	624	v(@m.x2.xm26.m0[vth])	voltage dims=0
+	625	i(e.xbalun1.e1)	current
+	626	i(e.xbalun1.e2)	current
+	627	i(e.xbalun2.e1)	current
+	628	i(e.xbalun2.e2)	current
+	629	i(v.xbalun1.v1)	current
+	630	i(v.xbalun1.v2)	current
+	631	i(v.xbalun2.v1)	current
+	632	i(v.xbalun2.v2)	current
+	633	i(v1)	current
+	634	i(v2)	current
+	635	v(vbn)	voltage
+	636	v(vbp)	voltage
+	637	v(vctrlp)	voltage
+	638	v(vdd)	voltage
+	639	i(vicm)	current
+	640	i(vid)	current
+	641	v(vincm)	voltage
+	642	v(vindiff)	voltage
+	643	v(vinn)	voltage
+	644	v(vinp)	voltage
+	645	v(voutcm)	voltage
+	646	v(voutdiff)	voltage
+	647	v(voutn)	voltage
+	648	v(voutp)	voltage
+	649	v(vref)	voltage
+	650	v(x1.net1)	voltage
+	651	v(x1.net2)	voltage
+	652	v(x1.net3)	voltage
+	653	v(x1.net4)	voltage
+	654	v(x1.net5)	voltage
+	655	v(x1.vb1)	voltage
+	656	v(x1.vb2)	voltage
+	657	v(x1.vcascn)	voltage
+	658	v(x1.vcascp)	voltage
+	659	v(x1.vds)	voltage
+	660	v(x1.vds1)	voltage
+	661	v(x2.net1)	voltage
+	662	v(x2.net2)	voltage
+	663	v(x2.net3)	voltage
+	664	v(x2.vcm)	voltage
+	665	v(x2.vctrl2)	voltage
+	666	v(x2.vref2)	voltage
+	667	v(xbalun1.net1)	voltage
+	668	v(xbalun1.net2)	voltage
+	669	v(xbalun1.net3)	voltage
+	670	v(xbalun2.net1)	voltage
+	671	v(xbalun2.net2)	voltage
+	672	v(xbalun2.net3)	voltage
+Binary:
+?Dlù?‰(&!ä/ÌºSèƒ;[d<Äe¶¶ûΩ0:mù'‡ıº,PX˝AfE>h‰%>DÅ…>`◊1[†v∑>oô¶y™Ä>‘±Â™∞Ò?⁄õÈ3†¶?$ÆOñ∂L‰?d@xd8È?~'&!ä/Ìº2)ƒ;[d<Íe¶¶ûΩà8mù'‡ıºô≥X˝AfE>˚∫%>DÅ…>˜±1[†v∑>2}¶y™Ä>∑`Â™∞Ò?:öÈ3†¶?$ÆOñ∂L‰?Axd8È?'6ÍÑ+q—º2£Ò˘ànÁº`Ç„3ÅËºµóiR é—ºj9⁄àâ+?g˝û]ÁrÓ>◊ÒUù§Å÷>ra…õJ–>†zçL™4í?ﬁ˛~qû–?√≥ıA8Ô?Y^ó_Á?`3ÁÑ+q—º˝È˘ànÁºX‘Â3ÅËº|gR é—ºw
+«àâ+?9`^ÁrÓ>YZûù§Å÷>p~ˆõJ–>‡·…L™4í?Æ ˘~qû–?~z∞ıA8Ô?◊Hò_Á?ŒŸ»tàa‚ºõ&òWÎe<ñÑã.=.Ω~D·ˆêÎºD=öóá>à!≠1N?¯_e¥∞?¯>6ÀóJ–>m™ïGü@Lﬂôêæ5ª?\).'¶HÓ?⁄G·$qÜÏ?Ó.Õtàa‚º-löWÎe<BMë.=.Ω>˝J·ˆêÎºÓœJöóá>,æ-Æ1N?ãñ¥∞?¯>ù√ˆóJ–>—âïGü@V±¥êæ5ª?x,2'¶HÓ?~πﬂ$qÜÏ?)óïÏ@Òº÷}£?§gΩ75Ø¸ŒΩK<ÅÊNΩÒº62m é ?$ÚÓäú˙>}ÄV¯Ì‰>·¯Ø “–>‡ëë£Ækù?™ëàœÒ ∆?∆˙t¢ƒµÍ?ÕÔ™YÊ?,≈ïÏ@ÒºÌí?§gΩjÔ∏¸ŒΩdAÊNΩÒºﬂ5(m é ?™E9äú˙>§XV¯Ì‰>Í$∞ “–> ÿÂ£Ækù?™ëàœÒ ∆?¬˙t¢ƒµÍ?ÃÔ™YÊ?xﬂ∆(ıΩı`G…ÿ =ºˆ=1€,1Ω¸bÀLvµΩÇ7ÓÖÁ>>ó-I∞ÿ>gä›¿ÒO«>ÛˆÆê>KÊ⁄Æ§Ÿı?ÿprÊ\œ•?ÿíé/µ◊Â?e≥‘[È?™´b„rÛºh¡È˙†8—ºŸxjµíÅΩZH)y'◊˙ºà›	+ËÂ§>€e¸∏]?}ÕªÌ`BÛ>ë`ÓñJ–> mV†–?Læ¨Œ√?ÜµÖƒb#Ó?w¢3‡È?⁄Áe„rÛº‘(˚†8—º;jµíÅΩV\*y'◊˙ºHY0+ËÂ§>—e¸∏]?åªÌ`BÛ>.=`ÓñJ–>Ë
+eV†–?Læ¨Œ√?ÜµÖƒb#Ó?w¢3‡È?¶k„'"üΩöù9…pIºÏÎìä©®3Ωxï`ÜÈÙΩ≈t˚Òy%ç>5S.~Ω"?ßÑï¿˙µ?˜ÏÁæÌ>êπ_z•˙?ãëBrÀ√?N†Îµb#Ó?÷±¬ˇÈ?Üÿ4†éÉ„ºˆxc∂‰Hº˚™π1ΩRÊË÷§:ÌºÙã˛Ñ˙áû>·nÒ¸ê"?"ﬁÔ:h?À{ËæÌ>A‡ÿá∫µÍ?ô&MÍ ∆?*≠j¿µÍ?>)síWÊ?TøeO≥ÁΩä∫?!¶pº âS∞,Ωú;I≥‚fΩé–£Ô7Ãé>_œH6fs?◊Op¢tˇ?Mï≠gµ¯‰>¨Bì_a#Ó?’Ÿ,>À√?¯y∫b#Ó?F§:ŸÈ?‹rpt"êΩW0ã„õ˙nºWM…!|+ΩŒN4%Ω<OôkÓ\Ü>pºd6Å+?∑w]áŒ?‚„«b›>X¨EÄ˘Ï?nCaz•Í¿?ˆ›éö§Ì?cmí‰È?j‰EêΩ˝$`‚Å©~ºÚi¢|;Ω-–ÍM1% Ω˛W˝ÉNñ>aiÌ)%?¥ì#"~?°Ü
+Ì>Ä{*™£Ì?âÒÑ•Í¿?R{™ö§Ì?ÈﬂﬂÈ?t[“ê7êΩÏÓ∞ç£Koº|Ωë{'|+Ω⁄Ÿz‰6%ΩÌlcí†hÜ>+¿9$-+?ÍO5‚~?≠LßË›>ê≤≠„Ï?Û»Ñn•Í¿?–íö§Ì?Z $ÈÈ?†ÔÃ¯ÄùŒº∏O◊”π„`º⁄‘)È
+Ê˛º¿T0u5Œ÷ºÅÈÏ{™^¢>®à€&á?oæÉı> ÌGc›>î“–‚‚?ÕHT™ÌQ…?DV÷*OpÙ?ˆÂû◊ŒÒ??éò4HﬁºÚØ/ÌFn<ÕôA–Ω¯NΩÌ~±ÊºŸèt¿u◊¶>¨„ÛÛ∆’!?z0v"—T?jŸJÌ>"xu¡;eÙ? ◊‹8"‘»?Á˘íx=eÙ?“‹,	&’Ò?8ÜÎ@Æ–ºÜ´-Gm¥ºl2ÌuÜı˛ºòìuÉE◊ºé⁄üë)v∏>˛˙b)]#?‡ø®Ï÷íÙ>#§Ã%È›>`¿yÚÜ’“?öÖÍ£…?EDt8{Ù?¥{;µGÕÒ?p!Ë√ÿ„º˙Ìh∆xìºûñ‘´MΩtöÜyRÌº∏Ÿ.≥>>≥>a ä?”+"?[ú©*À?√√åÌ>X()°K‘?—Òf”‰ ∆?æq„ã¿µÍ?$iäYÊ?ÑÀÓ˛∫UñºIÃ9m¡<®˜Q&√ºÑ´Ë˜π†ºrA—H∂û>rb≠u(?†b—öÇáÈ>Á;œic›>n∆Ëu®?îúè#¨ì‘?é≈Ω?åpúWsÂ?~¿ô@ñºE[€7
+<§¬ãdº√ºùº¶ô>≠†º\H∏éHò>ΩÊèË•K?œUÈõÆÈ>t·ùÈ›>’é2®=ŒÙ?Î-ø`≥o‘?Æ!¡c?‚Ú0ÆwÂ?ö´≈c⁄ÎΩïä%KÃ0Ω·¨110Ω`œÌ?‡ÓΩê*é¶¯kf?≥Ÿ∆^Î"Â>ˇá–€‘3“>^fBÈ›> ˆÁáO¥d?.≈©’≈‡?øº¬ÿÙ?ô¸5∞Ê?                                                                                                                                                                                                ‡ yÑ#ÅÒº∆?£πVM4ºjù˚áyΩ ãuµ6>˙ºµq k‘q> ÁrZ?úÈüZÍ.Ù>kz¢¯–>Ó“Ø¡+¯?óM≠¢√Œ√?Ú˝v∂b#Ó?≠∏äƒ◊È?g’˜áÒº∞8{–Uº~ÕC@~Ω†ÓXw0B˙ºÿ⁄ñx>‹éWMèG?ø&ÕEBÙ>ˇﬂû¢¯–>◊¨ˇNx®Ô?ŸKnŸ´‰√?}i˘∫l+Ó?Ï#¬D€È?ﬁ∂f’˜áÒº¬É&{–UºÏ*C@~ΩÚiXw0B˙º"æñx>…EQMèG?@=«EBÙ>Èy◊û¢¯–>∆ê˘Nx®Ô?xıiŸ´‰√?Û“˜∫l+Ó?Ó#¬D€È?‰W) £ÿº‘f´5µº1t£ﬂÌdΩÂùﬂ˜w‚ºV˜ÊÔ	∑ã>-∆ö0˙h?aÑ1ÙŸ˘¸>¢™îg…M⁄>¬Ëìè√Ù?äô◊j±v¡?∆«‡Ì}—Í?îZ	÷»Á?ƒŒâ’£º>πg≈xçæªxù•ûcn º RÓÉ˙ï¨ºƒ\ãt7¥%>µôµ]¨>Q÷ôñπî>¢T g†a>Zz®®˙?N˚R˙A®?¿x∏[‚?ª≈V”»Á?ƒ:M(Áº:¶>,¡Rºr2?ï´/Ωjã;ËWÒº⁄ñsw:∞Å>uÊ"#⁄‰?‡S≠Ã°°Ù>≠TX°…M⁄>—⁄DËm—?ù™¨YºÕ?Qfêo—?*Ú}·È?íZdy‘›ºËwÈÔ	Aº†HﬁÏy≠Ω¯f‰jTÊºêNlö≈>b\x8®>l oƒ
+'ò>*]t"°†a>≤+µ◊Â?Ê{å}é‰•?ÑA~/µ◊Â?Ñ˛Ä‰·È?LQ‘BÄÒº Z∏kU'ºyò A=yΩTgòÊ˚=˙ºÚìN¡Dp>Ï˙^“4n?U$¯ÓAÙ>W¨™®Ç
+—>∏¸Œy•f¸?ÍIv»Œ√?í`µb#Ó?˝0«˛’È?Ÿªù¢º⁄£hEÕª ™l√Ëº BS”·´º2aç¯›^ˆ<:©8º«+Ñ=£-?›|(ó=$>-‹	JA=dPÎ∞2Á?+êçŸΩpô?ËÌØOÕ‡ø˜ˆ‹?K€—?¥yÑ#ÅÒºO¨πVM4º±ù˚áyΩ<ãuµ6>˙ºûÌ!k‘q>éÁrZ?Ù⁄üZÍ.Ù>o]z¢¯–>Âƒ¨¡+¯?ÚL≠¢√Œ√?Ú˝v∂b#Ó?Æ∏äƒ◊È?                                                                                                                                                                                                $'A∑:÷ºz‰32æº–f8◊k∏˛ºLP–√i,ﬁº ≠tºË>’t>s;°?V—˝I∑æˆ>E¥•
+q⁄>ÃlvbΩ[√?W„$RôÓ≈?◊&h¡µÍ?/›÷W˜Â?                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      Äª      Äª                      Äª      Äªò¯hwkçø        DtVL∆µÍ?c™OıMÓ¯?‡Gf%˝?      @                      ‡?              ‡?      ‡?‚g€.œ–ß?   @¬Ω£;∑.œ–ß? îˇ.œ–ß?      Ù?¶‚ƒLã˛@m„≈Lã˛@Æå‡Ï>É˘?eF 6(é˘?πMàµd?ı¬j:-x˘?‹6È*∏K‘?03”?¿d
+√ÿÙ?É;ƒL[&Ú?≤˜Ôlù?”{®Ô?ÙˆÃ{®Ô?°‡Ë9Á[√?¸–{®Ô?›F«é.˜? g´K≤2Á?      ‡?      ‡?      ‡?£;∑.œ–ß?‚g€.œ–ß?‚g€.œ–ß?
