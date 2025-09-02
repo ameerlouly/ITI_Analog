@@ -3,7 +3,7 @@
 
     let x = 1
     let num = 1
-    dowhile x <= 23
+    dowhile x <= 26
         set num = {$&x}
         save @m.x1.xm{$num}.m0[id]
         save @m.x1.xm{$num}.m0[vgs]
@@ -20,20 +20,54 @@
         let x = x + 1
     end
 
+    let x = 1
+    let num = 1
+    dowhile x <= 26
+        set num = {$&x}
+        save @m.x2.xm{$num}.m0[id]
+        save @m.x2.xm{$num}.m0[vgs]
+        save @m.x2.xm{$num}.m0[vds]
+        save @m.x2.xm{$num}.m0[vdsat]
+        save @m.x2.xm{$num}.m0[vth]
+        save @m.x2.xm{$num}.m0[gm]
+        save @m.x2.xm{$num}.m0[gds]
+        save @m.x2.xm{$num}.m0[gmbs]
+        save @m.x2.xm{$num}.m0[cgs]
+        save @m.x2.xm{$num}.m0[cgd]
+        save @m.x2.xm{$num}.m0[csb]
+        save @m.x2.xm{$num}.m0[cdb]
+        let x = x + 1
+    end
+
 *?  OP Analysis
     shell rm Testbench.raw
     op
-    show m : id : gm : gmbs : gds : vgs : vth : vds : vdsat
+    show m : id : vgs : vds : vdsat : vth : gm : gds
     set appendwrite
     write Testbench.raw
 
 *?  Small Signal
     * shell rm Testbench.raw
     * ac dec 10 1 10g
-    * plot VOUTDIFF
+    
+    * * DC Gain, BW, GBW and UGF Calculations
     * meas ac Gain MAX vmag(VOUTDIFF)
     * let Gain_dB = db(Gain)
+    * let f3db_gain = Gain_dB - 3
+    * meas ac BW WHEN vdb(VOUTDIFF) = f3db_gain
+    * meas ac UGF WHEN vdb(VOUTDIFF) = 0
+    * let GBW = Gain*BW
+
+    * * PM Calculations
+    * let voutdiff_ph = 180*cph(VOUTDIFF)/pi
+    * meas ac phaseatzerogain find voutdiff_ph when vdb(VOUTDIFF)=0
+    * let PM = 180 - abs(phaseatzerogain)
+    
     * print Gain_dB
+    * print GBW
+    * print PM
+    * plot xlog vdb(VOUTDIFF)
+    * plot xlog voutdiff_ph
     * set appendwrite
     * write Testbench.raw
 
