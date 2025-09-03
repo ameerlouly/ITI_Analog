@@ -59,21 +59,22 @@ N -320 -90 -280 -90 {lab=VCM}
 N -220 -90 -160 -90 {lab=#net1}
 N -300 -90 -300 -40 {lab=VCM}
 N -120 -170 -90 -170 {lab=VBP}
-N 400 -30 450 -30 {lab=VREF2}
-N 800 -100 800 10 {lab=VREF2}
-N 800 -200 800 -160 {lab=AVDD}
-N 800 -130 820 -130 {lab=AVDD}
-N 820 -200 820 -130 {lab=AVDD}
-N 730 -200 820 -200 {lab=AVDD}
-N 800 40 840 40 {lab=AGND}
-N 840 80 840 180 {lab=AGND}
-N 730 180 840 180 {lab=AGND}
-N 800 110 800 180 {lab=AGND}
-N 730 -130 760 -130 {lab=VBP}
-N 800 70 800 110 {lab=AGND}
-N 840 40 840 80 {lab=AGND}
-N 750 40 760 40 {lab=VREF}
-N 720 40 750 40 {lab=VREF}
+N 400 -30 450 -30 {lab=#net4}
+N 710 -90 710 20 {lab=#net4}
+N 710 -190 710 -150 {lab=AVDD}
+N 690 -120 710 -120 {lab=AVDD}
+N 690 -190 690 -120 {lab=AVDD}
+N 690 -190 780 -190 {lab=AVDD}
+N 670 50 710 50 {lab=#net4}
+N 710 120 710 190 {lab=AGND}
+N 750 -120 780 -120 {lab=VBP}
+N 710 80 710 120 {lab=AGND}
+N 750 50 760 50 {lab=VREF}
+N 760 50 790 50 {lab=VREF}
+N 710 190 780 190 {lab=AGND}
+N 670 -10 670 50 {lab=#net4}
+N 670 -10 710 -10 {lab=#net4}
+N 450 -30 710 -30 {lab=#net4}
 C {devices/iopin.sym} -490 0 2 0 {name=p1 lab=VOUT1}
 C {devices/iopin.sym} -80 0 0 0 {name=p2 lab=VOUT2}
 C {devices/iopin.sym} 510 -100 0 0 {name=p4 lab=VCTRLP}
@@ -111,7 +112,7 @@ spiceprefix=X
 }
 C {symbols/pmos_3p3.sym} 70 -170 0 0 {name=M6
 L=1u
-W=5u
+W=6u
 nf=1
 m=1
 ad="'int((nf+1)/2) * W/nf * 0.18u'"
@@ -125,7 +126,7 @@ spiceprefix=X
 }
 C {symbols/pmos_3p3.sym} 380 -170 0 1 {name=M7
 L=1u
-W=5u
+W=6u
 nf=1
 m=1
 ad="'int((nf+1)/2) * W/nf * 0.18u'"
@@ -195,9 +196,9 @@ model=nmos_3p3
 spiceprefix=X
 }
 C {devices/lab_pin.sym} 220 -30 1 0 {name=p12 sig_type=std_logic lab=AGND}
-C {devices/lab_pin.sym} 730 180 2 1 {name=p13 sig_type=std_logic lab=AGND}
-C {devices/lab_pin.sym} 730 -200 2 1 {name=p14 sig_type=std_logic lab=AVDD}
-C {devices/lab_pin.sym} 730 -130 2 1 {name=p15 sig_type=std_logic lab=VBP}
+C {devices/lab_pin.sym} 780 190 2 0 {name=p13 sig_type=std_logic lab=AGND}
+C {devices/lab_pin.sym} 780 -190 2 0 {name=p14 sig_type=std_logic lab=AVDD}
+C {devices/lab_pin.sym} 780 -120 2 0 {name=p15 sig_type=std_logic lab=VBP}
 C {devices/lab_pin.sym} 20 -100 0 0 {name=p17 sig_type=std_logic lab=VCTRL2}
 C {symbols/pmos_3p3.sym} -140 0 0 1 {name=M2
 L=1u
@@ -227,7 +228,7 @@ sa=0 sb=0 sd=0
 model=pmos_3p3
 spiceprefix=X
 }
-C {symbols/pmos_3p3.sym} 780 -130 0 0 {name=M8
+C {symbols/pmos_3p3.sym} 730 -120 0 1 {name=M8
 L=1u
 W=39u/5
 nf=1
@@ -241,7 +242,7 @@ sa=0 sb=0 sd=0
 model=pmos_3p3
 spiceprefix=X
 }
-C {symbols/pmos_3p3.sym} 780 40 0 0 {name=M9
+C {symbols/pmos_3p3.sym} 730 50 0 1 {name=M9
 L=1u
 W=39u/5
 nf=1
@@ -255,6 +256,4 @@ sa=0 sb=0 sd=0
 model=pmos_3p3
 spiceprefix=X
 }
-C {devices/lab_pin.sym} 800 -40 0 0 {name=p16 sig_type=std_logic lab=VREF2}
-C {devices/iopin.sym} 720 40 0 1 {name=p18 lab=VREF}
-C {devices/lab_pin.sym} 450 -30 2 0 {name=p3 sig_type=std_logic lab=VREF2}
+C {devices/iopin.sym} 790 50 0 0 {name=p18 lab=VREF}
