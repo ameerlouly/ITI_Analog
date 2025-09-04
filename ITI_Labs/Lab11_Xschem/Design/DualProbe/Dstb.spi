@@ -1,0 +1,134 @@
+
+.func tian_loop_1() {1/(1-1/(2*(ac1.I(v.X9999.Vi)*ac2.V(X9999.x)-ac1.V(X9999.x)*ac2.I(v.X9999.Vi))+ac1.V(X9999.x)+ac2.I(v.X9999.Vi)))}
+.func tian_loop_2() {1/(1-1/(2*(ac3.I(v.X9999.Vi1)*ac4.V(X9999.y)-ac3.V(X9999.y)*ac4.I(v.X9999.Vi1))+ac3.V(X9999.y)+ac4.I(v.X9999.Vi1)))}
+
+
+*----------------------------------------------------------------
+* Probes
+*----------------------------------------------------------------
+.save V(X9999.x) I(v.X9999.Vi)
+.save V(X9999.y) I(v.X9999.Vi1)
+
+
+*----------------------------------------------------------------
+* CONTROL BLOCK
+*----------------------------------------------------------------
+.control
+
+	shell rm Dstb.raw stb.raw
+
+	set filetype=ascii
+	set num_threads=8
+	set color0=white
+	set color1=black
+	set xbrushwidth =3
+	unset askquit
+
+	optran 0 0 0 100n 4u 0
+	op
+	write stb.raw
+	set appendwrite
+
+	*----------------------------------------------------------------
+	* First Loop STB analysis
+	*----------------------------------------------------------------
+	* Set voltage AC to 1
+	alter i.X9999.Ii1 acmag=0
+	alter v.X9999.Vi1 acmag=0
+	alter v.X9999.Vi acmag=1
+	ac dec 50 100 10G
+
+	* Set Current to 1
+	alter i.X9999.Ii acmag=1
+	alter v.X9999.Vi acmag=0
+
+	ac dec 50 100 10G
+
+	*----------------------------------------------------------------
+	* Second Loop STB analysis
+	*----------------------------------------------------------------
+	* Set voltage AC to 1
+	alter i.X9999.Ii acmag=0
+	alter v.X9999.Vi acmag=0
+	alter v.X9999.Vi1 acmag=1
+
+	print loop1_LG
+	ac dec 50 100 10G
+
+
+	* Set Current to 1
+	alter i.X9999.Ii1 acmag=1
+	alter v.X9999.Vi1 acmag=0
+	ac dec 50 100 10G
+
+
+	let tian_signal_1 = tian_loop_1()
+
+	let loop_L1_gain_db = db(tian_signal_1)
+	let loop_L1_gain_ph = 180*cph(tian_signal_1)/pi
+
+
+	*plot loop_L1_gain_db
+	*plot loop_L1_gain_ph
+
+	save tian_signal_1
+
+
+	meas ac Gain_1 MAX vmag(tian_signal_1) FROM=1 TO=10G
+	let LG_L1 = 20*log10(Gain_1)
+  	meas ac L1_GAIN_CROSSOVER_FREQ WHEN loop_L1_gain_db=0
+  	meas ac L1_phaseatzerogain FIND loop_L1_gain_ph AT=L1_GAIN_CROSSOVER_FREQ
+  	*let L1_PM = abs(180 - L1_phaseatzerogain)
+  	*print L1_PM
+	let f3db_gain_1 = LG_L1 - 3
+    meas ac BW_1 WHEN loop_L1_gain_db = f3db_gain_1
+    let GBW_1 = Gain_1*BW_1
+
+	let loop1_LG = LG_L1
+	let loop1_GX = L1_GAIN_CROSSOVER_FREQ
+	let loop1_PM = L1_phaseatzerogain
+	let loop1_GBW = GBW_1
+
+	save loop1_LG
+	save loop1_GX
+	save loop1_PM
+
+	let tian_signal_2 = tian_loop_2()
+
+	let loop_L2_gain_db = db(tian_signal_2)
+	let loop_L2_gain_ph = 180*cph(tian_signal_2)/pi
+
+
+	*plot loop_L2_gain_db
+	*plot loop_L2_gain_ph
+
+	save tian_signal_2
+
+
+	meas ac Gain_2 MAX vmag(tian_signal_2) FROM=1 TO=10G
+	let LG_L2 = 20*log10(Gain_2)
+  	meas ac L2_GAIN_CROSSOVER_FREQ WHEN loop_L2_gain_db=0
+  	meas ac L2_phaseatzerogain FIND loop_L2_gain_ph AT=L2_GAIN_CROSSOVER_FREQ
+  	let f3db_gain_2 = LG_L2 - 3
+    meas ac BW_2 WHEN loop_L2_gain_db = f3db_gain_2
+    let GBW_2 = Gain_2*BW_2
+
+	let loop2_LG = LG_L2
+	let loop2_GX = L2_GAIN_CROSSOVER_FREQ
+	let loop2_PM = L2_phaseatzerogain
+	let loop2_GBW = GBW_2
+
+	save loop2_LG
+	save loop2_GX
+	save loop2_PM
+
+	echo -------------------------------------------------------------
+	print loop1_LG loop1_GX loop1_PM loop2_GBW
+	echo 		-------------------------------
+	print Loop2_LG loop2_GX loop2_PM loop2_GBW
+	echo -------------------------------------------------------------
+
+	write Dstb.raw tian_signal_1 tian_signal_2
+
+	
+.endc

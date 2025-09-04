@@ -1,18 +1,24 @@
-** sch_path: /home/tare/ITI_Analog/ITI_Labs/Lab11_Xschem/Design/Testbench.sch
-**.subckt Testbench
-X1 VDD VCTRLP VBP VOUTP VINP VOUTN VINN VBN GND OTA
+** sch_path: /home/tare/ITI_Analog/ITI_Labs/Lab11_Xschem/Design/Testbench_cl.sch
+**.subckt Testbench_cl
+X1 VDD VCTRLP VBP net4 VINP2 net3 VINN2 VBN GND OTA
 Xbalun1 VINDIFF VINCM VINP VINN balun
 V1 VDD GND 2.5
 I0 VBP GND 10u
-VICM VINCM GND 0.5 AC 0
-VID VINDIFF GND DC 0 AC 1
-C1 VOUTP GND 500f m=1
-C2 VOUTN GND 500f m=1
-Xbalun2 VOUTDIFF VOUTCM VOUTN VOUTP balun
+C1 VOUTN GND 500f m=1
+C2 VOUTP GND 500f m=1
+Xbalun2 VOUTDIFF VOUTCM net3 net4 balun
 x2 VDD GND VBN VOUTN VCTRLP VREF VBP VOUTP CMFB_real
 V2 VREF GND 0.85
-* noconn VOUTDIFF
-* noconn VOUTCM
+X9999 VOUTDIFF net1 VOUTCM net2 Dualprobe
+Xbalun3 net1 net2 VOUTP VOUTN balun
+C3 VINN2 VINN 2p m=1
+C4 VINP2 VINP 2p m=1
+C5 VOUTP VINN2 1p m=1
+R1 VINN2 VOUTP 1T m=1
+C6 VOUTN VINP2 1p m=1
+R2 VINP2 VOUTN 1T m=1
+VICM VINCM GND 0.5
+VID3 VINDIFF GND PULSE(0 100m 1u 10n 10n 1u 2u)
 **** begin user architecture code
 
 
@@ -39,13 +45,13 @@ V2 VREF GND 0.85
 *.iopin VOUTP
 *.iopin VCTRLP
 *.iopin VBN
-XM2 VDS2 VINN VDS VDS pmos_3p3 L=500n W=26.5u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
+XM2 VDS2 VINN VDS VDS pmos_3p3 L=500n W=40u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
 + ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0 m=1
-XM1 VDS1 VINP VDS VDS pmos_3p3 L=500n W=26.5u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
+XM1 VDS1 VINP VDS VDS pmos_3p3 L=500n W=40u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
 + ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0 m=1
 XM9 VDS VCTRLP AVDD AVDD pmos_3p3 L=1u W=39u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
 + ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0 m=1
-XM6 VOUTP VCASCP net2 AVDD pmos_3p3 L=500n W=10.68u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
+XM6 VOUTP VCASCP net2 AVDD pmos_3p3 L=700n W=10.68u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
 + ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0 m=1
 XM11 net2 IBn AVDD AVDD pmos_3p3 L=1u W=39u/5 nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
 + ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0 m=1
@@ -53,7 +59,7 @@ XM4 VOUTP VCASCN VDS2 AGND nmos_3p3 L=500n W=3u nf=1 ad='int((nf+1)/2) * W/nf * 
 + ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0 m=1
 XM8 VDS2 VBN AGND AGND nmos_3p3 L=1u W=6.37u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
 + ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0 m=1
-XM5 VOUTN VCASCP net1 AVDD pmos_3p3 L=500n W=10.68u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
+XM5 VOUTN VCASCP net1 AVDD pmos_3p3 L=700n W=10.68u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
 + ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0 m=1
 XM10 net1 IBn AVDD AVDD pmos_3p3 L=1u W=39u/5 nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
 + ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0 m=1
@@ -117,6 +123,32 @@ R2 net3 net2 1u m=1
 ** sym_path: /home/tare/ITI_Analog/ITI_Labs/Lab11_Xschem/Design/CMFB.sym
 ** sch_path: /home/tare/ITI_Analog/ITI_Labs/Lab11_Xschem/Design/CMFB.sch
 .subckt CMFB AVDD AGND VBN VOUT1 VCTRLP VREF VBP VOUT2
+.ends
+
+
+* expanding   symbol:  /home/tare/ITI_Analog/ITI_Labs/Lab11_Xschem/Design/DualProbe/Dualprobe.sym # of pins=4
+** sym_path: /home/tare/ITI_Analog/ITI_Labs/Lab11_Xschem/Design/DualProbe/Dualprobe.sym
+** sch_path: /home/tare/ITI_Analog/ITI_Labs/Lab11_Xschem/Design/DualProbe/Dualprobe.sch
+.subckt Dualprobe a b c d
+*.iopin a
+*.iopin b
+*.iopin c
+*.iopin d
+**** begin user architecture code
+
+
+
+Ii 0 x DC 0 AC 0
+Vi x a DC 0 AC 0
+Vnodebuffer b x 0
+
+Ii1 0 y DC 0 AC 0
+Vi1 y c DC 0 AC 0
+Vnodebuffer1 d y 0
+
+
+
+**** end user architecture code
 .ends
 
 

@@ -40,14 +40,14 @@
     end
 
 *?  OP Analysis
-    shell rm Testbench.raw
-    op
-    show m : id : vgs : vds : vdsat : vth : gm : gds
-    set appendwrite
-    write Testbench.raw
+    * shell rm Testbench.raw
+    * op
+    * show m : id : vgs : vds : vdsat : vth : gm : gds
+    * set appendwrite
+    * write Testbench.raw
 
 *?  Small Signal
-    * shell rm Testbench.raw
+
     * ac dec 10 1 10g
     
     * * DC Gain, BW, GBW and UGF Calculations
@@ -70,6 +70,33 @@
     * plot xlog voutdiff_ph
     * set appendwrite
     * write Testbench.raw
+
+*?  Transient Analysis
+
+    shell rm Testbench_cl.raw
+    save all
+    
+    tran 10n 3u
+    meas tran FINALVAL FIND V(VOUTDIFF) AT=1.5u
+    meas tran INITIALVAL FIND V(VOUTDIFF) AT=0.5u
+    let SETTLEVAL = 0.99 * FINALVAL
+
+    meas tran t_settle TRIG V(voutdiff) AT = 1u TARG V(voutdiff) VAL = SETTLEVAL RISE=1
+
+
+    
+    * Sinuosoidal
+    * tran 0.1u 30u
+    * meas tran VPP_DIFF_IN PP V(VINDIFF)
+    * meas tran VPP_DIFF_OUT PP V(VOUTDIFF)
+
+    * let DC_GAIN = VPP_DIFF_OUT / VPP_DIFF_IN
+    * print DC_GAIN
+
+
+    remzerovec
+    write Testbench_cl.raw
+
 
 *?  CMRR Analysis
 

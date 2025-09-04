@@ -1,0 +1,17 @@
+Title: ** sch_path: /home/tare/iti_analog/iti_labs/lab11_xschem/design/testbench_cl.sch
+Date: Thu Sep  4 19:30:37  2025
+Plotname: Operating Point
+Flags: real
+No. Variables: 4
+No. Points: 1
+Variables:
+	0	v(x9999.x)	voltage
+	1	i(v.x9999.vi)	current
+	2	i(v.x9999.vi1)	current
+	3	v(x9999.y)	voltage
+Values:
+ 0	5.752390172752975e-06
+	2.086880736227428e-11
+	1.817964207100640e-10
+	8.346066121121960e-01
+
