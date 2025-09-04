@@ -43,9 +43,9 @@ N 1050 -110 1050 -30 {lab=VDS1}
 N 1620 -490 1620 -370 {lab=#net2}
 N 1620 -310 1620 -170 {lab=VOUTP}
 N 1620 -110 1620 -30 {lab=VDS2}
-N 1150 -230 1190 -230 {lab=VINN}
-N 1480 -230 1510 -230 {lab=VINP}
-N 1510 -230 1520 -230 {lab=VINP}
+N 1150 -230 1190 -230 {lab=VINP}
+N 1480 -230 1510 -230 {lab=VINN}
+N 1510 -230 1520 -230 {lab=VINN}
 N 1330 -490 1330 -460 {lab=VDS}
 N 1230 -460 1330 -460 {lab=VDS}
 N 1330 -460 1440 -460 {lab=VDS}
@@ -147,7 +147,7 @@ N -310 -140 -270 -140 {lab=AGND}
 N -270 -140 -270 40 {lab=AGND}
 C {symbols/pmos_3p3.sym} 1460 -230 0 1 {name=M2
 L=500n
-W=26.5u
+W=40u
 nf=1
 m=1
 ad="'int((nf+1)/2) * W/nf * 0.18u'"
@@ -161,7 +161,7 @@ spiceprefix=X
 }
 C {symbols/pmos_3p3.sym} 1210 -230 0 0 {name=M1
 L=500n
-W=26.5u
+W=40u
 nf=1
 m=1
 ad="'int((nf+1)/2) * W/nf * 0.18u'"
@@ -188,7 +188,7 @@ model=pmos_3p3
 spiceprefix=X
 }
 C {symbols/pmos_3p3.sym} 1600 -340 0 0 {name=M6
-L=500n
+L=700n
 W=10.68u
 nf=1
 m=1
@@ -244,7 +244,7 @@ model=nmos_3p3
 spiceprefix=X
 }
 C {symbols/pmos_3p3.sym} 1070 -340 0 1 {name=M5
-L=500n
+L=700n
 W=10.68u
 nf=1
 m=1
@@ -348,8 +348,8 @@ C {devices/lab_pin.sym} 1520 -520 1 0 {name=p8 sig_type=std_logic lab=IBn}
 C {devices/lab_pin.sym} 1350 0 1 0 {name=p16 sig_type=std_logic lab=VBN}
 C {devices/iopin.sym} 1190 -600 3 0 {name=p17 lab=AVDD}
 C {devices/iopin.sym} 1210 80 1 0 {name=p18 lab=AGND}
-C {devices/iopin.sym} 1150 -230 2 0 {name=p19 lab=VINN}
-C {devices/iopin.sym} 1520 -230 0 0 {name=p20 lab=VINP}
+C {devices/iopin.sym} 1520 -230 0 0 {name=p19 lab=VINN}
+C {devices/iopin.sym} 1150 -230 2 0 {name=p20 lab=VINP}
 C {devices/lab_pin.sym} 1120 -340 1 0 {name=p21 sig_type=std_logic lab=VCASCP}
 C {devices/lab_pin.sym} 1120 -140 1 0 {name=p22 sig_type=std_logic lab=VCASCN}
 C {devices/lab_pin.sym} 1550 -340 1 0 {name=p23 sig_type=std_logic lab=VCASCP}
@@ -366,7 +366,7 @@ C {devices/lab_pin.sym} 280 -140 2 0 {name=p3 sig_type=std_logic lab=VCASCN}
 C {devices/lab_pin.sym} 280 -40 2 0 {name=p4 sig_type=std_logic lab=VCASCP}
 C {symbols/pmos_3p3.sym} -70 -520 0 0 {name=M15
 L=1u
-W=39u/2
+W=39u
 nf=1
 m=1
 ad="'int((nf+1)/2) * W/nf * 0.18u'"
@@ -395,7 +395,7 @@ spiceprefix=X
 C {devices/lab_pin.sym} -180 -520 1 0 {name=p1 sig_type=std_logic lab=VB1}
 C {symbols/pmos_3p3.sym} 110 -520 0 0 {name=M17
 L=1u
-W=39u/2
+W=39u
 nf=1
 m=1
 ad="'int((nf+1)/2) * W/nf * 0.18u'"
@@ -409,7 +409,7 @@ spiceprefix=X
 }
 C {symbols/pmos_3p3.sym} -70 -390 0 0 {name=M18
 L=500n
-W=10.68u/2
+W=10.68u
 nf=1
 m=1
 ad="'int((nf+1)/2) * W/nf * 0.18u'"
@@ -438,7 +438,7 @@ spiceprefix=X
 C {devices/lab_pin.sym} -180 -390 1 0 {name=p2 sig_type=std_logic lab=VB2}
 C {symbols/pmos_3p3.sym} 110 -390 0 0 {name=M20
 L=500n
-W=10.68u/2
+W=10.68u
 nf=1
 m=1
 ad="'int((nf+1)/2) * W/nf * 0.18u'"
@@ -467,6 +467,12 @@ model=nmos_3p3
 spiceprefix=X
 }
 C {devices/lab_pin.sym} -410 -140 1 0 {name=p12 sig_type=std_logic lab=VBN}
+C {devices/lab_pin.sym} -110 -210 0 0 {name=p13 sig_type=std_logic lab=VCASCN}
+C {devices/lab_pin.sym} -100 -600 1 0 {name=p14 sig_type=std_logic lab=AVDD}
+C {devices/lab_pin.sym} -110 40 3 0 {name=p15 sig_type=std_logic lab=AGND}
+C {devices/lab_pin.sym} 1230 -400 2 0 {name=p32 sig_type=std_logic lab=VDS}
+C {devices/lab_pin.sym} 1230 -80 2 0 {name=p34 sig_type=std_logic lab=VDS1}
+C {devices/lab_pin.sym} 1440 -80 0 0 {name=p35 sig_type=std_logic lab=VDS2}
 C {symbols/nmos_3p3.sym} -70 -140 0 0 {name=M22
 L=500n
 W=430n
@@ -509,9 +515,3 @@ sa=0 sb=0 sd=0
 model=nmos_3p3
 spiceprefix=X
 }
-C {devices/lab_pin.sym} -110 -210 0 0 {name=p13 sig_type=std_logic lab=VCASCN}
-C {devices/lab_pin.sym} -100 -600 1 0 {name=p14 sig_type=std_logic lab=AVDD}
-C {devices/lab_pin.sym} -110 40 3 0 {name=p15 sig_type=std_logic lab=AGND}
-C {devices/lab_pin.sym} 1230 -400 2 0 {name=p32 sig_type=std_logic lab=VDS}
-C {devices/lab_pin.sym} 1230 -80 2 0 {name=p34 sig_type=std_logic lab=VDS1}
-C {devices/lab_pin.sym} 1440 -80 0 0 {name=p35 sig_type=std_logic lab=VDS2}

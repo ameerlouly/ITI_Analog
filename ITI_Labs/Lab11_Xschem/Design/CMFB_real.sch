@@ -11,14 +11,14 @@ N -420 220 210 220 {lab=AGND}
 N -420 30 -420 220 {lab=AGND}
 N -160 30 -160 220 {lab=AGND}
 N -120 0 -80 -0 {lab=VOUT2}
-N -160 -140 -160 -30 {lab=#net1}
-N -420 -140 -420 -30 {lab=#net2}
-N -420 -0 -370 -0 {lab=#net2}
-N -370 -60 -370 -0 {lab=#net2}
-N -420 -60 -370 -60 {lab=#net2}
-N -210 -0 -160 0 {lab=#net1}
-N -210 -60 -210 -0 {lab=#net1}
-N -210 -60 -160 -60 {lab=#net1}
+N -160 -140 -160 -30 {lab=VICM2}
+N -420 -140 -420 -30 {lab=VICM1}
+N -420 -0 -370 -0 {lab=VICM1}
+N -370 -60 -370 -0 {lab=VICM1}
+N -420 -60 -370 -60 {lab=VICM1}
+N -210 -0 -160 0 {lab=VICM2}
+N -210 -60 -210 -0 {lab=VICM2}
+N -210 -60 -160 -60 {lab=VICM2}
 N -420 -260 -420 -200 {lab=AVDD}
 N -420 -260 450 -260 {lab=AVDD}
 N -160 -260 -160 -200 {lab=AVDD}
@@ -47,34 +47,34 @@ N 210 220 260 220 {lab=AGND}
 N 260 220 300 220 {lab=AGND}
 N 140 120 170 120 {lab=VBN}
 N 10 -30 50 -30 {lab=VCM}
-N 210 60 210 90 {lab=#net3}
-N 100 60 210 60 {lab=#net3}
-N 90 -10 90 60 {lab=#net3}
-N 90 60 100 60 {lab=#net3}
-N 210 60 360 60 {lab=#net3}
-N 360 0 360 60 {lab=#net3}
+N 210 60 210 90 {lab=#net1}
+N 100 60 210 60 {lab=#net1}
+N 90 -10 90 60 {lab=#net1}
+N 90 60 100 60 {lab=#net1}
+N 210 60 360 60 {lab=#net1}
+N 360 0 360 60 {lab=#net1}
 N 430 -100 510 -100 {lab=VCTRLP}
-N -420 -90 -380 -90 {lab=#net2}
+N -420 -90 -380 -90 {lab=VICM1}
 N -320 -90 -280 -90 {lab=VCM}
-N -220 -90 -160 -90 {lab=#net1}
+N -220 -90 -160 -90 {lab=VICM2}
 N -300 -90 -300 -40 {lab=VCM}
 N -120 -170 -90 -170 {lab=VBP}
-N 400 -30 450 -30 {lab=#net4}
-N 710 -90 710 20 {lab=#net4}
+N 400 -30 450 -30 {lab=VREF_ADJ}
+N 710 -90 710 20 {lab=VREF_ADJ}
 N 710 -190 710 -150 {lab=AVDD}
 N 690 -120 710 -120 {lab=AVDD}
 N 690 -190 690 -120 {lab=AVDD}
 N 690 -190 780 -190 {lab=AVDD}
-N 670 50 710 50 {lab=#net4}
+N 670 50 710 50 {lab=VREF_ADJ}
 N 710 120 710 190 {lab=AGND}
 N 750 -120 780 -120 {lab=VBP}
 N 710 80 710 120 {lab=AGND}
 N 750 50 760 50 {lab=VREF}
 N 760 50 790 50 {lab=VREF}
 N 710 190 780 190 {lab=AGND}
-N 670 -10 670 50 {lab=#net4}
-N 670 -10 710 -10 {lab=#net4}
-N 450 -30 710 -30 {lab=#net4}
+N 670 -10 670 50 {lab=VREF_ADJ}
+N 670 -10 710 -10 {lab=VREF_ADJ}
+N 450 -30 710 -30 {lab=VREF_ADJ}
 C {devices/iopin.sym} -490 0 2 0 {name=p1 lab=VOUT1}
 C {devices/iopin.sym} -80 0 0 0 {name=p2 lab=VOUT2}
 C {devices/iopin.sym} 510 -100 0 0 {name=p4 lab=VCTRLP}
@@ -112,7 +112,7 @@ spiceprefix=X
 }
 C {symbols/pmos_3p3.sym} 70 -170 0 0 {name=M6
 L=1u
-W=6u
+W=7u
 nf=1
 m=1
 ad="'int((nf+1)/2) * W/nf * 0.18u'"
@@ -126,7 +126,7 @@ spiceprefix=X
 }
 C {symbols/pmos_3p3.sym} 380 -170 0 1 {name=M7
 L=1u
-W=6u
+W=7u
 nf=1
 m=1
 ad="'int((nf+1)/2) * W/nf * 0.18u'"
@@ -139,13 +139,13 @@ model=pmos_3p3
 spiceprefix=X
 }
 C {devices/res.sym} -350 -90 3 0 {name=R1
-value=50k
+value=125k
 footprint=1206
 device=resistor
 m=1
 }
 C {devices/res.sym} -250 -90 3 0 {name=R2
-value=50k
+value=125k
 footprint=1206
 device=resistor
 m=1
@@ -257,3 +257,6 @@ model=pmos_3p3
 spiceprefix=X
 }
 C {devices/iopin.sym} 790 50 0 0 {name=p18 lab=VREF}
+C {devices/lab_pin.sym} -420 -90 0 0 {name=p3 sig_type=std_logic lab=VICM1}
+C {devices/lab_pin.sym} -160 -90 2 0 {name=p16 sig_type=std_logic lab=VICM2}
+C {devices/lab_pin.sym} 470 -30 2 0 {name=p19 sig_type=std_logic lab=VREF_ADJ}

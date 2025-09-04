@@ -81,7 +81,7 @@ C {devices/lab_pin.sym} 1150 10 2 0 {name=p13 sig_type=std_logic lab=VCTRLP}
 C {devices/lab_pin.sym} 350 -40 1 0 {name=p14 sig_type=std_logic lab=VCTRLP}
 C {devices/lab_pin.sym} 850 0 0 0 {name=p15 sig_type=std_logic lab=VOUTN}
 C {devices/lab_pin.sym} 850 30 0 0 {name=p16 sig_type=std_logic lab=VOUTP}
-C {devices/vsource.sym} -250 60 0 0 {name=V2 value=1.25 savecurrent=false}
+C {devices/vsource.sym} -250 60 0 0 {name=V2 value=0.85 savecurrent=false}
 C {devices/gnd.sym} -250 90 0 0 {name=l11 lab=GND}
 C {devices/lab_pin.sym} -250 10 1 0 {name=p17 sig_type=std_logic lab=VREF}
 C {devices/lab_pin.sym} 850 90 0 0 {name=p18 sig_type=std_logic lab=VREF}
